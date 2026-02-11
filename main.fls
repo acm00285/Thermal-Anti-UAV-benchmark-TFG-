@@ -1,9 +1,9 @@
-PWD /home/alvaro/Descargas/TFGLatexTemplate_master
+PWD /home/alvarocobo/Escritorio/Thermal-Anti-UAV-benchmark-TFG-
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/alvaro/Descargas/TFGLatexTemplate_master/main.tex
+INPUT /home/alvarocobo/Escritorio/Thermal-Anti-UAV-benchmark-TFG-/main.tex
 OUTPUT main.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
