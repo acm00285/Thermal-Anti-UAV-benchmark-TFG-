@@ -1,0 +1,23 @@
+\begin{thebibliography}{}
+
+\bibitem[Charte, 2019]{UnaWeb}
+Charte, F. (2019).
+\newblock Cómo analizar la distribución de los datos con {R}.
+\newblock comprobado en 2020-09-30.
+
+\bibitem[Charte, 2020]{UnArticulo}
+Charte, F. (2020).
+\newblock A comprehensive and didactic review on multilabel learning software tools.
+\newblock {\em IEEE Access}, 8:50330--50354.
+
+\bibitem[Charte et~al., 2013]{UnCongreso}
+Charte, F., Rivera, A., del Jesus, M.~J., and Herrera, F. (2013).
+\newblock A first approach to deal with imbalance in multi-label datasets.
+\newblock In {\em International Conference on Hybrid Artificial Intelligence Systems}, pages 150--160. Springer.
+
+\bibitem[Herrera et~al., 2016]{UnLibro}
+Herrera, F., Charte, F., Rivera, A.~J., and del Jesus, M.~J. (2016).
+\newblock {\em Multilabel Classification: Problem Analysis, Metrics and Techniques}.
+\newblock Springer.
+
+\end{thebibliography}
