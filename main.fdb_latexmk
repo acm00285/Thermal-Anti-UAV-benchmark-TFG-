@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1769714197.78712 "main.aux" "main.bbl" "main" 1770809391.96539 0
+["bibtex main"] 1771515973.17862 "main.aux" "main.bbl" "main" 1771515974.23248 0
   "./bibliografia.bib" 1770807630.25274 1207 bcf53d3ad72a064974edd4ca2f69cd40 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "main.aux" 1770809391.74007 10667 7cd377ca52180ea6612eb205c15c9af6 "pdflatex"
+  "main.aux" 1771515974.01341 10527 e7b65fb8c9187bdb76815178d1d8abc3 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1770809390.96038 "/home/alvarocobo/Escritorio/Thermal-Anti-UAV-benchmark-TFG-/main.tex" "main.pdf" "main" 1770809391.96551 0
+["pdflatex"] 1771515973.24827 "/home/alvarocobo/Escritorio/Thermal-Anti-UAV-benchmark-TFG-/main.tex" "main.pdf" "main" 1771515974.23263 0
   "/etc/texmf/web2c/texmf.cnf" 1770808493.03996 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/alvarocobo/Escritorio/Thermal-Anti-UAV-benchmark-TFG-/main.tex" 1770807630.25874 4606 1cc7857528d81d2c9bc2ca1bba429738 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc" 1698694482 3136 bbe665bd0bb471a2da1e8fd326cff9fa ""
@@ -185,22 +185,22 @@
   "Agradecimientos.tex" 1770807630.25274 200 2a6e714106f3e4caf022827b12213862 ""
   "Antecedentes.tex" 1770807630.25274 37 968bb9d64461669e8afabe053ce12983 ""
   "Conclusiones.tex" 1770807630.25274 37 a5a88bea46c2edd014cbc6cc66e6c678 ""
-  "Introduccion.tex" 1770809390.76509 61875 bc00fa8f3c8b8b2e70135858d74ce4ea ""
+  "Introduccion.tex" 1771515971.97743 61813 b1f460d78c87b5a847217600e9b8e525 ""
   "MaterialMetodos.tex" 1770807630.25274 46 db9332055f2c73641d6a897170180e22 ""
   "Objetivos.tex" 1770807630.25274 34 1a4828322da6b09d2ca9b7a09915c8e6 ""
   "Portada.tex" 1770807630.25274 7043 2476706c527ee7b1a40c8654a5dfd152 ""
   "Resultados.tex" 1770807630.25274 35 64cf6f91d0b12c8d2564124c5e96e96d ""
   "imagenes/portada.pdf" 1770807630.25574 682134 bd6b7b222b7a3d8f703b651555f99541 ""
   "imagenes/uja.jpg" 1770807630.25574 127816 9cc16a90a76909ef84273781f80ac5d8 ""
-  "main.aux" 1770809391.74007 10667 7cd377ca52180ea6612eb205c15c9af6 "pdflatex"
-  "main.bbl" 1770807630.25574 897 5244610b46e51cbdbabdc79215861400 "bibtex main"
-  "main.loa" 1770809391.74207 221 e03d39ee7a69331b2d3741fe6b244b28 "pdflatex"
-  "main.lof" 1770809391.74207 264 b9228caf8b93b466a45b6fef8305c0d5 "pdflatex"
-  "main.lol" 1770809391.74207 1042 a727a0b26f3980fbf47375bb7ea8f576 "pdflatex"
-  "main.lot" 1770809391.74207 291 24ccb5df0ca41a4760ae632973dbea6e "pdflatex"
-  "main.out" 1770809391.74207 8789 26f0d40b2578a4e6a0d5888f3253fbcc "pdflatex"
+  "main.aux" 1771515974.01341 10527 e7b65fb8c9187bdb76815178d1d8abc3 "pdflatex"
+  "main.bbl" 1771515973.24442 897 5244610b46e51cbdbabdc79215861400 "bibtex main"
+  "main.loa" 1771515974.01541 221 e03d39ee7a69331b2d3741fe6b244b28 "pdflatex"
+  "main.lof" 1771515974.01541 264 b9228caf8b93b466a45b6fef8305c0d5 "pdflatex"
+  "main.lol" 1771515974.01541 1042 97d445b7840dadfd3f4e08cebd010c69 "pdflatex"
+  "main.lot" 1771515974.01541 291 24ccb5df0ca41a4760ae632973dbea6e "pdflatex"
+  "main.out" 1771515974.01541 8574 8fa7a3522f30cfbe6fd2c22323a5ef7a "pdflatex"
   "main.tex" 1770807630.25874 4606 1cc7857528d81d2c9bc2ca1bba429738 ""
-  "main.toc" 1770809391.74207 4067 643a9c139f8b9479e8ba02765564925f "pdflatex"
+  "main.toc" 1771515974.01541 3968 7cbd07e1edbdf8931e0fe803323af148 "pdflatex"
   "tablas/TablaEjemplo.tex" 1770807630.25874 1203 deb40fa513ba1615af71ca789e0d1135 ""
   (generated)
   "main.aux"
