@@ -1,3 +1,58 @@
 \chapter{ANTECEDENTES}
 
-\lipsum[1-4]
+\section{Orígenes de la tecnología UAV}
+
+Desde hace dos siglos, el espacio aéreo ha dejado de ser una frontera
+inalcanzable para integrarse plenamente, junto al dominio terrestre y marítimo, 
+como un área de proyección humana. En la actualidad, el cielo se consolida como 
+un dominio estratégico fundamental para el transporte, las comunicaciones globales 
+y la seguridad internacional. Sin embargo, y pese a lo antiintuitivo que pueda 
+parecer, el concepto de aeronave no tripulada con fines estratégico-militares se 
+remonta hasta comienzos del siglo pasado, coindiciendo con el desarrollo de la primera
+ guerra mundial.
+
+ Desde el comienzo, demostraron ser prometedoras herramientas de reconocimiento aéreo
+ en las pruebas de vuelo, pero no fue hasta el estallido de la guerra de Vietnam (1946-1954)
+ cuando se desplegaron a gran escala y comenzaron a usarse con diversos fines tales como actuar como señuelos en combate o lanzar misiles contra objetivos fijos entre otros. 
+
+ Tras este conflito, muchos paises comenzaron a invertir en su desarrollo, exploración y avance tecnológico, con mnuevos modelos que mejoraban la resistencia y la capacidad de elevarse a mayor altitud. Actualmente, los drones mantienen muchos fines y aplicaciones reales, pero sin duda, su uso más conocido y relevante es el militar, en tareas de vigilancia, reconocimiento y ataques dirigidos.
+
+ A partir de noviembre de 2013 los microdrones y los UAVs fueron 
+ aprobados para su integración en el espacio aéreo de baja altitud (LAA)
+  por la Administración Federal de Aviación (FAA). Esto ha provocado 
+  un crecimiento muy significativo en el número de drones registrados 
+  (más de 670.000 en EE. UU. en 2016).Consecuentemente, surge una necesidad
+   urgente de generar sistemas de legilación y regulación de estos vehículos a
+    nivel nacional e internacional. 
+
+ Sin embargo, esto deriva en varios problemas, como la dificultad de paises no desarrollados para implementar leyes y sistemas de registro tan estrictos que rigan rijan el uso de drones. Además, el tan elevado número de estos vehículos suele provocar la falta de personal de cumplimiento activo para vigilar estas leyes, así como sistemas de detección operativos y eficientes, lo cual suele dejar a la policía o fuerzas del orden sin suficientes recursos para lidiar con estas amenazas. 
+
+ El potencial de estas tecnologías para causar daños a la seguridad pública o nacional y para cometer delitos graves (tales como la violación de la privacidad, el transporte de sustancias ilegales, colisiones inadvertidas, el despliegue de armas explosivas o agentes químicos) es enorme. El ejemplo más recurrente de el daño que estas tecnologías pueden causar es el de los peligros de colisión, donde un árticulo del IEEE en 2011 (citar) demostró que un dron de 2kg retiene la energía cinética equivalente a un proyectil antiaéreo de 20 mm (casi el doble de grande que uno de calibre 0,50).
+
+
+\section{Seguimiento de Objetos en imágenes térmicas infrarrojas}
+
+\subsection{Seguimiento de objetos individuales (SOT)}
+
+Dadas las numerosas problemáticas mencionadas en la anterior sección, surge la necesidad lógica de desarrollar sistemas automáticos capaces de detectar y seguir estos vehículos. Al eliminar el factor del error humano y las limitaciones ópticas, estos sistemas permiten mantener un espacio aéreo seguro, tanto en ámbitos de seguridad nacional como en la protección de la privacidad y el derecho a la intimidad, y recopilar pruebas forenses (estos sistemas pueden triangular la señal del dron para localizar al operador en caso de infracciones legales).
+
+Es en este contexto donde surge el concepto SOT (Single Object Traking). El seguimiento o trackeo de objetivos individuales es una tarea fundamental en el campo de la visión por computador o visión artificial (computer vision). Los sistemas SOT tienen como función rastrear un objeto concreto a lo largo de un video. El objetivo se especifica en el primer fotograma y debe ser reconocido y seguido en los fotogramas sucesivos. Esta técnica, junto con el seguimiento multi-objetivo (MOT), son las técnicas fundamentales en las aplicaciones de sistemas anti-UAVs.
+
+Sin embargo, como en todos los campos de investigación; los sistemas y algoritmos SOT se enfrentan a numerosos desafios y limitaciones, como los cambios repentinos de iluminación entre fotogramas, el ruido de fondo de las imágenes, la oclusión del objetivo y la escala del mismo entre otros. Debido a la presencia de estos factores en situaciones reales, los sistemas SOT deben cumplir tres características generales: 
+\begin{itemize}
+    \item \textbf{Adaptabilidad:} El sistema debe ser capaz de rastrear el objetivo incluso en condiciones adversas como ruido de fondo, oclusión o cambios de iluminación.
+    \item \textbf{Robustez:} Se debe garantizar que además de las alteraciones de entorno, el sistema debe adaptarse a cambios como los movimientos complejos y repentinos del objetivo, Algo muy común en los microdrones y UAVs. Para lograr esto, el sistema debe ser capaz de detectar y rastrear las características aparentes del objetivo.
+    \item \textbf{Eficiencia:} La mayoría de sistemas SOT se enfrenta a situaciones de rastreo en tiempo real, por lo que estos deben tener una alta velocidad general de procesamiento, lo que requiere implementar algoritmos de alto rendimiento.
+\end{itemize}
+
+
+
+
+\subsection{Imágenes térmicas en el espectro infrarrojo}
+
+Uno de los principales retos a los que se enfrentan los sistemas de seguimiento de UAVs es la condición del entorno. Un buen sistema SOT debe poder detectar y seguir objetivos en cualquier momento del día y bajo cualquier condición adversa (temperatura, humedad, temporal...), lo cual es especialmente complicado en las horas nocturnas o de poca luz natural, y en entornos con niebla, lluvia, rachas fuertes de viento y demás fenómenos ambientales. Estos factores no solo reducen a menudo la calidad de la imagen, sino que además introducen ruido y variaciones en la firma del objetivo. Es por esto que la tecnología de imágenes infrarrojas comenzó a ser muy relevante en este campo.
+
+La tecnología de procesado de ímagenes térmicas en el espectro infrarrojo (TIR) consiste en la reconstrucción de imágenes a través de la radiación infrarroja emitida por los objetos de la escena. Una de las principales ventajas de este proceso es su capacidad para no interferir directamente con el objetivo, ya que la radiación electromagnética es una propiedad física inherente a cualquier cuerpo con una temperatura por encima del cero absoluto. Al limitarse a recibir dicha señal sin emitir energía externa, los detectores TIR se clasifican como sistemas de detecciñón pasivos, lo que los hace ideales para aplicaciones militares y de vigilancia. 
+
+Pese a todas sus ventajas, el proceso de obtención de estas imágenes requiere una serie de etapas de procesamiento debido al bajo contraste y a la escasa resolución de los detalles de la imagen. Estas etapas de procesamiento suelen llevarse a cabo a través técnicas de visión artificial (computer vision) y aprendizaje profundo (deep learning).
+

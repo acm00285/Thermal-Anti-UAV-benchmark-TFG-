@@ -1,8 +1,11 @@
 % !TeX spellcheck = es_ES
 \documentclass[12pt, a4paper, twoside]{report}   % Tamaño de papel, de fuente y márgenes
 \usepackage[spanish]{babel}  % Idioma y codificación, para poder usar
-\usepackage[utf8x]{inputenc} % tildes, eñes, etc., sin problemas
-\usepackage[T1]{fontenc}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc} % tildes, eñes, etc., sin problemas
+  \usepackage[T1]{fontenc}
+\fi
 
 % ============================================================|
 %                                                             |
@@ -52,7 +55,7 @@
 
     \Portada~			
 
-    \pagenumbering{roman}  % Numeración romana para los agradecimientos, dedicatoria y tablas de contenidos
+    \pagenumbering{arabic} % Numeración uniforme en todo el documento
 
     \input{Agradecimientos.tex} % Editar este archivo para introducir los agradecimientos/dedicatoria
 
@@ -74,8 +77,6 @@
     \lstlistoflistings		% Índice de listados
           
     \clearpage\thispagestyle{empty}\cleardoublepage
-    \pagenumbering{arabic} % Numeración arábiga para el resto del documento
-
 % ===== Archivos LaTeX con los distintos capítulos que componen la memoria
 
 \input{Introduccion.tex}  
@@ -98,14 +99,8 @@
 
 % ===== Configuración de la bibliografía
 
-\pagenumbering{roman}  % Numeración romana para el índice
 \bibliographystyle{apalike}
 \bibliography{bibliografia}
 \addcontentsline{toc}{chapter}{Bibliografía}
-
-\clearpage\thispagestyle{empty}
-\begin{center}
-{\color{flashwhite} Generado con la plantilla \LaTeX \textit{TFG Dpto. Informática - EPSJ - v1.3} \par Licencia CC0 1.0 Universal (CC0 1.0) - Francisco Charte Ojeda}
-\end{center}
 
 \end{document}
