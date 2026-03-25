@@ -384,10 +384,15 @@ INPUT Conclusiones.tex
 INPUT ./main.bbl
 INPUT ./main.bbl
 INPUT main.bbl
+INPUT /usr/share/texlive/texmf-dist/tex/latex/newtx/t1ntxtt.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/newtx/t1ntxtt.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/newtx/t1ntxtt.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/txfonts/t1xtt.tfm
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
 INPUT /usr/share/texmf/fonts/type1/public/tex-gyre/qtmr.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/newtx/ztmb.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/newtx/ztmr.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/newtx/ztmri.pfb

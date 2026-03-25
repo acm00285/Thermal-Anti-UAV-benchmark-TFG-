@@ -1,6 +1,7 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {chapter}{\numberline {1}INTRODUCCIÓN}{13}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Motivación}{13}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Objetivos}{13}{section.1.2}%
 \contentsline {chapter}{\numberline {2}ANTECEDENTES}{15}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Orígenes de la tecnología UAV}{15}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Seguimiento de Objetos en imágenes térmicas infrarrojas}{16}{section.2.2}%

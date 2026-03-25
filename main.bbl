@@ -1,3 +1,43 @@
 \begin{thebibliography}{}
 
+\bibitem[Ding et~al., 2024]{Real_Time_Tracking}
+Ding, Z., Lai, Z., Li, S., Li, P., Yang, Q., and Wong, E. (2024).
+\newblock Confidence trigger detection: Accelerating real-time tracking-by-detection systems.
+\newblock In {\em 2024 5th International Conference on Electronic Communication and Artificial Intelligence (ICECAI)}, page 587–592. IEEE.
+
+\bibitem[Felsberg et~al., 2016]{VOT_TIR2016}
+Felsberg, M., Kristan, M., Matas, J., Leonardis, A., Pflugfelder, R., Häger, G., Berg, A., Eldesokey, A., Ahlberg, J., Čehovin Zajc, L., Vojír, T., Lukežič, A., Fernandez~Dominguez, G., Petrosino, A., Garcia-Martin, A., Montero, A., Varfolomieiev, A., Erdem, A., Han, B., and He, Z. (2016).
+\newblock The thermal infrared visual object tracking vot-tir2016 challenge results.
+\newblock volume 9914, pages 824--849.
+
+\bibitem[{HD Drones}, sf]{hddrones_historia}
+{HD Drones} (s.f.).
+\newblock Historia de los drones.
+\newblock \url{https://huescadrones.es/hddrones/historia-de-los-drones/}.
+\newblock Asociación HD Drones. Consultado el 25 de marzo de 2026.
+
+\bibitem[Hou et~al., 2022]{review_infrared_imaging}
+Hou, F., Zhang, Y., Zhou, Y., Zhang, M., Lv, B., and Wu, J. (2022).
+\newblock Review on infrared imaging technology.
+\newblock {\em Sustainability}, 14(18).
+
+\bibitem[Moses et~al., 2011]{estudio_peso_drones}
+Moses, A., Rutherford, M.~J., and Valavanis, K.~P. (2011).
+\newblock Radar-based detection and identification for miniature air vehicles.
+\newblock In {\em 2011 IEEE International Conference on Control Applications (CCA)}, pages 933--940.
+
+\bibitem[Patel et~al., 2018]{micro_drone_radar_studio}
+Patel, J.~S., Fioranelli, F., and Anderson, D. (2018).
+\newblock Review of radar classification and rcs characterisation techniques for small uavs or drones.
+\newblock {\em IET Radar, Sonar \& Navigation}, 12(9):911--919.
+
+\bibitem[Soleimanitaleb and Keyvanrad, 2022]{Articulo_Concepto_SOT}
+Soleimanitaleb, Z. and Keyvanrad, M.~A. (2022).
+\newblock Single object tracking: {A} survey of methods, datasets, and evaluation metrics.
+\newblock {\em CoRR}, abs/2201.13066.
+
+\bibitem[Xie et~al., 2025]{CST_Paper}
+Xie, B., Zhang, C., Wang, F., Liu, P., Lu, F., Chen, Z., and Hu, W. (2025).
+\newblock Cst anti-uav: A thermal infrared benchmark for tiny uav tracking in complex scenes.
+
 \end{thebibliography}
