@@ -43,8 +43,112 @@
         \item \textbf{Eficiencia:} La mayoría de sistemas SOT se enfrenta a situaciones de rastreo en tiempo real, por lo que estos deben tener una alta velocidad general de procesamiento, lo que requiere implementar algoritmos de alto rendimiento.
     \end{itemize}
 
+    \section{Clasificación de métodos SOT}
+
+    Debido a la gran cantidad de métodos distintos que se han desarrollado desde el inicio de esta disciplina, el poco tiempo que se lleva trabajando en esta y la gran evolución que ha experimentado, actualmente no existe una clasificación estandarizada de métodos de seguimiento aceptada universalmente. Sin embargo, para este trabajo se ha optado por seguir la taxonomía propuesta por Soleimanitaleb et al. en 2022 debido a su claridad, exhaustividad y a su reciente publicación (lo que permite tener en cuenta los métodos más actuales del campo). A continuación se muestra un diagrama de esta clasificación en la figura \ref{fig:taxonomia-seguimiento-visual}.
 
 
+
+\vspace{0.5cm}
+\begin{figure}[htbp]
+    \captionsetup{font=small, skip=20pt}
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tikzpicture}[
+        font=\scriptsize,
+        box/.style={
+            draw=#1!80!black,
+            fill=#1!45,
+            rounded corners=4pt,
+            minimum height=0.82cm,
+            align=center,
+            inner sep=3pt
+        },
+        topbox/.style={box=orange, text width=2.2cm},
+        mainbox/.style={box=blue, text=white, text width=2.15cm},
+        greenbox/.style={box=green, text width=1.75cm},
+        bluebox/.style={box=blue, text width=1.75cm},
+        orangebox/.style={box=orange, text width=1.75cm},
+        graybox/.style={box=gray, text width=1.75cm},
+        line/.style={draw, line width=0.55pt}
+    ]
+        \node[topbox] (tracking) at (0,0) {Métodos de seguimiento};
+
+        \node[mainbox] (feature) at (-5.1,-1.45) {Basados en\\características};
+        \node[mainbox] (segmentation) at (-1.75,-1.45) {Basados en\\segmentación};
+        \node[mainbox] (estimation) at (1.6,-1.45) {Basados en\\estimación};
+        \node[mainbox] (learning) at (4.95,-1.45) {Basados en\\aprendizaje};
+
+        \coordinate (topline) at (0,-0.78);
+        \draw[line] (tracking.south) -- (topline);
+        \draw[line] (feature |- topline) -- (learning |- topline);
+        \draw[line] (feature.north) -- (feature |- topline);
+        \draw[line] (segmentation.north) -- (segmentation |- topline);
+        \draw[line] (estimation.north) -- (estimation |- topline);
+        \draw[line] (learning.north) -- (learning |- topline);
+
+        \node[greenbox] (color) at (-7.25,-2.9) {Características\\de color};
+        \node[greenbox] (optical) at (-5.1,-2.9) {Flujo\\óptico};
+        \node[greenbox] (texture) at (-2.95,-2.9) {Características\\de textura};
+        \coordinate (featureline) at (-5.1,-2.28);
+        \draw[line] (feature.south) -- (featureline);
+        \draw[line] (color.north) |- (featureline) -| (texture.north);
+        \draw[line] (optical.north) -- (featureline);
+
+        \node[greenbox] (bottomup) at (-3.3,-4.25) {Basados en\\enfoque ascendente};
+        \node[greenbox] (joint) at (-0.9,-4.25) {Basados en\\enfoque conjunto};
+        \coordinate (segline) at (-1.75,-3.55);
+        \draw[line] (segmentation.south) -- (segline);
+        \draw[line] (bottomup.north) |- (segline) -| (joint.north);
+
+        \node[greenbox] (kalman) at (0.55,-2.9) {Filtro de\\Kalman};
+        \node[greenbox] (particle) at (2.65,-2.9) {Filtro de\\partículas};
+        \coordinate (estline) at (1.6,-2.28);
+        \draw[line] (estimation.south) -- (estline);
+        \draw[line] (kalman.north) |- (estline) -| (particle.north);
+
+        \node[greenbox, text width=1.9cm] (discriminative) at (1.25,-4.25) {Discriminativos};
+        \node[greenbox] (reinforcement) at (4.75,-4.25) {Aprendizaje\\por refuerzo};
+        \node[greenbox] (generative) at (7.0,-4.25) {Generativos};
+        \coordinate (learnline) at (4.95,-3.55);
+        \draw[line] (learning.south) -- (learnline);
+        \draw[line] (discriminative.north) |- (learnline) -| (generative.north);
+        \draw[line] (reinforcement.north) -- (learnline);
+
+        \node[bluebox] (shallow) at (0.1,-5.75) {Aprendizaje\\superficial};
+        \node[bluebox] (deep) at (2.4,-5.75) {Aprendizaje\\profundo};
+        \coordinate (discline) at (1.25,-5.02);
+        \draw[line] (discriminative.south) -- (discline);
+        \draw[line] (shallow.north) |- (discline) -| (deep.north);
+
+        \node[orangebox] (classifier) at (0.1,-7.1) {Basados en\\clasificador};
+        \node[orangebox] (featureaction) at (2.4,-7.1) {Extracción de\\características};
+        \node[orangebox] (endtoend) at (4.7,-7.1) {Extremo a\\extremo};
+        \draw[line] (shallow.south) -- (classifier.north);
+        \coordinate (deepline) at (2.4,-6.45);
+        \draw[line] (deep.south) -- (deepline);
+        \draw[line] (featureaction.north) |- (deepline) -| (endtoend.north);
+
+        \node[graybox] (classical) at (0.1,-8.45) {Con rastreador\\clásico};
+        \node[graybox] (deeptracker) at (2.4,-8.45) {Con rastreador\\profundo};
+        \node[graybox] (siamese) at (1.55,-9.8) {Rastreador\\siamés};
+        \node[graybox] (patch) at (3.85,-9.8) {Aprendizaje\\por parches};
+        \node[graybox] (graph) at (6.15,-9.8) {Basados en\\grafos};
+
+        \draw[line] (classifier.south) -- (classical.north);
+        \draw[line] (featureaction.south) -- (deeptracker.north);
+        \coordinate (endline) at (4.7,-9.1);
+        \draw[line] (endtoend.south) -- (4.7,-9.1);
+        \draw[line] (siamese.north) |- (endline) -| (graph.north);
+        \draw[line] (patch.north) -- (endline);
+    \end{tikzpicture}%
+    }
+    \caption[Taxonomía de métodos de seguimiento visual]{Taxonomía de métodos de seguimiento visual, \cite{Articulo_Concepto_SOT}.}
+    \label{fig:taxonomia-seguimiento-visual}
+\end{figure}
+
+    \subsection{Métodos basados en características}
+    Esta familia de métodos suelen ser la vía más fácil y directa para abordar el prolema del seguimiento de objetos. Se basan en una extracción previa de propiedades del objetivo como el color, la textura o el flujo óptico para rastrearlo a lo largo de la secuencia de imágenes. Estas propiedades deben ser únicas para poder ser diferenciadas de otros objetos o del fondo de la imagen, actuando como signo de identidad del objetivo. Una vez se extraen estas características, se usan para encontrar el objeto más similar al objetivo en el siguiente frame siguiendo algún criterio de similitud, repitiéndose este proceso para cada frame de la secuencia. 
 
     \subsection{Imágenes térmicas en el espectro infrarrojo}
 
@@ -53,6 +157,5 @@
     La tecnología de procesado de ímagenes térmicas en el espectro infrarrojo (TIR) consiste en la reconstrucción de imágenes a través de la radiación infrarroja emitida por los objetos de la escena. Una de las principales ventajas de este proceso es su capacidad para no interferir directamente con el objetivo, ya que la radiación electromagnética es una propiedad física inherente a cualquier cuerpo con una temperatura por encima del cero absoluto. Al limitarse a recibir dicha señal sin emitir energía externa, los detectores TIR se clasifican como sistemas de detecciñón pasivos, lo que los hace ideales para aplicaciones militares y de vigilancia. 
 
     Pese a todas sus ventajas, el proceso de obtención de estas imágenes requiere una serie de etapas de procesamiento debido al bajo contraste y a la escasa resolución de los detalles de la imagen. Estas etapas de procesamiento suelen llevarse a cabo a través técnicas de visión artificial (computer vision) y aprendizaje profundo (deep learning) \cite{review_infrared_imaging}.
-
 
 
