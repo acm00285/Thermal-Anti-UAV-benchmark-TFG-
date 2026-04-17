@@ -148,7 +148,123 @@
 \end{figure}
 
     \subsection{Métodos basados en características}
-    Esta familia de métodos suelen ser la vía más fácil y directa para abordar el prolema del seguimiento de objetos. Se basan en una extracción previa de propiedades del objetivo como el color, la textura o el flujo óptico para rastrearlo a lo largo de la secuencia de imágenes. Estas propiedades deben ser únicas para poder ser diferenciadas de otros objetos o del fondo de la imagen, actuando como signo de identidad del objetivo. Una vez se extraen estas características, se usan para encontrar el objeto más similar al objetivo en el siguiente frame siguiendo algún criterio de similitud, repitiéndose este proceso para cada frame de la secuencia. 
+    Esta familia de métodos suelen ser la vía más fácil y directa para abordar el problema del seguimiento de objetos. Se basan en una extracción previa de propiedades del objetivo como el color, la textura o el flujo óptico para rastrearlo a lo largo de la secuencia de imágenes. Estas propiedades deben ser únicas para poder ser diferenciadas de otros objetos o del fondo de la imagen, actuando como signo de identidad del objetivo. Una vez se extraen estas características, se usan para encontrar la región más similar al objetivo en el siguiente frame siguiendo algún criterio de similitud, repitiéndose este proceso para cada frame de la secuencia. El principal inconveniente de estos métodos radica en la dificultad de definir características que sean simultáneamente discriminativas, robustas y estables frente a cambios de iluminación, escala, oclusiones o variaciones en la apariencia del objeto. A continuación, se describen los principales enfoques basados en características, centrándose en las tres propiedades más empleadas en este tipo de métodos: el color, la textura y el flujo óptico.
+
+    \subsubsection{Color}
+    El color suele ser la propiedad más relacionada con el aspecto visual del objetivo. Para representarlo como un dato estructurado se suele usar un histograma de color (representación gráfica de la distribución de colores en una imagen). El histograma muestra todos los colores presentes en la escena y su frecuencia de aparición (número de píxeles que corresponden a cada color). Un ejemplo de uso de histogramas para SOT es el método de Zhao en 2007 (\ref{fig:flujo-seguimiento-histogramas}). 
+
+    El proceso de seguimiento comienza con la identificación del objetivo en el primer frame introduciéndolo dentro de una \textit{bounding box} (rectángulo que delimita la posición del objeto). Después, este se transforma a un histograma de color en el espacio de características apropiado. Ahora se pasa al siguiente frame, en el cual se introducen todos los posibles candidatos, los cuales son comparados de forma iterativa con el objetivo hasta encontrar el par con la máxima similitud entre histogramas. Una vez encontrada la instancia, se inserta el siguiente frame y se repite el proceso hasta llegar al último frame.
+
+    El principal inconveniente de este método es que, usando los histogramas de color, la representación depende únicamente del color del objeto e ignora el resto de propiedades como la forma o la textura del objeto, de forma que dos entidades diferentes pueden tener el mismo histograma.
+    
+
+\vspace{0.35cm}
+\begin{figure}[htbp]
+    \captionsetup{font=small, skip=10pt}
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tikzpicture}[
+        font=\scriptsize,
+        process/.style={
+            draw=gray!70!black,
+            fill=gray!12,
+            rounded corners=2pt,
+            minimum height=0.95cm,
+            text width=2.85cm,
+            align=center,
+            inner sep=4pt
+        },
+        action/.style={
+            draw=blue!65!black,
+            fill=blue!10,
+            rounded corners=2pt,
+            minimum height=0.95cm,
+            text width=3.0cm,
+            align=center,
+            inner sep=4pt
+        },
+        decision/.style={
+            diamond,
+            draw=gray!80!black,
+            fill=gray!8,
+            aspect=2.0,
+            text width=2.45cm,
+            align=center,
+            inner sep=1pt
+        },
+        finish/.style={
+            draw=green!55!black,
+            fill=green!15,
+            rounded corners=2pt,
+            minimum height=0.9cm,
+            text width=2.45cm,
+            align=center,
+            inner sep=4pt
+        },
+        arrow/.style={-{Latex[length=2mm]}, draw=blue!55!black, line width=0.6pt},
+        note/.style={font=\scriptsize\bfseries}
+    ]
+        \node[action] (initial) at (-5.2,0) {Cargar el fotograma inicial de la secuencia};
+        \node[action] (choose) at (-5.2,-1.45) {Seleccionar el objetivo en el fotograma inicial};
+        \node[process] (targethist) at (-5.2,-3.0) {Representar el objetivo como histograma en espacios de características adecuados};
+
+        \node[action] (nextframe) at (4.8,0) {Cargar el siguiente fotograma};
+        \node[process] (candidatehist) at (4.8,-1.65) {Representar los candidatos con el mismo procedimiento que el objetivo};
+
+        \node[process, fill=orange!12, draw=orange!70!black, text width=3.25cm] (compare) at (0,-3.0) {Comparar los histogramas del objetivo y de los candidatos};
+        \node[decision] (similarity) at (0,-4.95) {¿Par objetivo-candidato con máxima similitud?};
+        \node[process] (locate) at (4.8,-4.95) {Localizar el objetivo en el fotograma};
+        \node[decision, text width=2.3cm] (lastframe) at (4.8,-6.8) {¿Es el último fotograma?};
+        \node[finish] (finish) at (0,-6.8) {Finalizar seguimiento};
+
+        \draw[arrow] (initial) -- (choose);
+        \draw[arrow] (choose) -- (targethist);
+        \draw[arrow] (targethist.east) -- (compare.west);
+
+        \draw[arrow] (nextframe) -- (candidatehist);
+        \draw[arrow] (candidatehist.south) |- (compare.east);
+
+        \draw[arrow] (compare) -- (similarity);
+        \draw[arrow] (similarity.east) -- node[note, above] {Sí} (locate.west);
+        \draw[arrow] (similarity.west) -- ++(-0.95,0) |- node[note, pos=0.25, left] {No} (compare.west);
+
+        \draw[arrow] (locate) -- (lastframe);
+        \draw[arrow] (lastframe.west) -- node[note, above] {Sí} (finish.east);
+        \draw[arrow] (lastframe.east) -- ++(1.0,0) |- node[note, pos=0.18, right] {No} (nextframe.east);
+    \end{tikzpicture}%
+    }
+    \caption{Diagrama de flujo del seguimiento de objetos basado en histogramas en el espacio de características de gradiente
+(Zhao, 2007).}
+    \label{fig:flujo-seguimiento-histogramas}
+\end{figure}
+
+    \subsubsection{Textura}
+    En el contexto de la visión artificial, la textura se define como una patrón repetido de información o una disposición de una estructura concreta en intervalos regulares.
+    
+    Esta propiedad no se extrae directamente, sino que es generada por técnicas de preprocesamiento de imágenes.
+    Debido a al insuficiencia del color para identificar por sí solo a un mismo objeto en escenas diferentes, muchos métodos añaden la textura como característistica para describir, junto al color, el contenido de la imagen.
+
+    La onda de Gabor es una de las características basadas en textura más usadas. La mayor ventaja de los filtros de Gabor es su invarianza ante mabios de iluminación, escala, rotación y traslación; lo que los hace muy útiles para los métodos de rastreo. Li et al. (2017) emplean filtros de Gabor para la extracción de características en tareas de reconocimiento facial (figura \ref{fig:FiltroGabor}), demostrando su utilidad en tareas de visión por computador. 
+
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\textwidth]       {imagenes/FiltroGabor.png}
+        \caption{La Figura \ref{fig:FiltroGabor} muestra un ejemplo de extracción de características mediante descriptores basados en filtros de Gabor combinados con técnicas de codificación de textura (CS-LGBP), donde los filtros de Gabor se emplean como etapa inicial para capturar información de frecuencia y orientación.}
+        \label{fig:FiltroGabor}
+    \end{figure}
+
+    \subsubsection{Flujo Óptico}
+    En nuestro contexto, definamos el flujo óptico como el movimiento aparente de los patrones de luminosidad entre dos frames consecutivos. Los algoritmos que calculan el desplazamiento de luminosidad para todos los píxeles de la imagen se conocen como algoritmos de flujo óptico denso, a diferencia de los algoritmos dispersos que calculan este desplazamiento solo para un número selectivo de píxeles. El principal inconveniente de usar el flujo óptico como identificador de movimiento en la escena es su incapacidad de diferenciar la variación de luminosidad causada por factores externos al movimiento, lo que puede llevar a errores.
+
+    Un ejemplo representativo de este enfoque es el método propuesto por Shi y Tomasi (1994), que combina la detección de puntos de interés con técnicas de flujo óptico para realizar el seguimiento de características a lo largo de una secuencia de imágenes. En la figura \ref{fig:OpticalFlow} pueden apreciarse los vectores que representan el movimiento de algunos píxeles de un objeto presente en un par de imágenes.
+
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\textwidth]       {imagenes/OpticalFlow.png}
+        \caption{Ejemplo de flujo óptico denso entre dos frames consecutivos. Los vectores representan el desplazamiento de los patrones de intensidad de la imagen, permitiendo estimar el movimiento de los píxeles en la escena.}
+        \label{fig:OpticalFlow}
+    \end{figure}
+
 
     \subsection{Imágenes térmicas en el espectro infrarrojo}
 
@@ -157,5 +273,3 @@
     La tecnología de procesado de ímagenes térmicas en el espectro infrarrojo (TIR) consiste en la reconstrucción de imágenes a través de la radiación infrarroja emitida por los objetos de la escena. Una de las principales ventajas de este proceso es su capacidad para no interferir directamente con el objetivo, ya que la radiación electromagnética es una propiedad física inherente a cualquier cuerpo con una temperatura por encima del cero absoluto. Al limitarse a recibir dicha señal sin emitir energía externa, los detectores TIR se clasifican como sistemas de detecciñón pasivos, lo que los hace ideales para aplicaciones militares y de vigilancia. 
 
     Pese a todas sus ventajas, el proceso de obtención de estas imágenes requiere una serie de etapas de procesamiento debido al bajo contraste y a la escasa resolución de los detalles de la imagen. Estas etapas de procesamiento suelen llevarse a cabo a través técnicas de visión artificial (computer vision) y aprendizaje profundo (deep learning) \cite{review_infrared_imaging}.
-
-
