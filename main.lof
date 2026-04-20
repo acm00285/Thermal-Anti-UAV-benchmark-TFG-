@@ -2,9 +2,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Taxonomía de métodos de seguimiento visual}}{17}{figure.caption.6}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Diagrama de flujo del seguimiento de objetos basado en histogramas en el espacio de características de gradiente (Zhao, 2007).}}{19}{figure.caption.8}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces La Figura \ref {fig:FiltroGabor} muestra un ejemplo de extracción de características mediante descriptores basados en filtros de Gabor combinados con técnicas de codificación de textura (CS-LGBP), donde los filtros de Gabor se emplean como etapa inicial para capturar información de frecuencia y orientación.}}{19}{figure.caption.10}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Ejemplo de flujo óptico denso entre dos frames consecutivos. Los vectores representan el desplazamiento de los patrones de intensidad de la imagen, permitiendo estimar el movimiento de los píxeles en la escena.}}{20}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Diagrama de flujo del seguimiento de objetos basado en histogramas en el espacio de características de gradiente (Zhao, 2007). Fuente: \cite {Articulo_Concepto_SOT}.}}{19}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces La Figura \ref {fig:FiltroGabor} muestra un ejemplo de extracción de características mediante descriptores basados en filtros de Gabor combinados con técnicas de codificación de textura (CS-LGBP), donde los filtros de Gabor se emplean como etapa inicial para capturar información de frecuencia y orientación. Fuente: \cite {Gabor_CSLBP}.}}{19}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Ejemplo de flujo óptico denso entre dos frames consecutivos. Los vectores representan el desplazamiento de los patrones de intensidad de la imagen, permitiendo estimar el movimiento de los píxeles en la escena. Fuente: \cite {learnopencv_mast3r_sfm}}}{20}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Esquema general del flujo de un método de seguimiento basado en segmentación \textit {bottom-up}.}}{21}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Esquema general del flujo de un método de seguimiento basado en segmentación \textit {joint-based}.}}{22}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Flujo refinado del filtro de Kalman: La predicción física se corrige mediante la medición real para obtener el estado óptimo. Inspirado en \cite {Articulo_Concepto_SOT}}}{23}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Flujo general del método de filtro de partículas basado en histogramas (\cite {Particle_Filter}).}}{24}{figure.caption.20}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1,5 +1,12 @@
 \begin{thebibliography}{}
 
+\bibitem[Ding et~al., 2016]{Particle_Filter}
+Ding, D., Jiang, Z., and Liu, C. (2016).
+\newblock Object tracking algorithm based on particle filter with color and
+  texture feature.
+\newblock In {\em 2016 35th Chinese Control Conference (CCC)}, pages
+  4031--4036.
+
 \bibitem[Ding et~al., 2024]{Real_Time_Tracking}
 Ding, Z., Lai, Z., Li, S., Li, P., Yang, Q., and Wong, E. (2024).
 \newblock Confidence trigger detection: Accelerating real-time
@@ -26,6 +33,20 @@ Felsberg, M., Kristan, M., Matas, J., Leonardis, A., Pflugfelder, R., Häger,
 Hou, F., Zhang, Y., Zhou, Y., Zhang, M., Lv, B., and Wu, J. (2022).
 \newblock Review on infrared imaging technology.
 \newblock {\em Sustainability}, 14(18).
+
+\bibitem[Jaykumaran, 2025]{learnopencv_mast3r_sfm}
+Jaykumaran (2025).
+\newblock {MASt3R} and {MASt3R-SfM} explanation: Image matching and 3d
+  reconstruction results.
+\newblock
+  \url{https://learnopencv.com/mast3r-sfm-grounding-image-matching-3d/}.
+\newblock LearnOpenCV. Consultado el 20 de abril de 2026.
+
+\bibitem[Li et~al., 2017]{Gabor_CSLBP}
+Li, C., Wei, W., Jiaxue, L., and Song, W. (2017).
+\newblock A cloud-based monitoring system via face recognition using gabor and
+  cs-lbp features.
+\newblock {\em The Journal of Supercomputing}, 73.
 
 \bibitem[Moses et~al., 2011]{estudio_peso_drones}
 Moses, A., Rutherford, M.~J., and Valavanis, K.~P. (2011).

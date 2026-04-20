@@ -234,7 +234,7 @@
     \end{tikzpicture}%
     }
     \caption{Diagrama de flujo del seguimiento de objetos basado en histogramas en el espacio de características de gradiente
-(Zhao, 2007).}
+(Zhao, 2007). Fuente: \cite{Articulo_Concepto_SOT}.}
     \label{fig:flujo-seguimiento-histogramas}
 \end{figure}
 
@@ -249,11 +249,11 @@
     \begin{figure}[htbp]
         \centering
         \includegraphics[width=0.8\textwidth]       {imagenes/FiltroGabor.png}
-        \caption{La Figura \ref{fig:FiltroGabor} muestra un ejemplo de extracción de características mediante descriptores basados en filtros de Gabor combinados con técnicas de codificación de textura (CS-LGBP), donde los filtros de Gabor se emplean como etapa inicial para capturar información de frecuencia y orientación.}
+        \caption{La Figura \ref{fig:FiltroGabor} muestra un ejemplo de extracción de características mediante descriptores basados en filtros de Gabor combinados con técnicas de codificación de textura (CS-LGBP), donde los filtros de Gabor se emplean como etapa inicial para capturar información de frecuencia y orientación. Fuente: \cite{Gabor_CSLBP}.}
         \label{fig:FiltroGabor}
     \end{figure}
 
-    \subsubsection{Flujo Óptico}
+    \subsubsection{Flujo óptico}
     En nuestro contexto, definamos el flujo óptico como el movimiento aparente de los patrones de luminosidad entre dos frames consecutivos. Los algoritmos que calculan el desplazamiento de luminosidad para todos los píxeles de la imagen se conocen como algoritmos de flujo óptico denso, a diferencia de los algoritmos dispersos que calculan este desplazamiento solo para un número selectivo de píxeles. El principal inconveniente de usar el flujo óptico como identificador de movimiento en la escena es su incapacidad de diferenciar la variación de luminosidad causada por factores externos al movimiento, lo que puede llevar a errores.
 
     Un ejemplo representativo de este enfoque es el método propuesto por Shi y Tomasi (1994), que combina la detección de puntos de interés con técnicas de flujo óptico para realizar el seguimiento de características a lo largo de una secuencia de imágenes. En la figura \ref{fig:OpticalFlow} pueden apreciarse los vectores que representan el movimiento de algunos píxeles de un objeto presente en un par de imágenes.
@@ -261,15 +261,321 @@
     \begin{figure}[htbp]
         \centering
         \includegraphics[width=0.8\textwidth]       {imagenes/OpticalFlow.png}
-        \caption{Ejemplo de flujo óptico denso entre dos frames consecutivos. Los vectores representan el desplazamiento de los patrones de intensidad de la imagen, permitiendo estimar el movimiento de los píxeles en la escena.}
+        \caption{Ejemplo de flujo óptico denso entre dos frames consecutivos. Los vectores representan el desplazamiento de los patrones de intensidad de la imagen, permitiendo estimar el movimiento de los píxeles en la escena. Fuente: \cite{learnopencv_mast3r_sfm}}
         \label{fig:OpticalFlow}
     \end{figure}
 
+    \subsection{Métodos basados en segmentación}
 
-    \subsection{Imágenes térmicas en el espectro infrarrojo}
+    A la hora de rastrear un objeto en un video, muchas veces lo más simple es separar el primer plano del fondo de la escena, ya que los objetos que normalmente se mueven en una secuencia de imágenes suelen encontrarse en el primer plano. Esta es la idea fundamental de los métodos basados en segmentación, que separan los objetos presentes en el primer plano del fondo de la escena para posteriormente seguirlos a lo largo de la secuencia. A continuación se describen los dos enfoques más comunes de este tipo de métodos.
+    
+    \subsubsection{Método ascendente (Bottom-Up)}
+    En este tipo de técnica de seguimiento el proceso de segmentación y rastreo se consideran dos tareas diferentes. Primero se separa el fondo de la imagen de las zonas que contienen objetos en posible movimiento (primer plano). Estas zonas se agrupan en píxeles generando regiones que representan posibles objetos. A partir de este paso el método sigue la misma lógica que un método basado en característcias: Por cada región se extraen propiedades discriminativas (color, forma, tamaño...) y se comparan estas propiedaddes entre regiones de distintos frames para encontrar el candidato con la similitud más alta con el objetivo. \ref{fig:flujo-metodo-bottom-up}
 
-    Uno de los principales retos a los que se enfrentan los sistemas de seguimiento de UAVs es la condición del entorno. Un buen sistema SOT debe poder detectar y seguir objetivos en cualquier momento del día y bajo cualquier condición adversa (temperatura, humedad, temporal...), lo cual es especialmente complicado en las horas nocturnas o de poca luz natural, y en entornos con niebla, lluvia, rachas fuertes de viento y demás fenómenos ambientales. Estos factores no solo reducen a menudo la calidad de la imagen, sino que además introducen ruido y variaciones en la firma del objetivo. Es por esto que la tecnología de imágenes infrarrojas comenzó a ser muy relevante en este campo.
+\vspace{0.35cm}
+\begin{figure}[htbp]
+\captionsetup{font=small, skip=10pt}
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+font=\scriptsize,
+process/.style={
+draw=gray!70!black,
+fill=gray!12,
+rounded corners=2pt,
+minimum height=0.9cm,
+text width=3.2cm,
+align=center,
+inner sep=4pt
+},
+stage/.style={
+draw=blue!65!black,
+fill=blue!10,
+rounded corners=2pt,
+minimum height=0.9cm,
+text width=3.2cm,
+align=center,
+inner sep=4pt
+},
+result/.style={
+draw=green!55!black,
+fill=green!15,
+rounded corners=2pt,
+minimum height=0.9cm,
+text width=3.25cm,
+align=center,
+inner sep=4pt
+},
+arrow/.style={-{Latex[length=2mm]}, draw=blue!55!black, line width=0.6pt}
+]
+\node[stage] (prevframe) at (-5.0,0) {Fotograma previo ($t-1$)};
+\node[process] (prevseg) at (-5.0,-1.45) {Segmentar fondo y primer plano};
+\node[process] (prevregions) at (-5.0,-2.9) {Obtener regiones del primer plano};
+\node[process, fill=orange!12, draw=orange!70!black] (prevfeat) at (-5.0,-4.35) {Extraer características de cada región};
 
-    La tecnología de procesado de ímagenes térmicas en el espectro infrarrojo (TIR) consiste en la reconstrucción de imágenes a través de la radiación infrarroja emitida por los objetos de la escena. Una de las principales ventajas de este proceso es su capacidad para no interferir directamente con el objetivo, ya que la radiación electromagnética es una propiedad física inherente a cualquier cuerpo con una temperatura por encima del cero absoluto. Al limitarse a recibir dicha señal sin emitir energía externa, los detectores TIR se clasifican como sistemas de detecciñón pasivos, lo que los hace ideales para aplicaciones militares y de vigilancia. 
+    \node[stage] (currframe) at (4.9,0) {Fotograma actual ($t$)};
+    \node[process] (currseg) at (4.9,-1.45) {Segmentar fondo y primer plano};
+    \node[process] (currregions) at (4.9,-2.9) {Obtener regiones del primer plano};
+    \node[process, fill=orange!12, draw=orange!70!black] (currfeat) at (4.9,-4.35) {Extraer características de cada región};
 
-    Pese a todas sus ventajas, el proceso de obtención de estas imágenes requiere una serie de etapas de procesamiento debido al bajo contraste y a la escasa resolución de los detalles de la imagen. Estas etapas de procesamiento suelen llevarse a cabo a través técnicas de visión artificial (computer vision) y aprendizaje profundo (deep learning) \cite{review_infrared_imaging}.
+    \node[process, text width=3.6cm] (associate) at (-0.05,-5.9) {Asociar regiones entre fotogramas según sus características};
+    \node[result] (select) at (-0.05,-7.35) {Seleccionar la región correspondiente al objeto};
+    \node[result] (update) at (-0.05,-8.8) {Actualizar la posición del objeto};
+
+    \draw[arrow] (prevframe) -- (prevseg);
+    \draw[arrow] (prevseg) -- (prevregions);
+    \draw[arrow] (prevregions) -- (prevfeat);
+
+    \draw[arrow] (currframe) -- (currseg);
+    \draw[arrow] (currseg) -- (currregions);
+    \draw[arrow] (currregions) -- (currfeat);
+
+    \draw[arrow] (prevfeat.south east) |- (associate.west);
+    \draw[arrow] (currfeat.south west) |- (associate.east);
+
+    \draw[arrow] (associate) -- (select);
+    \draw[arrow] (select) -- (update);
+\end{tikzpicture}%
+}
+\caption{Esquema general del flujo de un método de seguimiento basado en segmentación \textit{bottom-up}.}
+\label{fig:flujo-metodo-bottom-up}
+
+\end{figure}
+
+\subsubsection{Método basados en estimación conjunta (Joint-Based)}
+A diferencia de los métodos ascendentes, los métodos de estimación conjunta mezclan los procesos de segmentación y rastreo, con el objetivo de solventar el porblema de la dependencia de la segmentación previa y de la propagación de los errores de esta al seguimiento. Describamos el flujo general de este método de la siguiente forma: En el primer paso se construye un modelo de apariencia del objeto usando una formulación probabilística. En la segunda fase es donde tiene lugar la segmentación usando este modelo de apariencia. En el tercer y último paso se realiza el seguimiento en sí (ver figura \ref{fig:flujo-metodo-joint-based}).
+
+
+\vspace{0.35cm}
+\begin{figure}[htbp]
+\captionsetup{font=small, skip=10pt}
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+font=\scriptsize,
+stage/.style={
+draw=blue!65!black,
+fill=blue!10,
+rounded corners=2pt,
+minimum height=0.9cm,
+text width=3.15cm,
+align=center,
+inner sep=4pt
+},
+process/.style={
+draw=gray!70!black,
+fill=gray!12,
+rounded corners=2pt,
+minimum height=0.9cm,
+text width=3.4cm,
+align=center,
+inner sep=4pt
+},
+model/.style={
+draw=orange!70!black,
+fill=orange!12,
+rounded corners=2pt,
+minimum height=0.9cm,
+text width=3.3cm,
+align=center,
+inner sep=4pt
+},
+result/.style={
+draw=green!55!black,
+fill=green!15,
+rounded corners=2pt,
+minimum height=0.9cm,
+text width=3.3cm,
+align=center,
+inner sep=4pt
+},
+arrow/.style={-{Latex[length=2mm]}, draw=blue!55!black, line width=0.6pt}
+]
+\node[stage] (frame) at (0,0) {Fotograma actual};
+\node[model] (appearance) at (-4.4,-1.7) {Modelo de apariencia del objeto};
+\node[process] (jointseg) at (0,-1.7) {Segmentación guiada por el modelo del objeto};
+\node[process] (tracking) at (4.4,-1.7) {Estimación conjunta de la región y la posición del objeto};
+
+    \node[result] (state) at (0,-3.6) {Actualizar estado del objeto};
+    \node[model] (update) at (0,-5.3) {Actualizar el modelo de apariencia};
+
+    \draw[arrow] (frame) -- (jointseg);
+    \draw[arrow] (appearance.east) -- (jointseg.west);
+    \draw[arrow] (jointseg.east) -- (tracking.west);
+    \draw[arrow] (tracking.south) -- (state.north);
+    \draw[arrow] (state.south) -- (update.north);
+    \draw[arrow] (update.west) -- ++(-0.7,0) -| (appearance.south);
+\end{tikzpicture}%
+}
+\caption{Esquema general del flujo de un método de seguimiento basado en segmentación \textit{joint-based}.}
+\label{fig:flujo-metodo-joint-based}
+
+\end{figure}
+
+\subsection{Métodos basados en estimación}
+Esta rama de métodos formulan el problema de seguimiento como un problema de estimación en el cual el objeto a rastrear se representa con un vector de estado. Este vector describe el estado o comportamiento dinámico del objeto como la posición o la velocidad. El marco de trabajo más usado para el problema de la estimación del módo dinámico es traido de los métodos Bayesianos. 
+
+Los filtros bayesianos son ideales para este tipo de problemas ya que permiten una actualización constante del estado del objeto  a medida que se reciben nuevas obsrvaciones. El algoritmo general extrapolado al seguimiento es recursivo y se compone de dos pasos: 
+
+\begin{itemize}
+    \item \textbf{Predicción:} En esta fase se estima el estado del objeto en el siguiente frame a partir del estado previo, utilizando el modelo dinámico del sistema. Esta predicción incluye tanto la posición como otras variables relevantes (por ejemplo, velocidad) y su incertidumbre asociada.
+    
+    \item \textbf{Actualización:} En esta fase se incorpora la observación del frame actual mediante el modelo de observación, corrigiendo la estimación previa del estado del objeto y reduciendo la incertidumbre asociada a dicha predicción.
+\end{itemize}
+
+A continuación se describen los dos enfoques más comunes de este tipo de métodos.
+
+\subsubsection{Filtro de kalman}
+El filtro de kalman se usa para estimar el estado de un sistema linear asumiendo errores gaussianos. Para ello, primero debe designarse un modelo dinámico del movimiento del objetivo. Esta técnica presenta importantes características de las que el seguimiento se puede beneficiar, como predecir la localización futura del objeto, corregir esta predicción basándose en nuevas medidas y reducir el ruido de las observaciones a partir de los diagnósticos incorrectos. 
+
+\vspace{0.25cm}
+\begin{center}
+\captionsetup{type=figure, font=small, skip=10pt}
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+font=\scriptsize,
+state/.style={
+    draw=blue!65!black,
+    fill=blue!10,
+    rounded corners=2pt,
+    minimum height=0.95cm,
+    text width=2.85cm,
+    align=center,
+    inner sep=4pt
+},
+process/.style={
+    draw=gray!70!black,
+    fill=gray!12,
+    rounded corners=2pt,
+    minimum height=1.0cm,
+    text width=3.2cm,
+    align=center,
+    inner sep=4pt
+},
+measurement/.style={
+    draw=orange!70!black,
+    fill=orange!12,
+    rounded corners=2pt,
+    minimum height=0.95cm,
+    text width=2.7cm,
+    align=center,
+    inner sep=4pt
+},
+estimate/.style={
+    draw=green!55!black,
+    fill=green!15,
+    rounded corners=2pt,
+    minimum height=0.95cm,
+    text width=2.85cm,
+    align=center,
+    inner sep=4pt
+},
+arrow/.style={-{Latex[length=2mm]}, draw=blue!55!black, line width=0.6pt},
+looparrow/.style={-{Latex[length=2mm]}, draw=blue!55!black, line width=0.6pt, dashed},
+note/.style={font=\scriptsize\bfseries, align=center}
+]
+
+% Nodos principales
+\node[state] (prior) at (-5.1,0) {Conocimiento previo del estado\\$P_{k-1|k-1}$, $\hat{x}_{k-1|k-1}$};
+
+\node[process] (prediction) at (-1.5,0) {Paso de predicción\\(Modelo Físico)\\$P_{k|k-1}$, $\hat{x}_{k|k-1}$};
+
+\node[measurement] (measure) at (3.35,-1.8) {Medición del fotograma actual\\$y_k$};
+
+\node[process, fill=orange!12, draw=orange!70!black] (update) at (-1.5,-1.8) {Paso de actualización\\(Corrección del estado)};
+
+\node[estimate] (estimate) at (-5.1,-1.8) {Estimación corregida\\$P_{k|k}$, $\hat{x}_{k|k}$};
+
+\node[state, text width=2.55cm, dashed, fill=white] (next) at (-5.1,-3.2) {Siguiente instante\\$k \leftarrow k+1$};
+
+% Conexiones mejoradas
+\draw[arrow] (prior.east) -- (prediction.west);
+\draw[arrow] (prediction.south) -- node[note, right] {predicción} (update.north);
+\draw[arrow] (measure.west) -- node[note, above] {observación} (update.east);
+\draw[arrow] (update.west) -- (estimate.east);
+
+% Bucle recursivo
+\draw[arrow] (estimate.south) -- (next.north);
+\draw[arrow] (next.west) -- ++(-0.5,0) |- (prior.west) node[note, pos=0.25, left] {recursividad};
+
+\end{tikzpicture}%
+}
+\captionof{figure}{Flujo refinado del filtro de Kalman: La predicción física se corrige mediante la medición real para obtener el estado óptimo. Inspirado en \cite{Articulo_Concepto_SOT}}
+\label{fig:flujo-kalman-refinado}
+\end{center}
+
+En algunos trabajos se ha utilizado el filtro de Kalman para tareas de seguimiento (Gunjal et al.,
+2018; Taylor et al., 2021; Zhao et al., 2009).
+
+\subsubsection{Filtro de partículas}
+Uno de los principales inconvenientes de los métodos basados en el filtro de Kalman es su incapacidad para manejar sistemas complejos, es decir, sistemas que no se pueden expresar por la siguiente formulación:
+
+\begin{equation}
+    x_k = A x_{k-1} + w_k
+\end{equation}
+
+donde $x_k$ es el vector de estado del sistema en el instante $k$, $A$ es la matriz de transición del estado, es decir, describe cómo se espera que el siguiente cambie siguiendo alguna ley física (normalmente cinemática básica); $x_{k-1}$ es el estado del sistema en el instante $k-1$ y $w_k$ representa la incertibumbre o el ruido del proceso. Este ruido se asume normalmente aleatorio (gaussiano). 
+
+Esta es la forma en la que se describen los sistemas lineales, presentes en situaciones de seguimiento sencillas y simples, sin mucho ruido, movimiento y forma del objeto constantes... Pero la realidad suele ser mucho más compleja. Es por eso que se ha considerado el uso de métodos basados en filtros de partículas para solventar este problema. 
+
+El filtro de partículas es un método de estimación recursivo basado en el método de cálculo estadístico de Monte Carlo, usado frecuentemente para modelos con formas de ruino no gausianas. La idea principal de este método radica en representar el sistema como una distribución de un conjunto de partículas. Cada partícula se asocia con un peso que refleja la probabilidad de que esta describa el estado real del sistema, o en nuestro caso, el estado del objeto a rastrear. Cuanto mayor sea la coincidencia entre el estado representado de la partícula y la observación del objeto, mayor será el peso asignado a esa partícula y viceversa. Para estimar el estado del objeto en el siguiente frame se realiza una suma ponderada de todas las partículas. Una vez obtenida esta predicción, todas las partículas se "mueven" siguiendo el modelo de estado, el cual añade un poco de ruido para cubrir posibles situaciones inesperadas (cambios bruscos de dirección o iluminación, oclusiones...). 
+
+Justo antes de comenzar el siguiente ciclo de predicción se lleva acabo la fase conocida como \boldmath{Resampling}, en la cual se eliminan las partículas cuyo peso no supera cierto umbral y se duplican las partículas con los pesos más altos hasta completar la población. De esta forma se evita el problema de la degeneración, que consiste en la convergencia de la población de partículas a un subconjunto de mejores candidatas que se mantienen invariantes a lo largo de la secuencia, dejando al margen el resto de partículas con pesos cada vez más bajos que no aportan información, restando generalización al método. Un ejemplo del uso de filtro de Partículas para tareas de rastreo es el método presentado por \cite{Particle_Filter} y mencionado en el artículo de \cite{Articulo_Concepto_SOT}. Este método utiliza una representación de histogramas para investigar los cambios  de apariencia del objeto, especialmente su estado y su luminosidad. El flujo de este método queda representado en la figura \ref{fig:flujo-filtro-particulas}.
+
+\vspace{0.25cm}
+\begin{center}
+\captionsetup{type=figure, font=small, skip=10pt}
+\centering
+\resizebox{0.98\textwidth}{!}{%
+\begin{tikzpicture}[
+font=\scriptsize,
+particlebox/.style={
+draw=gray!75!black,
+fill=gray!10,
+rounded corners=4pt,
+minimum height=0.95cm,
+text width=2.65cm,
+align=center,
+inner sep=5pt
+},
+mainbox/.style={
+draw=orange!75!black,
+fill=orange!12,
+rounded corners=4pt,
+minimum height=0.95cm,
+text width=2.85cm,
+align=center,
+inner sep=5pt
+},
+feedbackbox/.style={
+draw=blue!60!black,
+fill=blue!9,
+rounded corners=4pt,
+minimum height=0.95cm,
+text width=2.75cm,
+align=center,
+inner sep=5pt
+},
+arrow/.style={-{Latex[length=2mm]}, draw=blue!55!black, line width=0.6pt}
+]
+\node[particlebox] (filter) at (-5.85,1.55) {Filtrado de\\fotogramas};
+\node[mainbox] (appearance) at (-1.95,1.55) {Modelado de\\apariencia};
+\node[particlebox] (propagation) at (1.95,1.55) {Propagación de\\partículas};
+\node[particlebox] (similarity) at (5.85,1.55) {Medición de\\similitud};
+\node[mainbox] (selection) at (5.85,-1.45) {Selección de la\\partícula más\\similar};
+\node[feedbackbox] (resampling) at (1.95,-1.45) {Remuestreo de\\partículas};
+\node[feedbackbox] (update) at (-1.95,-1.45) {Actualización del\\histograma del\\modelo};
+
+\draw[arrow] (filter.east) -- (appearance.west);
+\draw[arrow] (appearance.east) -- (propagation.west);
+\draw[arrow] (propagation.east) -- (similarity.west);
+\draw[arrow] (similarity.south) -- (selection.north);
+\draw[arrow] (selection.west) -- (resampling.east);
+\draw[arrow] (resampling.west) -- (update.east);
+\draw[arrow] (update.north) -- ($(appearance.south)+(0,-0.04)$);
+\end{tikzpicture}%
+}
+\captionof{figure}{Flujo general del método de filtro de partículas basado en histogramas (\cite{Particle_Filter}).}
+\label{fig:flujo-filtro-particulas}
+\end{center}

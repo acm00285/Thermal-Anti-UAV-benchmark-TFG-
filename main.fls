@@ -417,6 +417,8 @@ INPUT .\Agradecimientos.tex
 INPUT Agradecimientos.tex
 INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-t1.tfm
 INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-t1.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-t1.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-t1.tfm
 INPUT .\main.toc
 INPUT .\main.toc
 INPUT main.toc
@@ -460,6 +462,7 @@ OUTPUT main.toc
 INPUT .\main.lof
 INPUT .\main.lof
 INPUT main.lof
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Italic-tlf-t1.tfm
 OUTPUT main.lof
 INPUT .\main.lot
 INPUT .\main.lot
@@ -478,14 +481,11 @@ INPUT .\Introduccion.tex
 INPUT Introduccion.tex
 INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-t1.tfm
 INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-t1.tfm
-INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Italic-tlf-t1.tfm
 INPUT .\Antecedentes.tex
 INPUT .\Antecedentes.tex
 INPUT Antecedentes.tex
 INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-t1.tfm
 INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-t1.tfm
-INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-t1.tfm
-INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-t1.tfm
 INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-t1.tfm
 INPUT .\imagenes\FiltroGabor.png
 INPUT .\imagenes\FiltroGabor.png
@@ -501,6 +501,70 @@ INPUT .\imagenes\OpticalFlow.png
 INPUT .\imagenes\OpticalFlow.png
 INPUT .\imagenes\OpticalFlow.png
 INPUT .\imagenes\OpticalFlow.png
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-ot1.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-ot1.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-ot1.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxmi7.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxmi5.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxmi5.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxsy7.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxsy5.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxsy5.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxexx.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxexx.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxexx.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxmia.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxmia.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxmia.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxsym.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxsym.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxsym.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxsyc.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxsyc.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxsyc.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxexa.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxexa.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxexa.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Italic-tlf-t1.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxmi7.vf
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\NewTXMI7.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\stxscr.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxsy7.vf
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txsys.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txex-bar.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Regular-tlf-ot1.vf
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txmiaX.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-ot1r.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\newtx\ntx-ot1-tlf.enc
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxmi5.vf
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\NewTXMI5.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\stxscr.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxsy5.vf
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txsys.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txex-bar.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Regular-tlf-ot1.vf
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txmiaX.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-ot1r.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxmi.vf
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\NewTXMI.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\stxscr.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxmi.vf
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\NewTXMI.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\stxscr.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxmia.vf
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txmiaX.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txmiaSTbb.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxsy.vf
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txsys.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txex-bar.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Regular-tlf-ot1.vf
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txmiaX.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-ot1r.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxsy.vf
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txsys.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txex-bar.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Regular-tlf-ot1.vf
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-ot1r.tfm
 INPUT .\Objetivos.tex
 INPUT .\Objetivos.tex
 INPUT Objetivos.tex
@@ -520,13 +584,47 @@ INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\tex\latex\newtx\t1ntxt
 INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\tex\latex\newtx\t1ntxtt.fd
 INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\tex\latex\newtx\t1ntxtt.fd
 INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\txfonts\t1xtt.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbmi.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbmi.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbmi7.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbsy.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbsy.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbsy7.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbexx.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbexx.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbexx.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbmia.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbmia.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbmia.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbsym.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbsym.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbsym.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbsyc.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbsyc.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbsyc.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbexa.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbexa.tfm
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxbexa.tfm
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\NewTXMI.pfb
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\NewTXMI.pfb
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\NewTXMI5.pfb
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\NewTXMI5.pfb
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\NewTXMI7.pfb
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\NewTXMI7.pfb
 INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmr.pfb
 INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmr.pfb
 INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\type1\public\txfonts\t1xtt.pfb
 INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\type1\public\txfonts\t1xtt.pfb
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\txmiaX.pfb
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\txmiaX.pfb
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\txsys.pfb
+INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\txsys.pfb
 INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\ztmb.pfb
 INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\ztmb.pfb
 INPUT C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\ztmr.pfb

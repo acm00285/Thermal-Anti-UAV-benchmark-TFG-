@@ -6,45 +6,45 @@ The style file: apalike.bst
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 Database file #1: bibliografia.bib
 Warning--empty booktitle in VOT_TIR2016
-You've used 8 entries,
+You've used 11 entries,
             1935 wiz_defined-function locations,
-            524 strings with 5700 characters,
-and the built_in function-call counts, 4148 in all, are:
-= -- 386
-> -- 263
-< -- 6
-+ -- 98
-- -- 96
-* -- 353
-:= -- 715
-add.period$ -- 25
-call.type$ -- 8
-change.case$ -- 88
-chr.to.int$ -- 8
-cite$ -- 9
-duplicate$ -- 150
-empty$ -- 223
-format.name$ -- 106
-if$ -- 818
+            542 strings with 6335 characters,
+and the built_in function-call counts, 5352 in all, are:
+= -- 507
+> -- 311
+< -- 8
++ -- 116
+- -- 112
+* -- 440
+:= -- 920
+add.period$ -- 35
+call.type$ -- 11
+change.case$ -- 111
+chr.to.int$ -- 11
+cite$ -- 12
+duplicate$ -- 202
+empty$ -- 303
+format.name$ -- 125
+if$ -- 1063
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 6
-newline$ -- 43
-num.names$ -- 24
-pop$ -- 88
+missing$ -- 8
+newline$ -- 59
+num.names$ -- 33
+pop$ -- 109
 preamble$ -- 1
-purify$ -- 88
+purify$ -- 111
 quote$ -- 0
-skip$ -- 129
+skip$ -- 173
 stack$ -- 0
-substring$ -- 193
-swap$ -- 43
-text.length$ -- 4
+substring$ -- 267
+swap$ -- 56
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 48
+type$ -- 66
 warning$ -- 1
-while$ -- 22
+while$ -- 30
 width$ -- 0
-write$ -- 105
+write$ -- 145
 (There was 1 warning)
