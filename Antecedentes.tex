@@ -150,7 +150,7 @@
     \subsection{Métodos basados en características}
     Esta familia de métodos suelen ser la vía más fácil y directa para abordar el problema del seguimiento de objetos. Se basan en una extracción previa de propiedades del objetivo como el color, la textura o el flujo óptico para rastrearlo a lo largo de la secuencia de imágenes. Estas propiedades deben ser únicas para poder ser diferenciadas de otros objetos o del fondo de la imagen, actuando como signo de identidad del objetivo. Una vez se extraen estas características, se usan para encontrar la región más similar al objetivo en el siguiente frame siguiendo algún criterio de similitud, repitiéndose este proceso para cada frame de la secuencia. El principal inconveniente de estos métodos radica en la dificultad de definir características que sean simultáneamente discriminativas, robustas y estables frente a cambios de iluminación, escala, oclusiones o variaciones en la apariencia del objeto. A continuación, se describen los principales enfoques basados en características, centrándose en las tres propiedades más empleadas en este tipo de métodos: el color, la textura y el flujo óptico.
 
-    \subsubsection{Color}
+    \paragraph*{Color}
     El color suele ser la propiedad más relacionada con el aspecto visual del objetivo. Para representarlo como un dato estructurado se suele usar un histograma de color (representación gráfica de la distribución de colores en una imagen). El histograma muestra todos los colores presentes en la escena y su frecuencia de aparición (número de píxeles que corresponden a cada color). Un ejemplo de uso de histogramas para SOT es el método de Zhao en 2007 (\ref{fig:flujo-seguimiento-histogramas}). 
 
     El proceso de seguimiento comienza con la identificación del objetivo en el primer frame introduciéndolo dentro de una \textit{bounding box} (rectángulo que delimita la posición del objeto). Después, este se transforma a un histograma de color en el espacio de características apropiado. Ahora se pasa al siguiente frame, en el cual se introducen todos los posibles candidatos, los cuales son comparados de forma iterativa con el objetivo hasta encontrar el par con la máxima similitud entre histogramas. Una vez encontrada la instancia, se inserta el siguiente frame y se repite el proceso hasta llegar al último frame.
@@ -238,7 +238,7 @@
     \label{fig:flujo-seguimiento-histogramas}
 \end{figure}
 
-    \subsubsection{Textura}
+    \paragraph*{Textura}
     En el contexto de la visión artificial, la textura se define como una patrón repetido de información o una disposición de una estructura concreta en intervalos regulares.
     
     Esta propiedad no se extrae directamente, sino que es generada por técnicas de preprocesamiento de imágenes.
@@ -249,11 +249,11 @@
     \begin{figure}[htbp]
         \centering
         \includegraphics[width=0.8\textwidth]       {imagenes/FiltroGabor.png}
-        \caption{La Figura \ref{fig:FiltroGabor} muestra un ejemplo de extracción de características mediante descriptores basados en filtros de Gabor combinados con técnicas de codificación de textura (CS-LGBP), donde los filtros de Gabor se emplean como etapa inicial para capturar información de frecuencia y orientación. Fuente: \cite{Gabor_CSLBP}.}
+        \caption[Ejemplo de extracción de características mediante filtros de Gabor]{La Figura \ref{fig:FiltroGabor} muestra un ejemplo de extracción de características mediante descriptores basados en filtros de Gabor combinados con técnicas de codificación de textura (CS-LGBP), donde los filtros de Gabor se emplean como etapa inicial para capturar información de frecuencia y orientación. Fuente: \cite{Gabor_CSLBP}.}
         \label{fig:FiltroGabor}
     \end{figure}
 
-    \subsubsection{Flujo óptico}
+    \paragraph*{Flujo óptico}
     En nuestro contexto, definamos el flujo óptico como el movimiento aparente de los patrones de luminosidad entre dos frames consecutivos. Los algoritmos que calculan el desplazamiento de luminosidad para todos los píxeles de la imagen se conocen como algoritmos de flujo óptico denso, a diferencia de los algoritmos dispersos que calculan este desplazamiento solo para un número selectivo de píxeles. El principal inconveniente de usar el flujo óptico como identificador de movimiento en la escena es su incapacidad de diferenciar la variación de luminosidad causada por factores externos al movimiento, lo que puede llevar a errores.
 
     Un ejemplo representativo de este enfoque es el método propuesto por Shi y Tomasi (1994), que combina la detección de puntos de interés con técnicas de flujo óptico para realizar el seguimiento de características a lo largo de una secuencia de imágenes. En la figura \ref{fig:OpticalFlow} pueden apreciarse los vectores que representan el movimiento de algunos píxeles de un objeto presente en un par de imágenes.
@@ -261,7 +261,7 @@
     \begin{figure}[htbp]
         \centering
         \includegraphics[width=0.8\textwidth]       {imagenes/OpticalFlow.png}
-        \caption{Ejemplo de flujo óptico denso entre dos frames consecutivos. Los vectores representan el desplazamiento de los patrones de intensidad de la imagen, permitiendo estimar el movimiento de los píxeles en la escena. Fuente: \cite{learnopencv_mast3r_sfm}}
+        \caption[Ejemplo de flujo óptico denso entre dos frames consecutivos]{Ejemplo de flujo óptico denso entre dos frames consecutivos. Los vectores representan el desplazamiento de los patrones de intensidad de la imagen, permitiendo estimar el movimiento de los píxeles en la escena. Fuente: \cite{learnopencv_mast3r_sfm}}
         \label{fig:OpticalFlow}
     \end{figure}
 
@@ -269,7 +269,7 @@
 
     A la hora de rastrear un objeto en un video, muchas veces lo más simple es separar el primer plano del fondo de la escena, ya que los objetos que normalmente se mueven en una secuencia de imágenes suelen encontrarse en el primer plano. Esta es la idea fundamental de los métodos basados en segmentación, que separan los objetos presentes en el primer plano del fondo de la escena para posteriormente seguirlos a lo largo de la secuencia. A continuación se describen los dos enfoques más comunes de este tipo de métodos.
     
-    \subsubsection{Método ascendente (Bottom-Up)}
+    \paragraph*{Método ascendente (Bottom-Up)}
     En este tipo de técnica de seguimiento el proceso de segmentación y rastreo se consideran dos tareas diferentes. Primero se separa el fondo de la imagen de las zonas que contienen objetos en posible movimiento (primer plano). Estas zonas se agrupan en píxeles generando regiones que representan posibles objetos. A partir de este paso el método sigue la misma lógica que un método basado en característcias: Por cada región se extraen propiedades discriminativas (color, forma, tamaño...) y se comparan estas propiedaddes entre regiones de distintos frames para encontrar el candidato con la similitud más alta con el objetivo. \ref{fig:flujo-metodo-bottom-up}
 
 \vspace{0.35cm}
@@ -342,7 +342,7 @@ arrow/.style={-{Latex[length=2mm]}, draw=blue!55!black, line width=0.6pt}
 
 \end{figure}
 
-\subsubsection{Método basados en estimación conjunta (Joint-Based)}
+\paragraph*{Método basados en estimación conjunta (Joint-Based)}
 A diferencia de los métodos ascendentes, los métodos de estimación conjunta mezclan los procesos de segmentación y rastreo, con el objetivo de solventar el porblema de la dependencia de la segmentación previa y de la propagación de los errores de esta al seguimiento. Describamos el flujo general de este método de la siguiente forma: En el primer paso se construye un modelo de apariencia del objeto usando una formulación probabilística. En la segunda fase es donde tiene lugar la segmentación usando este modelo de apariencia. En el tercer y último paso se realiza el seguimiento en sí (ver figura \ref{fig:flujo-metodo-joint-based}).
 
 
@@ -425,7 +425,7 @@ Los filtros bayesianos son ideales para este tipo de problemas ya que permiten u
 
 A continuación se describen los dos enfoques más comunes de este tipo de métodos.
 
-\subsubsection{Filtro de kalman}
+\paragraph{Filtro de kalman}
 El filtro de kalman se usa para estimar el estado de un sistema linear asumiendo errores gaussianos. Para ello, primero debe designarse un modelo dinámico del movimiento del objetivo. Esta técnica presenta importantes características de las que el seguimiento se puede beneficiar, como predecir la localización futura del objeto, corregir esta predicción basándose en nuevas medidas y reducir el ruido de las observaciones a partir de los diagnósticos incorrectos. 
 
 \vspace{0.25cm}
@@ -508,7 +508,7 @@ note/.style={font=\scriptsize\bfseries, align=center}
 En algunos trabajos se ha utilizado el filtro de Kalman para tareas de seguimiento (Gunjal et al.,
 2018; Taylor et al., 2021; Zhao et al., 2009).
 
-\subsubsection{Filtro de partículas}
+\paragraph{Filtro de partículas}
 Uno de los principales inconvenientes de los métodos basados en el filtro de Kalman es su incapacidad para manejar sistemas complejos, es decir, sistemas que no se pueden expresar por la siguiente formulación:
 
 \begin{equation}
@@ -579,3 +579,89 @@ arrow/.style={-{Latex[length=2mm]}, draw=blue!55!black, line width=0.6pt}
 \captionof{figure}{Flujo general del método de filtro de partículas basado en histogramas (\cite{Particle_Filter}).}
 \label{fig:flujo-filtro-particulas}
 \end{center}
+
+\subsection{Métodos basados en aprendizaje automático}
+El aprendizaje automático es un campo que ha experimentado un notable desarrollo en los últimos años, dando lugar a importantes avances en diversos ámbitos como la ciencia, la tecnología y la gestión empresarial. Su objetivo principal es el desarrollo de algoritmos capaces de aprender patrones a partir de datos de entrenamiento y utilizarlos para resolver problemas de forma autónoma. En el contexto del seguimiento de objetos, estos modelos se emplean para aprender las características visuales y el comportamiento dinámico del objeto a partir de secuencias de imágenes que conforman el conjunto de entrenamiento. Posteriormente, en la fase de test, utilizan lo aprendido para detectar y seguir el objeto en secuencias no vistas previamente. 
+
+En SOT, suele haber tres tipo de métodos basados en aprendizaje.
+
+\subsubsection{Métodos generativos}
+Los métodos generativos se centran en modelar la apariencia del objeto a rastrear y en encontrar, en cada frame, la región de la imagen que mejor se ajusta a dicho modelo. En el primer frame de la secuencia, se construye una representación del objeto a partir de características como histogramas de color, textura u otros descriptores visuales.
+
+En los frames posteriores, se consideran distintas regiones candidatas dentro de la imagen, normalmente en torno a la posición estimada previamente. Para cada una de ellas, se evalúa su similitud con el modelo de apariencia, es decir, en qué medida la observación se ajusta a cómo debería verse el objeto según dicho modelo. Finalmente, se selecciona como nueva posición del objeto aquella región que presenta mayor correspondencia.
+
+Aunque este esquema de evaluación de candidatos es común a otros enfoques, la característica distintiva de los métodos generativos reside en que se centran exclusivamente en modelar la apariencia del objeto, sin considerar explícitamente la información del fondo. 
+
+Sin embargo, resulta complicado verificar la precisión del modelo en la práctica ya que el objeto puede cambiar a lo largo de la secuencia modificando sus características, a partir de las cuales se generó el modelo. Son estos cambios en el video los que diferencian sistemas simples de sistemas complejos. Es por ello que se empezaron a introducir mecanismos de actualización online del modelo, de forma que ya no se genera un modelo al principio y este se mantiene estático a lo largo de la secuencia, sino que en la propia fase de testeo, el algoritmo aprende nuevas representaciones visuales del primer plano de la región del objeto ignorando la influencia del fondo de la imagen y actualizando así el modelo de apariencia a lo largo de la secuencia. 
+
+Un ejemplo del uso de métodos generativos para tareas de seguimiento es el método de \cite{Robust_L1_Tracker}.
+
+\subsubsection{Métodos de aprendizaje reforzado}
+un modelo de aprendizaje reforzado aprende mediante prueba y error a partir de la toma de decisiones secuenciales para seguir al objeto. 
+Este método define un agente encargado de tomar las decisiones. Por cada frame, el agente adopta el estado del objeto (bounding box, características...) y aplica transformaciones a este estado (mover la caja de delimitación, cambiar su tamaño...). Por cada transformación, el agente evalúa su decisión a través de una función de recompensa. Esta función premia las acciones que acercan el estado transformado de la caja al estado actual y penaliza las que lo alejan. De esta forma, el agente aprende a tomar decisiones que maximicen la recompensa acumulada. 
+
+La idea clave es que el agente no aprende características del objeto o del sistema. No hay un modelo de apariencia ni un modelo dinámico del sistema. El agente aprende a tomar decisiones, es decir, a llevar a cabo acciones sobre el estado del sistema sin necesidad de modelar explícitamente su contenido. Esto tiene grandes ventajas como la capacidad del agente para adaptarse situaciones complejas como trayectorias impredecibles o movimientos bruscos. Al depender únicamente del criterio de decisión, el agente se centra más en hacerlo bien que en entender qué hace realmente. Sin embargo, el principal inconveniente de este método es la dificultad de diseñar una función de recompensa adecuada que guíe el aprendizaje del agente hacia un comportamiento deseado. Además, el proceso de entrenamiento puede ser largo y requerir una gran cantidad de datos para que el agente aprenda a tomar decisiones efectivas.
+
+Un artículo que trabaja con métodos de aprendizaje reforzado para tareas de seguimiento es el de \cite{RL_Tracking}. Este método se compone de dos redes neuronales: una red de emparejamiento que genera mapas de predicciones a partir del estado del objeto, y una red de plítica que evalúa estas predicciones generando una puntuación para cada una de estas. La predicción de mayor puntuación se selecciona como la nueva posición del objeto en el siguiente frame. Esta red de política es entrenada para funcionar en diversas situaciones. 
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]       {imagenes/EjemploRL.png}
+    \caption{Ejemplo del proceso de decisión en un método de seguimiento basado en aprendizaje por refuerzo. A partir del estado actual, el agente evalúa distintas acciones que generan nuevas hipótesis de localización. Cada una de estas hipótesis se asocia a una función de valor o recompensa (visualizada mediante mapas de calor), que mide la calidad de la localización.}
+    \label{fig:Ejemplo_RL_Tracking}
+\end{figure}
+
+\subsubsection{Métodos discriminativos}
+A diferencia de los métodos generativos que primero establecen un modelo probabilístico para la estructura subyacente a los datos (al estado del objetivo) y después buscan la regíon que mejor encaje con este modelo, los métodos discriminativos consideran la tarea de seguimiento como un problema de clasificación binaria, en la que se busca separar (discriminar) al objeto del fondo de la imagen. 
+
+Como describe \cite{ModelosDisc_vs_Gen}, los métodos discriminativos se basan en el aprendizaje de un modelo capaz de asignar a cada muestra de datos $\mathbf{x}$ una etiqueta de clase $y$. En su forma más general, estos modelos pueden interpretarse como funciones que aproximan directamente la relación entre las observaciones y las etiquetas, ya sea de forma determinista o mediante el modelado de la probabilidad condicional $p(y \mid \mathbf{x})$.
+
+El objetivo de estos métodos es aprender fronteras de decisión que separen las distintas clases a partir de los datos de entrenamiento, prestando especial atención a aquellas muestras cercanas a dichas fronteras.
+
+En el contexto del seguimiento de objetos, esta formulación se traduce habitualmente en un problema de clasificación binaria, en el que el modelo debe distinguir entre el objeto de interés (clase positiva) y el fondo o distractores (clase negativa). De este modo, el proceso de tracking consiste en evaluar distintas regiones candidatas y seleccionar aquella que el modelo clasifica como objeto con mayor confianza.
+
+Este tipo de métodos suelen a su vez dividirse en dos categorías: aprendizaje superficial y aprendizaje profundo.
+
+\paragraph*{Aprendizaje superficial}
+Como se ha visto anteriormente, un problema de seguimiento puede ser considerado como un proceso de toma de decisiones en el que un clasificador se entrena para aprender a discriminar entre el objeto y el fondo. Después, en la etapa de prueba, el clasificador decide si un candidato es objeto o no.
+Este es el enfoque seguido por los métodos de aprendizaje superficial. En ellos, además, las características del objeto se definen manualmente y se extraen durante el entrenamiento y el test. 
+
+El flujo general de este tipo de métodos comienza con la definición de un área de búsqueda alrededor de la psoición estimada del objeto en el primer frame. Tras definir este área, se generan n regiones candidatas a representar la posición del objeto. Para traducir este problema a clasificación binaria se define la región del objeto como clase positiva y al resto de regiones del área de búsqueda como clase negativa. Cada región candidata se evalúa según la función de clasifiación $p(y=1 \mid \mathbf{x})$, donde $y=1$ representa la clase positiva (objeto) y $\mathbf{x}$ es el vector de características extraídas de la región candidata. La posición del objeto se define como $x^* = \arg\max_{\mathbf{x_i}} p(y=1 \mid \mathbf{x})$, es decir, la región candidata que maximiza la probabilidad de ser clasificada como objeto, también conocido como el máximo local de la región de búsqueda.
+
+Este enfoque fue utilizado para tracking por \cite{SOT_SVM} e incorporaron un SVM como clasificador. Las máquinas de soporte vectorial (SVM) son uno de los clasificadores por excelencia en este tipo de métodos. Estos algoritmos tienen como objetivo encontrar el hipeerplano óptimo que separa dos clases de datos con el máximo margen posible en un espacio de características. Los vectores de soporte se pueden definir como los puntos más cercanos a la frontera de decisión, es decir, los que están en la zona de mayor ambigüedad entre clases. Es por esto que para que el clasificador aprenda el mayor número de datos cercanos a la ambigúedad aproximandose así a la frontera de decisión resulta esencial definir la antes mencionada como "área de búsqueda".
+
+En la figura \ref{fig:Shallow_Learning} se muestra esquema general de este flujo.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]       {imagenes/ShallowLearning.png}
+    \caption{Resumen del uso de máquinas de soporte vectorial para tareas de seguimiento \cite{SOT_SVM}.}
+    \label{fig:Shallow_Learning}
+\end{figure}
+
+\paragraph*{Aprendizaje profundo}
+Las redes neuronales artificiales se inspiran generalmente en la estructura de los circuitos neuronales del cerebro humano, cuyo funcionamiento radica en la compleja transmisión de señales químicas y eléctricas a través de redes dirstribuids de células nerviosas (neuronas). En el aprendizaje profundo, estas señales se interpretan como las salidas ponderadas de muchas operaciones matemáticas anidadas y distribuidas entre numerosas capas intermedias de procesamiento que en conjunto conforman la red neuronal (ver figura \ref{fig:Deep_Learning}).
+
+De forma más específica, podemos entender un modelo de \textit{deep learning} como una serie intrincada de ecuaciones anidadas que asignan una entrada a una salida. Las relaciones entre estas ecuaciones se organizan en capas, donde la salida de cada neurona en una capa se convieerte en la entrada ponderada para todas las neuronas de la siguiente capa. Esta ponderación se ajusta mediante un valor llamado peso. Además, el punto de activación de cada neurona viene determinado por una función de activación que a su vez depende de otro nuevo valor conocido como sesgo. De esta forma, el aprendizaje de la red puede entenderse como el proceso de ajuste de sus parámetros internos, principalmente pesos y sesgos, mediante algoritmos de optimización. Este ajuste modifica la forma en que la red transforma las entradas en salidas, con el objetivo de minimizar el error entre las predicciones del modelo y los valores esperados.
+
+\vspace{-0.35cm}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]       {imagenes/RedNeuronalProfunda.png}
+    \caption{Ejemplo de red neuronal estándar con 3 capas ocultas \cite{IBM_Deep_Learning}.}
+    \label{fig:Deep_Learning}
+\end{figure}
+
+En el contexto de la visión artificial, las recientes técnicas de aprendizaje profundo han deomstrado ser altamente efectivas, en concreto aumentando significativamente la precisión en los métodos de seguimiento de objetos.
+
+Mientras que en los métodos de aprendizaje superficial requieren de características importantes y discriminativas extraidas manualmente por profesionales, los métodos de aprendizaje profundo son capaces de extraer estas características de forma autónoma. 
+
+Debido a la notable mejora que supone el uso de estos modelos para tareas de SOT, nos centraremos más detenidamente en la clasificación de este tipo de métodos a continuación.
+
+Comencemos esta clasificación con dos categorías genéricas de métodos de aprendizaje profundo: Métodos basados en la extraccón de características y métodos de extremo a extremo.
+
+\vspace{0.6cm}
+\bigskip
+\noindent{\large\textit{Métodos basados en extracción de características}}
+
+Hola

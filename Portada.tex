@@ -67,6 +67,16 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning,shapes.geometric,arrows.meta,calc}
 
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {1.0ex \@plus.2ex}%
+  {\normalfont\normalsize\bfseries}}
+\makeatother
+
 \usepackage[ruled,vlined]{algorithm2e} % Para incluir algoritmos
 \renewcommand{\algorithmcfname}{Algoritmo}
 \renewcommand{\listalgorithmcfname}{Lista de algoritmos}

@@ -13,10 +13,10 @@
 \citation{review_infrared_imaging}
 \@writefile{toc}{\contentsline {subsection}{\numberline {0.0.1}Imágenes térmicas en el espectro infrarrojo}{2}{subsection.0.0.1}\protected@file@percent }
 \citation{Articulo_Concepto_SOT}
-\citation{Gabor_CSLBP}
-\citation{learnopencv_mast3r_sfm}
 \citation{Articulo_Concepto_SOT}
 \citation{Particle_Filter}
+\citation{SOT_SVM}
+\citation{IBM_Deep_Learning}
 \citation{review_infrared_imaging}
 \citation{hddrones_historia}
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}INTRODUCCIÓN}{13}{chapter.1}\protected@file@percent }
@@ -43,68 +43,86 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Métodos basados en características}{17}{subsection.2.3.1}\protected@file@percent }
 \citation{Articulo_Concepto_SOT}
 \citation{Articulo_Concepto_SOT}
-\@writefile{toc}{\contentsline {subsubsection}{Color}{18}{section*.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Textura}{18}{section*.9}\protected@file@percent }
 \citation{Gabor_CSLBP}
 \citation{Gabor_CSLBP}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Diagrama de flujo del seguimiento de objetos basado en histogramas en el espacio de características de gradiente (Zhao, 2007). Fuente: \cite  {Articulo_Concepto_SOT}.}}{19}{figure.caption.8}\protected@file@percent }
 \newlabel{fig:flujo-seguimiento-histogramas}{{2.2}{19}{Diagrama de flujo del seguimiento de objetos basado en histogramas en el espacio de características de gradiente (Zhao, 2007). Fuente: \cite {Articulo_Concepto_SOT}}{figure.caption.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces La Figura \ref {fig:FiltroGabor} muestra un ejemplo de extracción de características mediante descriptores basados en filtros de Gabor combinados con técnicas de codificación de textura (CS-LGBP), donde los filtros de Gabor se emplean como etapa inicial para capturar información de frecuencia y orientación. Fuente: \cite  {Gabor_CSLBP}.}}{19}{figure.caption.10}\protected@file@percent }
-\newlabel{fig:FiltroGabor}{{2.3}{19}{La Figura \ref {fig:FiltroGabor} muestra un ejemplo de extracción de características mediante descriptores basados en filtros de Gabor combinados con técnicas de codificación de textura (CS-LGBP), donde los filtros de Gabor se emplean como etapa inicial para capturar información de frecuencia y orientación. Fuente: \cite {Gabor_CSLBP}}{figure.caption.10}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Flujo óptico}{19}{section*.11}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Ejemplo de extracción de características mediante filtros de Gabor}}{19}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:FiltroGabor}{{2.3}{19}{Ejemplo de extracción de características mediante filtros de Gabor}{figure.caption.10}{}}
 \citation{learnopencv_mast3r_sfm}
 \citation{learnopencv_mast3r_sfm}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Ejemplo de flujo óptico denso entre dos frames consecutivos. Los vectores representan el desplazamiento de los patrones de intensidad de la imagen, permitiendo estimar el movimiento de los píxeles en la escena. Fuente: \cite  {learnopencv_mast3r_sfm}}}{20}{figure.caption.12}\protected@file@percent }
-\newlabel{fig:OpticalFlow}{{2.4}{20}{Ejemplo de flujo óptico denso entre dos frames consecutivos. Los vectores representan el desplazamiento de los patrones de intensidad de la imagen, permitiendo estimar el movimiento de los píxeles en la escena. Fuente: \cite {learnopencv_mast3r_sfm}}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Ejemplo de flujo óptico denso entre dos frames consecutivos}}{20}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:OpticalFlow}{{2.4}{20}{Ejemplo de flujo óptico denso entre dos frames consecutivos}{figure.caption.12}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Métodos basados en segmentación}{20}{subsection.2.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Método ascendente (Bottom-Up)}{21}{section*.13}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Esquema general del flujo de un método de seguimiento basado en segmentación \textit  {bottom-up}.}}{21}{figure.caption.14}\protected@file@percent }
 \newlabel{fig:flujo-metodo-bottom-up}{{2.5}{21}{Esquema general del flujo de un método de seguimiento basado en segmentación \textit {bottom-up}}{figure.caption.14}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Método basados en estimación conjunta (Joint-Based)}{21}{section*.15}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces Esquema general del flujo de un método de seguimiento basado en segmentación \textit  {joint-based}.}}{22}{figure.caption.16}\protected@file@percent }
 \newlabel{fig:flujo-metodo-joint-based}{{2.6}{22}{Esquema general del flujo de un método de seguimiento basado en segmentación \textit {joint-based}}{figure.caption.16}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Métodos basados en estimación}{22}{subsection.2.3.3}\protected@file@percent }
 \citation{Articulo_Concepto_SOT}
 \citation{Articulo_Concepto_SOT}
-\@writefile{toc}{\contentsline {subsubsection}{Filtro de kalman}{23}{section*.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Filtro de kalman}{23}{section*.17}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Flujo refinado del filtro de Kalman: La predicción física se corrige mediante la medición real para obtener el estado óptimo. Inspirado en \cite  {Articulo_Concepto_SOT}}}{23}{figure.caption.18}\protected@file@percent }
 \newlabel{fig:flujo-kalman-refinado}{{2.7}{23}{Flujo refinado del filtro de Kalman: La predicción física se corrige mediante la medición real para obtener el estado óptimo. Inspirado en \cite {Articulo_Concepto_SOT}}{figure.caption.18}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Filtro de partículas}{23}{section*.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Filtro de partículas}{23}{section*.19}\protected@file@percent }
 \citation{Particle_Filter}
 \citation{Articulo_Concepto_SOT}
 \citation{Particle_Filter}
 \citation{Particle_Filter}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces Flujo general del método de filtro de partículas basado en histogramas (\cite  {Particle_Filter}).}}{24}{figure.caption.20}\protected@file@percent }
 \newlabel{fig:flujo-filtro-particulas}{{2.8}{24}{Flujo general del método de filtro de partículas basado en histogramas (\cite {Particle_Filter})}{figure.caption.20}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}OBJETIVOS}{25}{chapter.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Métodos basados en aprendizaje automático}{24}{subsection.2.3.4}\protected@file@percent }
+\citation{Robust_L1_Tracker}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.4.1}Métodos generativos}{25}{subsubsection.2.3.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.4.2}Métodos de aprendizaje reforzado}{25}{subsubsection.2.3.4.2}\protected@file@percent }
+\citation{RL_Tracking}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.9}{\ignorespaces Ejemplo del proceso de decisión en un método de seguimiento basado en aprendizaje por refuerzo. A partir del estado actual, el agente evalúa distintas acciones que generan nuevas hipótesis de localización. Cada una de estas hipótesis se asocia a una función de valor o recompensa (visualizada mediante mapas de calor), que mide la calidad de la localización.}}{26}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:Ejemplo_RL_Tracking}{{2.9}{26}{Ejemplo del proceso de decisión en un método de seguimiento basado en aprendizaje por refuerzo. A partir del estado actual, el agente evalúa distintas acciones que generan nuevas hipótesis de localización. Cada una de estas hipótesis se asocia a una función de valor o recompensa (visualizada mediante mapas de calor), que mide la calidad de la localización}{figure.caption.21}{}}
+\citation{ModelosDisc_vs_Gen}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.4.3}Métodos discriminativos}{27}{subsubsection.2.3.4.3}\protected@file@percent }
+\citation{SOT_SVM}
+\citation{SOT_SVM}
+\citation{SOT_SVM}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.10}{\ignorespaces Resumen del uso de máquinas de soporte vectorial para tareas de seguimiento \cite  {SOT_SVM}.}}{28}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:Shallow_Learning}{{2.10}{28}{Resumen del uso de máquinas de soporte vectorial para tareas de seguimiento \cite {SOT_SVM}}{figure.caption.23}{}}
+\citation{IBM_Deep_Learning}
+\citation{IBM_Deep_Learning}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.11}{\ignorespaces Ejemplo de red neuronal estándar con 3 capas ocultas \cite  {IBM_Deep_Learning}.}}{29}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:Deep_Learning}{{2.11}{29}{Ejemplo de red neuronal estándar con 3 capas ocultas \cite {IBM_Deep_Learning}}{figure.caption.25}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}OBJETIVOS}{31}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}MATERIALES Y MÉTODOS}{27}{chapter.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}MATERIALES Y MÉTODOS}{33}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}RESULTADOS}{29}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}RESULTADOS}{35}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}CONCLUSIONES}{31}{chapter.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}CONCLUSIONES}{37}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
 \citation{*}
 \bibstyle{apalike}
 \bibdata{bibliografia}
-\bibcite{Particle_Filter}{{1}{2016}{{Ding et~al.}}{{}}}
-\bibcite{Real_Time_Tracking}{{2}{2024}{{Ding et~al.}}{{}}}
-\bibcite{VOT_TIR2016}{{3}{2016}{{Felsberg et~al.}}{{}}}
-\bibcite{hddrones_historia}{{4}{sf}{{HD Drones}}{{}}}
-\bibcite{review_infrared_imaging}{{5}{2022}{{Hou et~al.}}{{}}}
-\bibcite{learnopencv_mast3r_sfm}{{6}{2025}{{Jaykumaran}}{{}}}
-\bibcite{Gabor_CSLBP}{{7}{2017}{{Li et~al.}}{{}}}
-\bibcite{estudio_peso_drones}{{8}{2011}{{Moses et~al.}}{{}}}
-\bibcite{micro_drone_radar_studio}{{9}{2018}{{Patel et~al.}}{{}}}
-\bibcite{Articulo_Concepto_SOT}{{10}{2022}{{Soleimanitaleb and Keyvanrad}}{{}}}
-\bibcite{CST_Paper}{{11}{2025}{{Xie et~al.}}{{}}}
-\@writefile{toc}{\contentsline {chapter}{Bibliografía}{34}{chapter*.21}\protected@file@percent }
-\gdef \@abspage@last{38}
+\bibcite{Robust_L1_Tracker}{{1}{2012}{{Bao et~al.}}{{}}}
+\bibcite{RL_Tracking}{{2}{2018}{{Choi et~al.}}{{}}}
+\bibcite{Particle_Filter}{{3}{2016}{{Ding et~al.}}{{}}}
+\bibcite{Real_Time_Tracking}{{4}{2024}{{Ding et~al.}}{{}}}
+\bibcite{VOT_TIR2016}{{5}{2016}{{Felsberg et~al.}}{{}}}
+\bibcite{hddrones_historia}{{6}{sf}{{HD Drones}}{{}}}
+\bibcite{review_infrared_imaging}{{7}{2022}{{Hou et~al.}}{{}}}
+\bibcite{IBM_Deep_Learning}{{8}{sf}{{IBM}}{{}}}
+\bibcite{learnopencv_mast3r_sfm}{{9}{2025}{{Jaykumaran}}{{}}}
+\bibcite{Gabor_CSLBP}{{10}{2017}{{Li et~al.}}{{}}}
+\@writefile{toc}{\contentsline {chapter}{Bibliograf\'{\i }a}{39}{section*.26}\protected@file@percent }
+\bibcite{estudio_peso_drones}{{11}{2011}{{Moses et~al.}}{{}}}
+\bibcite{micro_drone_radar_studio}{{12}{2018}{{Patel et~al.}}{{}}}
+\bibcite{Articulo_Concepto_SOT}{{13}{2022}{{Soleimanitaleb and Keyvanrad}}{{}}}
+\bibcite{SOT_SVM}{{14}{2007}{{Tian et~al.}}{{}}}
+\bibcite{ModelosDisc_vs_Gen}{{15}{sf}{{Wang}}{{}}}
+\bibcite{CST_Paper}{{16}{2025}{{Xie et~al.}}{{}}}
+\gdef \@abspage@last{44}

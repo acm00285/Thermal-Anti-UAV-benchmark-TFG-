@@ -1,5 +1,16 @@
 \begin{thebibliography}{}
 
+\bibitem[Bao et~al., 2012]{Robust_L1_Tracker}
+Bao, C., Wu, Y., Ling, H., and Ji, H. (2012).
+\newblock Real time robust l1 tracker using accelerated proximal gradient
+  approach.
+\newblock In {\em 2012 IEEE Conference on Computer Vision and Pattern
+  Recognition}, pages 1830--1837. IEEE.
+
+\bibitem[Choi et~al., 2018]{RL_Tracking}
+Choi, J., Kwon, J., and Lee, K.~M. (2018).
+\newblock Real-time visual tracking by deep reinforced decision making.
+
 \bibitem[Ding et~al., 2016]{Particle_Filter}
 Ding, D., Jiang, Z., and Liu, C. (2016).
 \newblock Object tracking algorithm based on particle filter with color and
@@ -34,6 +45,12 @@ Hou, F., Zhang, Y., Zhou, Y., Zhang, M., Lv, B., and Wu, J. (2022).
 \newblock Review on infrared imaging technology.
 \newblock {\em Sustainability}, 14(18).
 
+\bibitem[{IBM}, sf]{IBM_Deep_Learning}
+{IBM} (s.f.).
+\newblock Deep learning.
+\newblock \url{https://www.ibm.com/es-es/think/topics/deep-learning}.
+\newblock IBM Think. Consultado el 4 de mayo de 2026.
+
 \bibitem[Jaykumaran, 2025]{learnopencv_mast3r_sfm}
 Jaykumaran (2025).
 \newblock {MASt3R} and {MASt3R-SfM} explanation: Image matching and 3d
@@ -65,6 +82,20 @@ Soleimanitaleb, Z. and Keyvanrad, M.~A. (2022).
 \newblock Single object tracking: {A} survey of methods, datasets, and
   evaluation metrics.
 \newblock {\em CoRR}, abs/2201.13066.
+
+\bibitem[Tian et~al., 2007]{SOT_SVM}
+Tian, M., Zhang, W., and Liu, F. (2007).
+\newblock On-line ensemble svm for robust object tracking.
+\newblock In Yagi, Y., Kang, S.~B., Kweon, I.~S., and Zha, H., editors, {\em
+  Computer Vision -- ACCV 2007}, pages 355--364, Berlin, Heidelberg. Springer
+  Berlin Heidelberg.
+
+\bibitem[Wang, sf]{ModelosDisc_vs_Gen}
+Wang, R. (s.f.).
+\newblock Support vector machines.
+\newblock
+  \url{https://pages.hmc.edu/ruye/MachineLearning/lectures/ch9/node1.html}.
+\newblock Harvey Mudd College. Consultado el 21 de abril de 2026.
 
 \bibitem[Xie et~al., 2025]{CST_Paper}
 Xie, B., Zhang, C., Wang, F., Liu, P., Lu, F., Chen, Z., and Hu, W. (2025).

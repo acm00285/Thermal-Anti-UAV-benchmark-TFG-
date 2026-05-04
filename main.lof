@@ -3,12 +3,15 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Taxonomía de métodos de seguimiento visual}}{17}{figure.caption.6}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Diagrama de flujo del seguimiento de objetos basado en histogramas en el espacio de características de gradiente (Zhao, 2007). Fuente: \cite {Articulo_Concepto_SOT}.}}{19}{figure.caption.8}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces La Figura \ref {fig:FiltroGabor} muestra un ejemplo de extracción de características mediante descriptores basados en filtros de Gabor combinados con técnicas de codificación de textura (CS-LGBP), donde los filtros de Gabor se emplean como etapa inicial para capturar información de frecuencia y orientación. Fuente: \cite {Gabor_CSLBP}.}}{19}{figure.caption.10}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Ejemplo de flujo óptico denso entre dos frames consecutivos. Los vectores representan el desplazamiento de los patrones de intensidad de la imagen, permitiendo estimar el movimiento de los píxeles en la escena. Fuente: \cite {learnopencv_mast3r_sfm}}}{20}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Ejemplo de extracción de características mediante filtros de Gabor}}{19}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Ejemplo de flujo óptico denso entre dos frames consecutivos}}{20}{figure.caption.12}%
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Esquema general del flujo de un método de seguimiento basado en segmentación \textit {bottom-up}.}}{21}{figure.caption.14}%
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Esquema general del flujo de un método de seguimiento basado en segmentación \textit {joint-based}.}}{22}{figure.caption.16}%
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Flujo refinado del filtro de Kalman: La predicción física se corrige mediante la medición real para obtener el estado óptimo. Inspirado en \cite {Articulo_Concepto_SOT}}}{23}{figure.caption.18}%
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Flujo general del método de filtro de partículas basado en histogramas (\cite {Particle_Filter}).}}{24}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Ejemplo del proceso de decisión en un método de seguimiento basado en aprendizaje por refuerzo. A partir del estado actual, el agente evalúa distintas acciones que generan nuevas hipótesis de localización. Cada una de estas hipótesis se asocia a una función de valor o recompensa (visualizada mediante mapas de calor), que mide la calidad de la localización.}}{26}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Resumen del uso de máquinas de soporte vectorial para tareas de seguimiento \cite {SOT_SVM}.}}{28}{figure.caption.23}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Ejemplo de red neuronal estándar con 3 capas ocultas \cite {IBM_Deep_Learning}.}}{29}{figure.caption.25}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
