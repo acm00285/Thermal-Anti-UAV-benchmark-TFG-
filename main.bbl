@@ -7,6 +7,18 @@ Bao, C., Wu, Y., Ling, H., and Ji, H. (2012).
 \newblock In {\em 2012 IEEE Conference on Computer Vision and Pattern
   Recognition}, pages 1830--1837. IEEE.
 
+\bibitem[Chicco, 2021]{RedSiamesaDescripcion}
+Chicco, D. (2021).
+\newblock {\em Siamese Neural Networks: An Overview}, pages 73--94.
+\newblock Springer US, New York, NY.
+
+\bibitem[Chierchia, 2025]{Chierchia_Siamese_Network}
+Chierchia, G. (2025).
+\newblock Siamese network.
+\newblock
+  \url{https://perso.esiee.fr/~chierchg/deep-learning/tutorials/metric/metric-1.html}.
+\newblock Deep Learning. Consultado el 6 de mayo de 2026.
+
 \bibitem[Choi et~al., 2018]{RL_Tracking}
 Choi, J., Kwon, J., and Lee, K.~M. (2018).
 \newblock Real-time visual tracking by deep reinforced decision making.
@@ -34,11 +46,20 @@ Felsberg, M., Kristan, M., Matas, J., Leonardis, A., Pflugfelder, R., Häger,
   results.
 \newblock volume 9914, pages 824--849.
 
+\bibitem[Ghaemmaghami, 2017]{CNN_LSTM_Tracking}
+Ghaemmaghami, M.~P. (2017).
+\newblock Tracking of humans in video stream using lstm recurrent neural
+  network.
+
 \bibitem[{HD Drones}, sf]{hddrones_historia}
 {HD Drones} (s.f.).
 \newblock Historia de los drones.
 \newblock \url{https://huescadrones.es/hddrones/historia-de-los-drones/}.
 \newblock Asociación HD Drones. Consultado el 25 de marzo de 2026.
+
+\bibitem[Held et~al., 2016]{ArtículoGOTURN}
+Held, D., Thrun, S., and Savarese, S. (2016).
+\newblock Learning to track at 100 fps with deep regression networks.
 
 \bibitem[Hou et~al., 2022]{review_infrared_imaging}
 Hou, F., Zhang, Y., Zhou, Y., Zhang, M., Lv, B., and Wu, J. (2022).

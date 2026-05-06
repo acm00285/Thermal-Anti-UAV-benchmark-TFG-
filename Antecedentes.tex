@@ -662,6 +662,129 @@ Comencemos esta clasificación con dos categorías genéricas de métodos de apr
 
 \vspace{0.6cm}
 \bigskip
-\noindent{\large\textit{Métodos basados en extracción de características}}
+\noindent{\textit{\textbf{Métodos basados en extracción de características}}}
 
-Hola
+\vspace{0.4cm}
+
+Desde la experiencia experimental a lo largo del desarrollo de los algoritmos clásicos de seguimiento (descritos en las secciones anteriores) se puede observar que cualquier desarrollo o mejora en la etapa de extracción de características suele traducirse en una mejora directamente proporcional en la precisión del propio seguimiento. Es por esta razón que, aprovechando la gran habilidad que presentan las técnicas de aprendizaje profundo para la extracción de características y clasificación de imágenes, se pueden implementar métodos de seguimiento basados en redes neuronales profundas para la extracción de características, conocidos como redes de extracción (\textit{feature extraction networks}).
+
+Este tipo de métodos separan el proceso de seguimiento en dos secciones: detección y seguimiento.
+
+{\leftskip=\parindent
+\indent En fase de detección, se utilizan redes de extracción para obtener características profundas. Por otro lado, en la fase de seguimiento se pueden utilizar métodos clásicos (filtros de Kalman, SVM...) o métodos basados en aprendizaje profundo (Redes convolucionales, modelos LSTM...).
+
+Usualmente suelen utilizarse redes neuronales convolucionales (CNN) para la extracción de características, siendo este tipo de redes idóneas para el procesamiento específico de imágenes. El flujo de obtención de estos atributos suele seguir una complejidad creciente a medida que se avanza por las capas de la red: las primeras capas pueden aprender a detectar bordes simples (líneas, contornos). En capas más profundas, la red va aprendiendo patrones más complejos y texturas, hasta llegar a las capas finales donde la red ya es capaz de identificar formas y objetos más complejos. 
+
+Una vez la CNN extrae las características de la imagen, estas se utilizan para representar al objeto en el espacio de características y emplear esta representación para comparar la imagen actual con la plantilla del objeto que el tracker ha aprendido (ver figura \ref{fig:flujo-deep-feature-lstm}).
+
+\vspace{0.35cm}
+\begin{center}
+\captionsetup{type=figure, font=small, skip=10pt}
+\centering
+\resizebox{0.92\textwidth}{!}{%
+\begin{tikzpicture}[
+font=\scriptsize,
+block/.style={
+draw=gray!75!black,
+fill=gray!10,
+minimum width=2.8cm,
+minimum height=1cm,
+align=center,
+rounded corners=2pt
+},
+mainblock/.style={
+draw=blue!60!black,
+fill=blue!8,
+minimum width=2.45cm,
+minimum height=0.95cm,
+align=center,
+rounded corners=2pt
+},
+arrow/.style={-{Latex[length=2mm]}, draw=blue!55!black, line width=0.7pt},
+note/.style={font=\scriptsize, align=center, fill=white, inner sep=1.5pt}
+]
+\node[block] (frame) at (-6.1,0) {Fotograma de video};
+\node[mainblock] (cnn) at (-1.7,0) {CNN};
+\node[block] (detect) at (5.0,0) {Detección};
+\node[mainblock] (lstm) at (0.3,-2.8) {LSTM RNN};
+
+\draw[arrow] (frame.east) -- node[note, above=3pt] {Entrada} (cnn.west);
+\draw[arrow] (cnn.east) -- node[note, above=4pt] {Vector de características} (detect.west);
+\draw[arrow] (cnn.south) -- node[note, right=11pt] {$x_t$\\Vector de características} (lstm.north);
+\draw[arrow] (lstm.south) -- ++(0,-0.95) node[note, below] {Resultado del seguimiento};
+\draw[arrow] (detect.south) .. controls +(1.45,-0.45) and +(2.35,0.35) .. node[note, pos=0.62, right=10pt, below=12pt] {$B_t$\\Caja delimitadora} (lstm.east);
+\draw[arrow] ($(frame.north)+(0,0.55)$) -- ($(detect.north)+(0,0.55)$);
+\draw ($(frame.north)+(0,0.55)$) -- ++(0,-0.28);
+\draw ($(detect.north)+(0,0.55)$) -- ++(0,-0.28);
+\node[note] at (-2.05,1.06) {Preentrenamiento};
+\node[note] at (2.55,-1.02) {Predicción de región};
+\end{tikzpicture}%
+}
+\captionof{figure}{Flujo general de un método de seguimiento profundo basado en extracción de características y modelado temporal. \cite{CNN_LSTM_Tracking}}
+\label{fig:flujo-deep-feature-lstm}
+\end{center}
+
+
+\par}
+
+\vspace{0.6cm}
+\bigskip
+\indent{\textit{\textbf{Métodos de extremo a extremo}}}
+
+\vspace{0.4cm}
+
+{\leftskip=\parindent
+\indent Este tipo de métodos se caracterizan por entrenar una única red para dirigir todo el proceso de seguimiento, es decir, desde la etapa de extracción de características hasta la etapa de evaluación de candidatos. Siguiendo la clasificación de \cite{Articulo_Concepto_SOT}, podemos dividir este tipo de métodos tres categorías: redes siamesas, aprendizaje basado en parches (\textit{patch learning}) y trackers basados en grafos.
+\par}
+
+\newpage
+\bigskip
+\indent{\textit{Redes siamesas}}
+
+\vspace{0.4cm}
+
+{\leftskip=\parindent
+\indent Las redes siamesas son un tipo especial de aqruitectura de red neuronal diseñada para comparar dos entradas y producir una salida. La red procesa cada entrada por separado para producir \textit{embeddings} (vectores de características). Luego, estos embeddings se comparan utilizando una función de similitud o una métrica de distancia \cite{Chierchia_Siamese_Network}. 
+
+El objetivo principal de la red es minimizar la distancia entre embeddings de entrada similares y maximizar la distancia entre los embeddings de entrada diferentes. Esto obliga a la red a aprendere a extraer las características más esenciales de las entradas para su comparación. Esto resulta especialmente útil en tareas en las que la cantidad de datos de entrenamiento etiquetados es limitada, ya que la red se centra más en aprender comparaciones relativas que en comparar características absolutas. Una vez entrenadas, pueden generalizar a clases desconocidas durante su entrenamiento.
+
+Este tipo de red suele componerse de dos ramas idénticas, es decir, dos subredes (normalmente CNNs) con los mismos pesos y arquitectura (de ahí el nombre de "siamesas"), cada una de ellas encargada de procesar una de las entradas y generar una representación. Luego, estas representaciones se comparan mediante una función de similitud. En tracking, esta comparación suele generar un mapa de respuesta en el que se ponera una puntuación a cada región en función de su probabilidad de contener al objeto. Se devuelve la región con mayor puntuación. La arquitectura genérica de una red siamesa se muestra en la figura \ref{fig:RedSiamesa}.
+\par}   
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]       {imagenes/RedSiamesa.png}
+    \caption{Representación de la estructura del modelo de red neuronal siamesa. Los datos se procesan de izquierda a derecha. El valor de la distancia coseno es una medida de la similitud entre el par de instancias de datos de entrada, como resultado final. \cite{RedSiamesaDescripcion}.}
+    \label{fig:RedSiamesa}
+\end{figure}
+
+Las ramas de esta red suelen ser CNNs compuestas de tres partes (ver figura \ref{fig:RamaCNNSiamesa}): 
+\begin{itemize}
+    \item \textbf{Backbone:} Este es el esqueleto de la red, una serie de capas convolucionales y de puesta en común (\textit{pooling}) encargadas de extraer las características de la imágen.
+    
+    \item \textbf{Neck:} Un pqeueño número de capas para procesar aún más las características extraidas por el backbone y generar una representación más compacta y discriminativa de la imagen. Normalmente se utiliza una capa de aplanamiento (\textit{flattening}), seguida de una o más capas totalmente conectadas con activaciones no lineales.
+    
+    \item \textbf{Head:} Es el conjunto final de capas encargadas de preparar los embeddings para su comparación acorde a una función de pérdida seleccionada. Normalmente esto involucra a una capa de normalización. Normalmente esta parte final de la red se comparte entre las dos ramas para fusionar ambas representaciones. 
+
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]       {imagenes/RamaCNNSiamesa.png}
+    \caption{Representación de la estructura del modelo de red neuronal siamesa. Los datos se procesan de izquierda a derecha. El valor de la distancia coseno es una medida de la similitud entre el par de instancias de datos de entrada, como resultado final. \cite{RedSiamesaDescripcion}.}
+    \label{fig:RamaCNNSiamesa}
+\end{figure}
+
+En el contexto del seguimiento de objetos, muchos estudios recientes han utilizado redes siamesas para proponer mejoras significativas en la precisión de los trackers. Un ejemplo de ello es el método GOTURN de \cite{ArtículoGOTURN}. este tracker propone un método de entrenamiento offline capaz de detectar nuevos objetos a 100 FPS durante la etapa de testeo.
+
+Este modelo destaca por ser de regresión directa, en lugar de de clasificador de candidatos: El modelo recibe como entrada dos recortes, el objeto en el frame anterior y el área de búsqueda en el frame actual. Ambos pasan por capas convolucionales (ramas) para extraer características. Después, capas totalmente conectadas (\textit{fully-connected layers}) combinan esa información. Para la salida, el modelo predice directamente las coordenadas de la nueva bbox dentro de la región de búsqueda, en lugar de evaluar muchas ventanas candidtas (de ahí su consideración como regresor directo). La arquitectura de este método se describe en la figura \ref{fig:flujo-GOTURN}.
+
+\vspace{0.35cm}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]       {imagenes/GOTURN.jpg}
+    \caption{Se introduce en la red una zona de búsqueda del fotograma actual y un objetivo del fotograma anterior. La red aprende a comparar estos recortes para encontrar el objeto objetivo en la imagen actual \cite{ArtículoGOTURN}.}
+    \label{fig:flujo-GOTURN}
+\end{figure}
+
+Este modelo a su vez destaca por entrenarse de forma \textit{offline}. Esto quiere decir que los pesos adoptados durante el entrenamiento (con vídeos e imágenes anotadas) quedan congelados en la etapa de test, es decir, el modelo no se actualiza durante el seguimiento. La principal ventaja de esta estrategia es que al no clasificar múltiples parches en la fase de test, el modelo consigue una velocidad muy alta, alrededor de 100 fps en este caso. Esto es algo crucial en tracking ya que la mayoría de aplicaciones de estos métodos suelen implicar situaciones donde se requiere seguimiento en tiempo real. Por otro lado, al depender de una región de búsqueda local basada en la posición anterior, la predicción puede fallar ante movimientos rápidos, oclusiones largas o salidas de escena.

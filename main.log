@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.7)  4 MAY 2026 14:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.7)  6 MAY 2026 13:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -582,6 +582,8 @@ Package caption Info: Standard document class detected.
 \c@caption@flags=\count340
 \c@continuedfloat=\count341
 Package caption Info: hyperref package is loaded.
+) (C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\tex/latex/needspace\needspace.sty
+Package: needspace 2025/03/13 v1.3e reserve vertical space
 ) (C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.sty (C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty (C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty (C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
 \pgfutil@everybye=\toks35
 \pgfutil@tempdima=\dimen275
@@ -780,10 +782,10 @@ Package: algorithm2e 2017/07/18 v5.2 algorithms environments
  (C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
 \c@checkoddpage=\count364
-) (C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
-Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-(C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty
+(C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+) (C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty
 Package: relsize 2013/03/29 ver 4.1
 )
 \skiptotal=\skip83
@@ -1149,16 +1151,16 @@ LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 12.0pt on input line 8.
-)
-\tf@lof=\write6
-\openout6 = `main.lof'.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5
 
-] [6
+])
+\tf@lof=\write6
+\openout6 = `main.lof'.
 
-
-] (main.lot
+ [6] (main.lot
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
@@ -1166,6 +1168,8 @@ LaTeX Info: Redefining \% on input line 1.
 \openout7 = `main.lot'.
 
  [7
+
+
 
 ] [8
 
@@ -1215,13 +1219,13 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 8.0pt on input line 235.
  [18]
-<imagenes/FiltroGabor.png, id=329, 555.07375pt x 278.03876pt>
+<imagenes/FiltroGabor.png, id=357, 555.07375pt x 278.03876pt>
 File: imagenes/FiltroGabor.png Graphic file (type png)
 <use imagenes/FiltroGabor.png>
 Package pdftex.def Info: imagenes/FiltroGabor.png  used on input line 251.
 (pdftex.def)             Requested size: 352.81552pt x 176.72658pt.
  [19 <./imagenes/FiltroGabor.png (PNG copy)>]
-<imagenes/OpticalFlow.png, id=343, 2055.68pt x 1825.82124pt>
+<imagenes/OpticalFlow.png, id=371, 2055.68pt x 1825.82124pt>
 File: imagenes/OpticalFlow.png Graphic file (type png)
 <use imagenes/OpticalFlow.png>
 Package pdftex.def Info: imagenes/OpticalFlow.png  used on input line 263.
@@ -1278,7 +1282,7 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 10.95pt on input line 340.
  [21{C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}] [22] [23] [24] [25]
-<imagenes/EjemploRL.png, id=405, 1027.84pt x 697.60625pt>
+<imagenes/EjemploRL.png, id=433, 1027.84pt x 697.60625pt>
 File: imagenes/EjemploRL.png Graphic file (type png)
 <use imagenes/EjemploRL.png>
 Package pdftex.def Info: imagenes/EjemploRL.png  used on input line 609.
@@ -1336,20 +1340,86 @@ LaTeX Font Info:    Font shape `U/ntxexa/b/n' will be
 LaTeX Font Info:    Font shape `U/ntxexa/b/n' will be
 (Font)              scaled to size 6.6pt on input line 617.
  [27]
-<imagenes/ShallowLearning.png, id=427, 384.43625pt x 139.52126pt>
+<imagenes/ShallowLearning.png, id=455, 384.43625pt x 139.52126pt>
 File: imagenes/ShallowLearning.png Graphic file (type png)
 <use imagenes/ShallowLearning.png>
 Package pdftex.def Info: imagenes/ShallowLearning.png  used on input line 637.
 (pdftex.def)             Requested size: 352.81552pt x 128.05453pt.
  [28 <./imagenes/ShallowLearning.png (PNG copy)>]
-<imagenes/RedNeuronalProfunda.png, id=438, 1445.4pt x 722.7pt>
+<imagenes/RedNeuronalProfunda.png, id=466, 1445.4pt x 722.7pt>
 File: imagenes/RedNeuronalProfunda.png Graphic file (type png)
 <use imagenes/RedNeuronalProfunda.png>
 Package pdftex.def Info: imagenes/RedNeuronalProfunda.png  used on input line 650.
 (pdftex.def)             Requested size: 441.01773pt x 220.50587pt.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 14.4pt on input line 665.
-) [29 <./imagenes/RedNeuronalProfunda.png (PNG copy)>] [30
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/it' will be
+(Font)              scaled to size 12.0pt on input line 665.
+ [29 <./imagenes/RedNeuronalProfunda.png (PNG copy)>]
+LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
+(Font)              scaled to size 8.0pt on input line 722.
+LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
+(Font)              scaled to size 6.0pt on input line 722.
+LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
+(Font)              scaled to size 5.5pt on input line 722.
+LaTeX Font Info:    Font shape `OML/ntxmi/b/it' will be
+(Font)              scaled to size 8.0pt on input line 722.
+LaTeX Font Info:    Font shape `OML/ntxmi/b/it' will be
+(Font)              scaled to size 6.0pt on input line 722.
+LaTeX Font Info:    Font shape `OML/ntxmi/b/it' will be
+(Font)              scaled to size 5.5pt on input line 722.
+LaTeX Font Info:    Font shape `LMS/ntxsy/b/n' will be
+(Font)              scaled to size 8.0pt on input line 722.
+LaTeX Font Info:    Font shape `LMS/ntxsy/b/n' will be
+(Font)              scaled to size 6.0pt on input line 722.
+LaTeX Font Info:    Font shape `LMS/ntxsy/b/n' will be
+(Font)              scaled to size 5.5pt on input line 722.
+LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
+(Font)              scaled to size 8.0pt on input line 722.
+LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
+(Font)              scaled to size 6.0pt on input line 722.
+LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
+(Font)              scaled to size 5.5pt on input line 722.
+LaTeX Font Info:    Font shape `U/ntxmia/b/it' will be
+(Font)              scaled to size 8.0pt on input line 722.
+LaTeX Font Info:    Font shape `U/ntxmia/b/it' will be
+(Font)              scaled to size 6.0pt on input line 722.
+LaTeX Font Info:    Font shape `U/ntxmia/b/it' will be
+(Font)              scaled to size 5.5pt on input line 722.
+LaTeX Font Info:    Font shape `U/ntxsym/b/n' will be
+(Font)              scaled to size 8.0pt on input line 722.
+LaTeX Font Info:    Font shape `U/ntxsym/b/n' will be
+(Font)              scaled to size 6.0pt on input line 722.
+LaTeX Font Info:    Font shape `U/ntxsym/b/n' will be
+(Font)              scaled to size 5.5pt on input line 722.
+LaTeX Font Info:    Font shape `U/ntxsyc/b/n' will be
+(Font)              scaled to size 8.0pt on input line 722.
+LaTeX Font Info:    Font shape `U/ntxsyc/b/n' will be
+(Font)              scaled to size 6.0pt on input line 722.
+LaTeX Font Info:    Font shape `U/ntxsyc/b/n' will be
+(Font)              scaled to size 5.5pt on input line 722.
+LaTeX Font Info:    Font shape `U/ntxexa/b/n' will be
+(Font)              scaled to size 8.0pt on input line 722.
+LaTeX Font Info:    Font shape `U/ntxexa/b/n' will be
+(Font)              scaled to size 6.0pt on input line 722.
+LaTeX Font Info:    Font shape `U/ntxexa/b/n' will be
+(Font)              scaled to size 5.5pt on input line 722.
+ [30]
+<imagenes/RedSiamesa.png, id=493, 1505.625pt x 966.61125pt>
+File: imagenes/RedSiamesa.png Graphic file (type png)
+<use imagenes/RedSiamesa.png>
+Package pdftex.def Info: imagenes/RedSiamesa.png  used on input line 756.
+(pdftex.def)             Requested size: 441.01773pt x 283.1272pt.
+<imagenes/RamaCNNSiamesa.png, id=499, 1228.59pt x 415.5525pt>
+File: imagenes/RamaCNNSiamesa.png Graphic file (type png)
+<use imagenes/RamaCNNSiamesa.png>
+Package pdftex.def Info: imagenes/RamaCNNSiamesa.png  used on input line 773.
+(pdftex.def)             Requested size: 441.01773pt x 149.1676pt.
+ [31] [32 <./imagenes/RedSiamesa.png (PNG copy)> <./imagenes/RamaCNNSiamesa.png>]
+<imagenes/GOTURN.jpg, id=518, 702.9462pt x 308.352pt>
+File: imagenes/GOTURN.jpg Graphic file (type jpg)
+<use imagenes/GOTURN.jpg>
+Package pdftex.def Info: imagenes/GOTURN.jpg  used on input line 785.
+(pdftex.def)             Requested size: 441.01773pt x 193.4535pt.
+) [33 <./imagenes/GOTURN.jpg>] [34
 
 
 ] (Objetivos.tex
@@ -1357,28 +1427,10 @@ Cap\'{\i }tulo 3.
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31
-
-] [32] (MaterialMetodos.tex
-Cap\'{\i }tulo 4.
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [33
-
-
-
-] [34] (Resultados.tex
-Cap\'{\i }tulo 5.
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [35
 
-
-
-] [36] (Conclusiones.tex
-Cap\'{\i }tulo 6.
+] [36] (MaterialMetodos.tex
+Cap\'{\i }tulo 4.
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1386,44 +1438,62 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-] [38] (main.bbl
-LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 40.
+] [38] (Resultados.tex
+Cap\'{\i }tulo 5.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [39
+
+
+
+] [40] (Conclusiones.tex
+Cap\'{\i }tulo 6.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [41
+
+
+
+] [42] (main.bbl
+LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 19.
  (C:\Users\Álvaro Cobo\AppData\Local\Programs\MiKTeX\tex/latex/newtx\t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 12.0pt on input line 40.
-
-Underfull \hbox (badness 4859) in paragraph at lines 49--53
-[]\T1/ntxtlf/m/n/12 IBM (s.f.).  Deep lear-ning.  [][]$\T1/ntxtt/m/n/12 https : / / www . ibm . com / es-[]es / think / topics /
- []
-
-
-Underfull \hbox (badness 7362) in paragraph at lines 55--61
-[]\T1/ntxtlf/m/n/12 Jaykumaran (2025).  MASt3R and MASt3R-SfM ex-pla-na-tion: Ima-ge mat-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 55--61
-\T1/ntxtlf/m/n/12 ching and 3d re-cons-truc-tion re-sults.  [][]$\T1/ntxtt/m/n/12 https : / / learnopencv . com /
- []
-
-
-Underfull \hbox (badness 2318) in paragraph at lines 55--61
-\T1/ntxtt/m/n/12 mast3r-[]sfm-[]grounding-[]image-[]matching-[]3d/$[][]\T1/ntxtlf/m/n/12 .  Lear-nO-penCV. Con-sul-ta-do el
- []
-
-[39
+(Font)              scaled to size 12.0pt on input line 19.
+ [43
 
 
 
 
 ]
-Underfull \hbox (badness 2689) in paragraph at lines 94--99
+Underfull \hbox (badness 4859) in paragraph at lines 70--74
+[]\T1/ntxtlf/m/n/12 IBM (s.f.).  Deep lear-ning.  [][]$\T1/ntxtt/m/n/12 https : / / www . ibm . com / es-[]es / think / topics /
+ []
+
+
+Underfull \hbox (badness 7362) in paragraph at lines 76--82
+[]\T1/ntxtlf/m/n/12 Jaykumaran (2025).  MASt3R and MASt3R-SfM ex-pla-na-tion: Ima-ge mat-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--82
+\T1/ntxtlf/m/n/12 ching and 3d re-cons-truc-tion re-sults.  [][]$\T1/ntxtt/m/n/12 https : / / learnopencv . com /
+ []
+
+
+Underfull \hbox (badness 2318) in paragraph at lines 76--82
+\T1/ntxtt/m/n/12 mast3r-[]sfm-[]grounding-[]image-[]matching-[]3d/$[][]\T1/ntxtlf/m/n/12 .  Lear-nO-penCV. Con-sul-ta-do el
+ []
+
+
+Underfull \hbox (badness 2689) in paragraph at lines 115--120
 []\T1/ntxtlf/m/n/12 Wang, R. (s.f.).  Sup-port vec-tor ma-chi-nes.  [][]$\T1/ntxtt/m/n/12 https : / / pages . hmc . edu / ruye /
  []
 
-) [40] (main.aux
+) [44] (main.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 )
@@ -1432,20 +1502,20 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 56A5D6497023D87B5B05CA690B37A1C4;3528.
+(rerunfilecheck)             Checksum: 312D1A7740FC7912708BC430764E6DF7;3528.
  ) 
 Here is how much of TeX's memory you used:
- 33529 strings out of 467871
- 610315 string characters out of 5414953
- 1306991 words of memory out of 5000000
- 61659 multiletter control sequences out of 15000+600000
- 731934 words of font info for 171 fonts, out of 8000000 for 9000
+ 33674 strings out of 467871
+ 613437 string characters out of 5414953
+ 1307253 words of memory out of 5000000
+ 61783 multiletter control sequences out of 15000+600000
+ 744284 words of font info for 197 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  89i,13n,125p,1244b,928s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXBMI.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI5.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI7.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/t1xtt.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txbmiaX.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txbsys.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
-Output written on main.pdf (44 pages, 5928753 bytes).
+<C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXBMI.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXBMI5.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXBMI7.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI5.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI7.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/t1xtt.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txbmiaX.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txbsys.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmbi.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/Álvaro Cobo/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
+Output written on main.pdf (48 pages, 7026123 bytes).
 PDF statistics:
- 593 PDF objects out of 1000 (max. 8388607)
- 104 named destinations out of 1000 (max. 500000)
- 208 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 690 PDF objects out of 1000 (max. 8388607)
+ 116 named destinations out of 1000 (max. 500000)
+ 223 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -12,6 +12,10 @@
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Ejemplo del proceso de decisión en un método de seguimiento basado en aprendizaje por refuerzo. A partir del estado actual, el agente evalúa distintas acciones que generan nuevas hipótesis de localización. Cada una de estas hipótesis se asocia a una función de valor o recompensa (visualizada mediante mapas de calor), que mide la calidad de la localización.}}{26}{figure.caption.21}%
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Resumen del uso de máquinas de soporte vectorial para tareas de seguimiento \cite {SOT_SVM}.}}{28}{figure.caption.23}%
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Ejemplo de red neuronal estándar con 3 capas ocultas \cite {IBM_Deep_Learning}.}}{29}{figure.caption.25}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Flujo general de un método de seguimiento profundo basado en extracción de características y modelado temporal. \cite {CNN_LSTM_Tracking}}}{30}{figure.caption.26}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Representación de la estructura del modelo de red neuronal siamesa. Los datos se procesan de izquierda a derecha. El valor de la distancia coseno es una medida de la similitud entre el par de instancias de datos de entrada, como resultado final. \cite {RedSiamesaDescripcion}.}}{32}{figure.caption.27}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Representación de la estructura del modelo de red neuronal siamesa. Los datos se procesan de izquierda a derecha. El valor de la distancia coseno es una medida de la similitud entre el par de instancias de datos de entrada, como resultado final. \cite {RedSiamesaDescripcion}.}}{32}{figure.caption.28}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Se introduce en la red una zona de búsqueda del fotograma actual y un objetivo del fotograma anterior. La red aprende a comparar estos recortes para encontrar el objeto objetivo en la imagen actual \cite {ArtículoGOTURN}.}}{33}{figure.caption.29}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
