@@ -1,0 +1,162 @@
+Anti-UAV térmico                                                            Álvaro Cobo Mayoral
+
+
+
+
+Figura 2.16: La arquitectura de esta red multidominio consta de capas compartidas y K
+ramas de capas específicas de cada dominio. Los rectángulos amarillos y azules indican
+las muestras positivas y negativas de cada dominio, respectivamente. Nam and Han (2016).
+
+
+     Trackers basados en grafos
+
+
+        Un grafo es un tipo de dato estructurado formado por un conjunto de nodos
+     y aristas, que conectan dichos nodos. Dado un grafo G = (V, E, W), donde
+     V = {v1 , v2 , . . . , vN } es el conjunto de N nodos y E es el conjunto de aristas, la
+     matriz de adyacencia ponderada W ∈ RN ×N es una matriz real y simétrica. Cada uno
+     de sus elementos representa la similitud entre un par de vértices, y Wi,j = 0 indica
+     que no existe una arista entre los nodos vi y vj Calculo.cc (s f). Ver figura 2.17.
+
+        En el ámbito de la visión por computador, los grafos se han utilizado para diversas
+     tareas, obteniendo frecuentemente resultados prometedores. Los grafos ofrecen una
+     representación muy rica y compacta de la relación espacial entre objetos en una imagen
+     y pueden usarse para modelar diversos tipos de relaciones y procesos.
+
+        Para tareas de seguimiento, muchos artículos han implementado métodos basados
+     en grafos para aprovechar las ventajas antes mencionadas. En concreto, nos centrare-
+     mos en el método TCNN de Nam et al. (2016).
+
+        TCNN (Tree-structured CNNs for Visual Tracking) es un tracker que propone una so-
+     lución al problema clásico del seguimiento online: La apariencia de un objeto cambia
+     contínuamente y una única CNN actualizada puede degradarse (Drift). TCNN porpone
+     solucionar este problema manteniendo un conjunto de múltiples CNNs estructuradas
+     jerárquicamente en forma de árbol, cada una representando distintas apariencias histó-
+     ricas del objeto.
+
+
+
+
+36                                                           Escuela Politécnica Superior de Jaén
+Álvaro Cobo Mayoral                                                                 Anti-UAV térmico
+
+
+
+
+Figura 2.17: Ejemplo de representación de un grafo mediante nodos y aristas. Fuente:
+Calculo.cc (s f).
+
+
+
+
+      (a) Estimación del estado                                 (b) Actualización del modelo
+Figura 2.18: Ilustración de los procedimientos de estimación del estado objetivo y actualización del
+modelo mediante múltiples CNN organizadas en una estructura de árbol. El grosor de una flecha
+negra indica el peso de una CNN para la estimación del estado objetivo, mientras que el grosor de
+un borde rojo denota la afinidad entre dos CNN. El grosor del contorno de un recuadro indica la
+fiabilidad de la CNN asociada a dicho recuadro. Fuente: Nam et al. (2016).
+
+
+      Cada nodo del árbol representa una CNN asociada a una apariencia concreta del
+   objeto en un determinado momento del seguimiento. Estas CNNs se organizan jerár-
+   quicamente, de modo que un nuevo nodo hereda los pesos de su nodo padre y se
+   especializa mediante un ajuste online con nuevas muestras. De esta forma, el árbol
+   mantiene distintas representaciones históricas del objeto, reduciendo el riesgo de deri-
+   va del modelo.
+
+      Las aristas entre los nodos representan la relación de herencia/adaptación entre los
+   modelos de apariencia, es decir, cuánto se parece la nueva apariencia a la anterior y la
+
+Escuela Politécnica Superior de Jaén                                                             37
+Anti-UAV térmico                                                            Álvaro Cobo Mayoral
+
+
+
+     confianza en esta transición. La profundidad del árbol representa la evolución temporal
+     de estas apariencias.
+
+       El flujo de este método puede generalizarse en los siguientes pasos: En el primer
+     frame, la CNN raíz se entrena con la bbox inicial. En cada nuevo frame varias CNNs
+     del árbol generan predicciones y se combinan sus puntuaciones. El tracker evalúa es-
+     tas puntuaciones y elije a la CNN que mejor explica la apariencia actual del objeto.
+     Si aparece una nueva apariencia importante (con cambios significativos respecto a las
+     apariencias anteriores como cambios de escala, oclusiones parciales...), el árbol se ex-
+     pande creando un nuevo nodo CNN que hereda los pesos de su padre y se ajusta a las
+     nuevas muestras. (Ver figura 2.18.)
+
+       Cada CNN es una red de clasificación binaria, especializada en discriminar entre el
+     objeto y el fondo, normalmente compuesta por capas convolucionales para la extracción
+     de características y capas totalmente conectadas para la clasificación.
+
+
+
+
+38                                                           Escuela Politécnica Superior de Jaén
+Álvaro Cobo Mayoral                                                            Anti-UAV térmico
+
+
+
+   2.4.      Imágenes térmicas en el espectro infrarrojo
+
+      Uno de los principales retos a los que se enfrentan los sistemas de seguimiento de
+   UAVs es la condición del entorno. Un buen sistema SOT debe poder detectar y seguir
+   objetivos en cualquier momento del día y bajo cualquier condición adversa (temperatu-
+   ra, humedad, temporal...), lo cual es especialmente complicado en las horas nocturnas
+   o de poca luz natural, y en entornos con niebla, lluvia, rachas fuertes de viento y demás
+   fenómenos ambientales. Estos factores no solo reducen a menudo la calidad de la ima-
+   gen, sino que además introducen ruido y variaciones en la firma del objetivo. Es por esto
+   que la tecnología de imágenes infrarrojas comenzó a ser muy relevante en este campo.
+
+      La tecnología de procesado de ímagenes térmicas en el espectro infrarrojo (TIR) con-
+   siste en la reconstrucción de imágenes a través de la radiación infrarroja emitida por los
+   objetos de la escena. Una de las principales ventajas de este proceso es su capacidad
+   para no interferir directamente con el objetivo, ya que la radiación electromagnética es
+   una propiedad física inherente a cualquier cuerpo con una temperatura por encima del
+   cero absoluto. Al limitarse a recibir dicha señal sin emitir energía externa, los detectores
+   TIR se clasifican como sistemas de detecciñón pasivos, lo que los hace ideales para
+   aplicaciones militares y de vigilancia.
+
+      Pese a todas sus ventajas, el proceso de obtención de estas imágenes requiere una
+   serie de etapas de procesamiento debido al bajo contraste y a la escasa resolución de
+   los detalles de la imagen. Estas etapas de procesamiento suelen llevarse a cabo a través
+   técnicas de visión artificial (computer vision) y aprendizaje profundo (deep learning) Hou
+   et al. (2022).
+
+      En general, los sistemas TIR suelen presentar una tecnología compleja (microboló-
+   metros, sensores de alta sensibilidad, materiales especiales) y cara, menos asequible
+   para situaciones más cotidianas en entornos simples. Es por esto que la tecnología de
+   detección por imágenes RGB ocupa el status dominante en la comunidad del tracking,
+   dejando a los sistemas TIR como una especialización para situaciones más concretas
+   y exigentes, como el seguimiento de UAVs en condiciones adversas. En la tabla 2.1 se
+   muestra una comparativa general entre ambos tipos de tecnología.
+
+
+
+
+Escuela Politécnica Superior de Jaén                                                        39
+Anti-UAV térmico                                                                 Álvaro Cobo Mayoral
+
+
+
+
+     RGB                                          TIR
+
+     Alta dependencia a la iluminación            Baja dependencia a la iluminación
+     Funcionamiento nocturno limitado             Buen funcionamiento nocturno
+     Alta información de textura                  Baja información de textura
+     Alta sensibilidad a condiciones atmosféri-   Sensibilidad media a condiciones atmosfé-
+     cas                                          ricas
+     Contraste térmico no disponible              Contraste térmico disponible
+     Alta complejidad visual del fondo            Complejidad visual del fondo media
+     Baja robustez en Anti-UAV nocturno           Alta robustez en Anti-UAV nocturno
+     Resolución habitual alta                     Resolución habitual más baja
+     Sin fenómeno de thermal crossover            Puede presentar thermal crossover
+
+Tabla. 2.1: Comparativa general entre imágenes RGB e infrarrojas térmicas (TIR) en tareas
+de visión por computador y seguimiento de objetos.
+
+
+
+
+40                                                             Escuela Politécnica Superior de Jaén
+

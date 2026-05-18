@@ -7,6 +7,11 @@ Bao, C., Wu, Y., Ling, H., and Ji, H. (2012).
 \newblock In {\em 2012 IEEE Conference on Computer Vision and Pattern
   Recognition}, pages 1830--1837. IEEE.
 
+\bibitem[{Calculo.cc}, s f]{Calculo_Matrices_Grafos}
+{Calculo.cc} (s. f.).
+\newblock Matriz asociada a un grafo.
+\newblock Accedido: 7 de mayo de 2026.
+
 \bibitem[Chicco, 2021]{RedSiamesaDescripcion}
 Chicco, D. (2021).
 \newblock {\em Siamese Neural Networks: An Overview}, pages 73--94.
@@ -37,14 +42,24 @@ Ding, Z., Lai, Z., Li, S., Li, P., Yang, Q., and Wong, E. (2024).
 \newblock In {\em 2024 5th International Conference on Electronic Communication
   and Artificial Intelligence (ICECAI)}, page 587–592. IEEE.
 
+\bibitem[Fan et~al., 2019]{LaSOT}
+Fan, H., Lin, L., Yang, F., Chu, P., Deng, G., Yu, S., Bai, H., Xu, Y., Liao,
+  C., and Ling, H. (2019).
+\newblock Lasot: A high-quality benchmark for large-scale single object
+  tracking.
+
 \bibitem[Felsberg et~al., 2016]{VOT_TIR2016}
-Felsberg, M., Kristan, M., Matas, J., Leonardis, A., Pflugfelder, R., Häger,
-  G., Berg, A., Eldesokey, A., Ahlberg, J., Čehovin Zajc, L., Vojír, T.,
-  Lukežič, A., Fernandez~Dominguez, G., Petrosino, A., Garcia-Martin, A.,
+Felsberg, M., Kristan, M., Matas, J., Leonardis, A., Pflugfelder, R., Hager,
+  G., Berg, A., Eldesokey, A., Ahlberg, J., Cehovin~Zajc, L., Vojir, T.,
+  Lukezic, A., Fernandez~Dominguez, G., Petrosino, A., Garcia-Martin, A.,
   Montero, A., Varfolomieiev, A., Erdem, A., Han, B., and He, Z. (2016).
 \newblock The thermal infrared visual object tracking vot-tir2016 challenge
   results.
 \newblock volume 9914, pages 824--849.
+
+\bibitem[Galoogahi et~al., 2017]{NFS}
+Galoogahi, H.~K., Fagg, A., Huang, C., Ramanan, D., and Lucey, S. (2017).
+\newblock Need for speed: A benchmark for higher frame rate object tracking.
 
 \bibitem[Ghaemmaghami, 2017]{CNN_LSTM_Tracking}
 Ghaemmaghami, M.~P. (2017).
@@ -57,7 +72,7 @@ Ghaemmaghami, M.~P. (2017).
 \newblock \url{https://huescadrones.es/hddrones/historia-de-los-drones/}.
 \newblock Asociación HD Drones. Consultado el 25 de marzo de 2026.
 
-\bibitem[Held et~al., 2016]{ArtículoGOTURN}
+\bibitem[Held et~al., 2016]{ArticuloGOTURN}
 Held, D., Thrun, S., and Savarese, S. (2016).
 \newblock Learning to track at 100 fps with deep regression networks.
 
@@ -65,6 +80,20 @@ Held, D., Thrun, S., and Savarese, S. (2016).
 Hou, F., Zhang, Y., Zhou, Y., Zhang, M., Lv, B., and Wu, J. (2022).
 \newblock Review on infrared imaging technology.
 \newblock {\em Sustainability}, 14(18).
+
+\bibitem[Huang et~al., 2024]{UAV410}
+Huang, B., Li, J., Chen, J., Wang, G., Zhao, J., and Xu, T. (2024).
+\newblock Anti-uav410: A thermal infrared benchmark and customized scheme for
+  tracking drones in the wild.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  46(5):2852--2865.
+
+\bibitem[Huang et~al., 2021]{GOT10K}
+Huang, L., Zhao, X., and Huang, K. (2021).
+\newblock Got-10k: A large high-diversity benchmark for generic object tracking
+  in the wild.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  43(5):1562–1577.
 
 \bibitem[{IBM}, sf]{IBM_Deep_Learning}
 {IBM} (s.f.).
@@ -80,11 +109,103 @@ Jaykumaran (2025).
   \url{https://learnopencv.com/mast3r-sfm-grounding-image-matching-3d/}.
 \newblock LearnOpenCV. Consultado el 20 de abril de 2026.
 
+\bibitem[Jiao et~al., 2023]{Grafos}
+Jiao, L., Chen, J., Liu, F., Yang, S., You, C., Liu, X., Li, L., and Hou, B.
+  (2023).
+\newblock Graph representation learning meets computer vision: A survey.
+\newblock {\em IEEE Transactions on Artificial Intelligence}, 4(1):2--22.
+
+\bibitem[Kristan et~al., 2019a]{VOT2019}
+Kristan, M., Berg, A., Zheng, L., Rout, L., Gool, L.~V., Bertinetto, L.,
+  Danelljan, M., Dunnhofer, M., Ni, M., Kim, M.~Y., Tang, M., Yang, M.,
+  Eldesokey, A., Paluru, N., Martinel, N., Xu, P., Zhang, P., Zheng, P., Zhang,
+  P., Torr, P. H.~S., Zhang, Q., Wang, Q., Guo, Q., Timofte, R.,
+  K{\"{a}}pyl{\"{a}}, J., Gorthi, R. K. S.~S., Everson, R.~M., Han, R., Zhang,
+  R., You, S., Zhao, S., Zhao, S., Li, S., Li, S., Ge, S., Fern{\'{a}}ndez, G.,
+  Bai, S., Guan, S., Xing, T., Xu, T., Yang, T., Zhang, T., Voj{\'{\i}}r, T.,
+  Feng, W., Hu, W., Wang, W., Gonzalez{-}Garcia, A., Tang, W., Zeng, W., Liu,
+  W., Chen, X., Qiu, X., Bai, X., Wu, X., Yang, X., Chen, X., Li, X.,
+  Memarmoghadam, A., Sun, X., Chen, X., Tian, X., Tang, X., Zhu, X., Huang, Y.,
+  Chen, Y., Lian, Y., Gu, Y., Liu, Y., Lu, A., Chen, Y., Zhang, Y., Xu, Y.,
+  Wang, Y., Li, Y., Zhou, Y., Dong, Y., Xu, Y., Zhang, Y., Li, Y., He, A.,
+  Wang, Z., Luo, Z., Zhang, Z., Feng, Z., He, Z., Song, Z., Chen, Z., Zhang,
+  Z., Wu, Z., Xiong, Z., Huang, Z., Varfolomieiev, A., Teng, Z., Ni, Z., Chan,
+  A.~B., Matas, J., Tripathi, A.~S., Smeulders, A. W.~M., Pedasingu, B.~S.,
+  Chen, B.~X., Zhang, B., Wu, B., Li, B., He, B., Yan, B., Bai, B., Leonardis,
+  A., Li, B., Li, B., Kim, B.~H., Ma, C., Fang, C., Qian, C., Chen, C., Li, C.,
+  Zhang, C., Tsai, C., Felsberg, M., Luo, C., Micheloni, C., Zhang, C., Tao,
+  D., Gupta, D., Song, D., Wang, D., Gavves, E., Yi, E., Khan, F.~S.,
+  Pflugfelder, R.~P., Zhang, F., Wang, F., Zhao, F., Ath, G.~D., Bhat, G.,
+  Chen, G., Wang, G., Li, G., Cevikalp, H., Du, H.,
+  K{\"{a}}m{\"{a}}r{\"{a}}inen, J., Zhao, H., Saribas, H., Jung, H.~M., Bai,
+  H., Yu, H., Peng, H., Lu, H., Li, H., Li, J., Zajc, L.~C., Li, J., Fu, J.,
+  Chen, J., Gao, J., Zhao, J., Tang, J., Li, J., Wu, J., Liu, J., Wang, J.,
+  Drbohlav, O., Qi, J., Zhang, J., Tsotsos, J.~K., Lee, J.~H., van~de Weijer,
+  J., Kittler, J., Lee, J.~H., Zhuang, J., Zhang, K., Wang, K., Lukezic, A.,
+  Dai, K., Chen, L., Liu, L., Guo, L., Zhang, L., Wang, L., Wang, L., Zhang,
+  L., Wang, L., and Zhou, L. (2019a).
+\newblock The seventh visual object tracking {VOT2019} challenge results.
+\newblock In {\em 2019 {IEEE/CVF} International Conference on Computer Vision
+  Workshops, {ICCV} Workshops 2019, Seoul, Korea (South), October 27-28, 2019},
+  pages 2206--2241. {IEEE}.
+
+\bibitem[Kristan et~al., 2019b]{VOT2018}
+Kristan, M., Leonardis, A., Matas, J., Felsberg, M., Pflugfelder, R.,
+  Cehovin~Zajc, L., Vojir, T., Bhat, G., Lukezic, A., Eldesokey, A.,
+  Fernandez~Dominguez, G., Garcia-Martin, A., Iglesias-Arias, A., Alatan, A.,
+  Gonzalez-Garcia, A., Petrosino, A., Memarmoghadam, A., Vedaldi, A., Muhic,
+  A., and He, Z. (2019b).
+\newblock {\em The Sixth Visual Object Tracking VOT2018 Challenge Results},
+  pages 3--53.
+
+\bibitem[Kristan et~al., 2017]{VOT2017}
+Kristan, M., Leonardis, A., Matas, J., Felsberg, M., Pflugfelder, R.,
+  Cehovin~Zajc, L., Vojir, T., Hager, G., Lukezic, A., Eldesokey, A.,
+  Fernandez~Dominguez, G., Garcia-Martin, A., Muhic, A., Petrosino, A.,
+  Memarmoghadam, A., Vedaldi, A., Manzanera, A., Tran, A., Alatan, A., and He,
+  Z. (2017).
+\newblock The visual object tracking vot2017 challenge results.
+\newblock pages 1949--1972.
+
+\bibitem[Kristan et~al., 2014]{VOT2014}
+Kristan, M., Pflugfelder, R., Leonardis, A., Matas, J., Cehovin~Zajc, L.,
+  Nebehay, G., Vojir, T., Fernandez~Dominguez, G., Lukezic, A., Dimitriev, A.,
+  Petrosino, A., Saffari, A., Li, B., Han, B., Cherkeng, H., Garcia, C.,
+  Pangersic, D., Hager, G., Khan, F., and Niu, Z. (2014).
+\newblock The visual object tracking vot2014 challenge results.
+\newblock pages 191--217.
+
+\bibitem[Kristan et~al., 2013]{VOT2013_Challenge}
+Kristan, M., Pflugfelder, R., Leonardis, A., Matas, J., Porikli, F., Cehovin,
+  L., Nebehay, G., Fernandez, G., Vojir, T., et~al. (2013).
+\newblock The visual object tracking vot2013 challenge results.
+\newblock In {\em Proceedings - 2013 IEEE International Conference on Computer
+  Vision Workshops, ICCVW 2013}, pages 98--111. IEEE.
+
+\bibitem[Li et~al., 2015]{NUS_PRO}
+Li, A., Lin, M., Wu, Y., Yang, M.-H., and Yan, S. (2015).
+\newblock Nus-pro: A new visual tracking challenge.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  38:1--1.
+
 \bibitem[Li et~al., 2017]{Gabor_CSLBP}
 Li, C., Wei, W., Jiaxue, L., and Song, W. (2017).
 \newblock A cloud-based monitoring system via face recognition using gabor and
   cs-lbp features.
 \newblock {\em The Journal of Supercomputing}, 73.
+
+\bibitem[Li and Yeung, 2017]{Li_Yeung_2017}
+Li, S. and Yeung, D.-Y. (2017).
+\newblock Visual object tracking for unmanned aerial vehicles: A benchmark and
+  new motion models.
+\newblock {\em Proceedings of the AAAI Conference on Artificial Intelligence},
+  31(1).
+
+\bibitem[Liang et~al., 2015]{Liang_Color_Tracking}
+Liang, P., Blasch, E., and Ling, H. (2015).
+\newblock Encoding color information for visual tracking: Algorithms and
+  benchmark.
+\newblock {\em IEEE Transactions on Image Processing}, 24(12):5630--5644.
 
 \bibitem[Moses et~al., 2011]{estudio_peso_drones}
 Moses, A., Rutherford, M.~J., and Valavanis, K.~P. (2011).
@@ -92,11 +213,55 @@ Moses, A., Rutherford, M.~J., and Valavanis, K.~P. (2011).
 \newblock In {\em 2011 IEEE International Conference on Control Applications
   (CCA)}, pages 933--940.
 
+\bibitem[Mueller et~al., 2016]{UAV123}
+Mueller, M., Smith, N., and Ghanem, B. (2016).
+\newblock A benchmark and simulator for uav tracking.
+\newblock volume 9905, pages 445--461.
+
+\bibitem[Müller et~al., 2018]{TrackingNet}
+Müller, M., Bibi, A., Giancola, S., Al-Subaihi, S., and Ghanem, B. (2018).
+\newblock Trackingnet: A large-scale dataset and benchmark for object tracking
+  in the wild.
+
+\bibitem[Nam et~al., 2016]{TCNN}
+Nam, H., Baek, M., and Han, B. (2016).
+\newblock Modeling and propagating cnns in a tree structure for visual
+  tracking.
+
+\bibitem[Nam and Han, 2016]{MDNET}
+Nam, H. and Han, B. (2016).
+\newblock Learning multi-domain convolutional neural networks for visual
+  tracking.
+
+\bibitem[{OpenDataLab}, sf]{UAV123_frames}
+{OpenDataLab} (s.f.).
+\newblock Uav123.
+\newblock \url{https://opendatalab.com/OpenDataLab/UAV123}.
+\newblock Consultado el 14 de mayo de 2026.
+
 \bibitem[Patel et~al., 2018]{micro_drone_radar_studio}
 Patel, J.~S., Fioranelli, F., and Anderson, D. (2018).
 \newblock Review of radar classification and rcs characterisation techniques
   for small uavs or drones.
 \newblock {\em IET Radar, Sonar \& Navigation}, 12(9):911--919.
+
+\bibitem[Real et~al., 2017]{YTbboxes}
+Real, E., Shlens, J., Mazzocchi, S., Pan, X., and Vanhoucke, V. (2017).
+\newblock Youtube-boundingboxes: A large high-precision human-annotated data
+  set for object detection in video.
+
+\bibitem[Rosebrock, 2016]{PyImageSearch_IoU}
+Rosebrock, A. (2016).
+\newblock Intersection over union (iou) for object detection.
+\newblock
+  \url{https://pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/}.
+\newblock Accedido: 16 de mayo de 2026.
+
+\bibitem[Sabbella, 2020]{ALOV300++}
+Sabbella, S.~R. (2020).
+\newblock {\em Fire and Smoke Detection for Smart Cities Using Deep Neural
+  Networks and Edge Computing on Embedded Sensors}.
+\newblock PhD thesis.
 
 \bibitem[Soleimanitaleb and Keyvanrad, 2022]{Articulo_Concepto_SOT}
 Soleimanitaleb, Z. and Keyvanrad, M.~A. (2022).
@@ -111,6 +276,17 @@ Tian, M., Zhang, W., and Liu, F. (2007).
   Computer Vision -- ACCV 2007}, pages 355--364, Berlin, Heidelberg. Springer
   Berlin Heidelberg.
 
+\bibitem[Valmadre et~al., 2018]{OxUvA}
+Valmadre, J., Bertinetto, L., Henriques, J.~F., Tao, R., Vedaldi, A.,
+  Smeulders, A., Torr, P., and Gavves, E. (2018).
+\newblock Long-term tracking in the wild: A benchmark.
+
+\bibitem[{VOT Challenge}, 2015]{VOT2015_Dataset}
+{VOT Challenge} (2015).
+\newblock {VOT2015} challenge dataset.
+\newblock \url{https://www.votchallenge.net/vot2015/dataset.html}.
+\newblock Consultado el 14 de mayo de 2026.
+
 \bibitem[Wang, sf]{ModelosDisc_vs_Gen}
 Wang, R. (s.f.).
 \newblock Support vector machines.
@@ -118,9 +294,27 @@ Wang, R. (s.f.).
   \url{https://pages.hmc.edu/ruye/MachineLearning/lectures/ch9/node1.html}.
 \newblock Harvey Mudd College. Consultado el 21 de abril de 2026.
 
+\bibitem[Wu et~al., 2013]{Articulo_OTB}
+Wu, Y., Lim, J., and Yang, M.-H. (2013).
+\newblock Online object tracking: A benchmark.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition (CVPR)}.
+
+\bibitem[Wu et~al., 2015]{OTB100}
+Wu, Y., Lim, J., and Yang, M.-H. (2015).
+\newblock Object tracking benchmark.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  37:1--1.
+
 \bibitem[Xie et~al., 2025]{CST_Paper}
 Xie, B., Zhang, C., Wang, F., Liu, P., Lu, F., Chen, Z., and Hu, W. (2025).
 \newblock Cst anti-uav: A thermal infrared benchmark for tiny uav tracking in
   complex scenes.
+
+\bibitem[Zhang et~al., 2015]{GracicasPrecisionSuccessPlot}
+Zhang, K., Liu, Q., Wu, Y., and Yang, M.-H. (2015).
+\newblock Robust visual tracking via convolutional networks.
+\newblock {\em IEEE transactions on image processing : a publication of the
+  IEEE Signal Processing Society}, 25.
 
 \end{thebibliography}

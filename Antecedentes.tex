@@ -254,16 +254,24 @@
     \end{figure}
 
     \paragraph*{Flujo óptico}
-    En nuestro contexto, definamos el flujo óptico como el movimiento aparente de los patrones de luminosidad entre dos frames consecutivos. Los algoritmos que calculan el desplazamiento de luminosidad para todos los píxeles de la imagen se conocen como algoritmos de flujo óptico denso, a diferencia de los algoritmos dispersos que calculan este desplazamiento solo para un número selectivo de píxeles. El principal inconveniente de usar el flujo óptico como identificador de movimiento en la escena es su incapacidad de diferenciar la variación de luminosidad causada por factores externos al movimiento, lo que puede llevar a errores.
+    En nuestro contexto, definamos el flujo óptico como el movimiento aparente de los patrones de luminosidad entre dos frames consecutivos. Los algoritmos que calculan el desplazamiento de luminosidad para todos los píxeles de la imagen se conocen como algoritmos de flujo óptico denso, a diferencia de los algoritmos dispersos que calculan este desplazamiento solo para un número selectivo de píxeles.
+
+    \vspace{0.8cm}
+    
+    El principal inconveniente de usar el flujo óptico como identificador de movimiento en la escena es su incapacidad de diferenciar la variación de luminosidad causada por factores externos al movimiento, lo que puede llevar a errores.
 
     Un ejemplo representativo de este enfoque es el método propuesto por Shi y Tomasi (1994), que combina la detección de puntos de interés con técnicas de flujo óptico para realizar el seguimiento de características a lo largo de una secuencia de imágenes. En la figura \ref{fig:OpticalFlow} pueden apreciarse los vectores que representan el movimiento de algunos píxeles de un objeto presente en un par de imágenes.
 
-    \begin{figure}[htbp]
+    \Needspace{0.48\textheight}
+    \begin{center}
         \centering
-        \includegraphics[width=0.8\textwidth]       {imagenes/OpticalFlow.png}
-        \caption[Ejemplo de flujo óptico denso entre dos frames consecutivos]{Ejemplo de flujo óptico denso entre dos frames consecutivos. Los vectores representan el desplazamiento de los patrones de intensidad de la imagen, permitiendo estimar el movimiento de los píxeles en la escena. Fuente: \cite{learnopencv_mast3r_sfm}}
+        \captionsetup{type=figure, font=small, skip=10pt}
+        \includegraphics[width=0.75\textwidth,height=0.32\textheight,keepaspectratio]{imagenes/OpticalFlow.png}
+        \captionof{figure}[Ejemplo de flujo óptico denso entre dos frames consecutivos]{Ejemplo de flujo óptico denso entre dos frames consecutivos. Los vectores representan el desplazamiento de los patrones de intensidad de la imagen, permitiendo estimar el movimiento de los píxeles en la escena. Fuente: \cite{learnopencv_mast3r_sfm}}
         \label{fig:OpticalFlow}
-    \end{figure}
+    \end{center}
+
+    \vspace {0.35cm}
 
     \subsection{Métodos basados en segmentación}
 
@@ -272,8 +280,7 @@
     \paragraph*{Método ascendente (Bottom-Up)}
     En este tipo de técnica de seguimiento el proceso de segmentación y rastreo se consideran dos tareas diferentes. Primero se separa el fondo de la imagen de las zonas que contienen objetos en posible movimiento (primer plano). Estas zonas se agrupan en píxeles generando regiones que representan posibles objetos. A partir de este paso el método sigue la misma lógica que un método basado en característcias: Por cada región se extraen propiedades discriminativas (color, forma, tamaño...) y se comparan estas propiedaddes entre regiones de distintos frames para encontrar el candidato con la similitud más alta con el objetivo. \ref{fig:flujo-metodo-bottom-up}
 
-\vspace{0.35cm}
-\begin{figure}[htbp]
+\begin{figure}[t]
 \captionsetup{font=small, skip=10pt}
 \centering
 \resizebox{\textwidth}{!}{%
@@ -640,6 +647,7 @@ En la figura \ref{fig:Shallow_Learning} se muestra esquema general de este flujo
 \end{figure}
 
 \paragraph*{Aprendizaje profundo}
+\label{sec::AprendizajeProfundo}
 Las redes neuronales artificiales se inspiran generalmente en la estructura de los circuitos neuronales del cerebro humano, cuyo funcionamiento radica en la compleja transmisión de señales químicas y eléctricas a través de redes dirstribuids de células nerviosas (neuronas). En el aprendizaje profundo, estas señales se interpretan como las salidas ponderadas de muchas operaciones matemáticas anidadas y distribuidas entre numerosas capas intermedias de procesamiento que en conjunto conforman la red neuronal (ver figura \ref{fig:Deep_Learning}).
 
 De forma más específica, podemos entender un modelo de \textit{deep learning} como una serie intrincada de ecuaciones anidadas que asignan una entrada a una salida. Las relaciones entre estas ecuaciones se organizan en capas, donde la salida de cada neurona en una capa se convieerte en la entrada ponderada para todas las neuronas de la siguiente capa. Esta ponderación se ajusta mediante un valor llamado peso. Además, el punto de activación de cada neurona viene determinado por una función de activación que a su vez depende de otro nuevo valor conocido como sesgo. De esta forma, el aprendizaje de la red puede entenderse como el proceso de ajuste de sus parámetros internos, principalmente pesos y sesgos, mediante algoritmos de optimización. Este ajuste modifica la forma en que la red transforma las entradas en salidas, con el objetivo de minimizar el error entre las predicciones del modelo y los valores esperados.
@@ -737,7 +745,6 @@ note/.style={font=\scriptsize, align=center, fill=white, inner sep=1.5pt}
 \indent Este tipo de métodos se caracterizan por entrenar una única red para dirigir todo el proceso de seguimiento, es decir, desde la etapa de extracción de características hasta la etapa de evaluación de candidatos. Siguiendo la clasificación de \cite{Articulo_Concepto_SOT}, podemos dividir este tipo de métodos tres categorías: redes siamesas, aprendizaje basado en parches (\textit{patch learning}) y trackers basados en grafos.
 \par}
 
-\newpage
 \bigskip
 \indent{\textit{Redes siamesas}}
 
@@ -751,6 +758,7 @@ El objetivo principal de la red es minimizar la distancia entre embeddings de en
 Este tipo de red suele componerse de dos ramas idénticas, es decir, dos subredes (normalmente CNNs) con los mismos pesos y arquitectura (de ahí el nombre de "siamesas"), cada una de ellas encargada de procesar una de las entradas y generar una representación. Luego, estas representaciones se comparan mediante una función de similitud. En tracking, esta comparación suele generar un mapa de respuesta en el que se ponera una puntuación a cada región en función de su probabilidad de contener al objeto. Se devuelve la región con mayor puntuación. La arquitectura genérica de una red siamesa se muestra en la figura \ref{fig:RedSiamesa}.
 \par}   
 
+\Needspace{0.48\textheight}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]       {imagenes/RedSiamesa.png}
@@ -775,16 +783,616 @@ Las ramas de esta red suelen ser CNNs compuestas de tres partes (ver figura \ref
     \label{fig:RamaCNNSiamesa}
 \end{figure}
 
-En el contexto del seguimiento de objetos, muchos estudios recientes han utilizado redes siamesas para proponer mejoras significativas en la precisión de los trackers. Un ejemplo de ello es el método GOTURN de \cite{ArtículoGOTURN}. este tracker propone un método de entrenamiento offline capaz de detectar nuevos objetos a 100 FPS durante la etapa de testeo.
+{\leftskip=\parindent
+\indent En el contexto del seguimiento de objetos, muchos estudios recientes han utilizado redes siamesas para proponer mejoras significativas en la precisión de los trackers. Un ejemplo de ello es el método GOTURN de \cite{ArticuloGOTURN}. este tracker propone un método de entrenamiento offline capaz de detectar nuevos objetos a 100 FPS durante la etapa de testeo.
 
-Este modelo destaca por ser de regresión directa, en lugar de de clasificador de candidatos: El modelo recibe como entrada dos recortes, el objeto en el frame anterior y el área de búsqueda en el frame actual. Ambos pasan por capas convolucionales (ramas) para extraer características. Después, capas totalmente conectadas (\textit{fully-connected layers}) combinan esa información. Para la salida, el modelo predice directamente las coordenadas de la nueva bbox dentro de la región de búsqueda, en lugar de evaluar muchas ventanas candidtas (de ahí su consideración como regresor directo). La arquitectura de este método se describe en la figura \ref{fig:flujo-GOTURN}.
+Este modelo destaca por ser de regresión directa, en lugar de de clasificador de candidatos: El modelo recibe como entrada dos recortes, el objeto en el frame anterior y el área de búsqueda en el frame actual. Ambos pasan por capas convolucionales (ramas) para extraer características. Después, capas totalmente conectadas (\textit{fully-connected layers}) combinan esa información. Para la salida, el modelo predice directamente las coordenadas de la nueva bbox dentro de la región de búsqueda, en lugar de evaluar muchas ventanas candidtas (de ahí su consideración como regresor directo). La arquitectura de este método se describe en la figura \ref{fig:flujo-GOTURN}.\par}
 
 \vspace{0.35cm}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]       {imagenes/GOTURN.jpg}
-    \caption{Se introduce en la red una zona de búsqueda del fotograma actual y un objetivo del fotograma anterior. La red aprende a comparar estos recortes para encontrar el objeto objetivo en la imagen actual \cite{ArtículoGOTURN}.}
+    \caption{Se introduce en la red una zona de búsqueda del fotograma actual y un objetivo del fotograma anterior. La red aprende a comparar estos recortes para encontrar el objeto objetivo en la imagen actual \cite{ArticuloGOTURN}.}
     \label{fig:flujo-GOTURN}
 \end{figure}
 
-Este modelo a su vez destaca por entrenarse de forma \textit{offline}. Esto quiere decir que los pesos adoptados durante el entrenamiento (con vídeos e imágenes anotadas) quedan congelados en la etapa de test, es decir, el modelo no se actualiza durante el seguimiento. La principal ventaja de esta estrategia es que al no clasificar múltiples parches en la fase de test, el modelo consigue una velocidad muy alta, alrededor de 100 fps en este caso. Esto es algo crucial en tracking ya que la mayoría de aplicaciones de estos métodos suelen implicar situaciones donde se requiere seguimiento en tiempo real. Por otro lado, al depender de una región de búsqueda local basada en la posición anterior, la predicción puede fallar ante movimientos rápidos, oclusiones largas o salidas de escena.
+{\leftskip=\parindent
+\indent Este modelo a su vez destaca por entrenarse de forma \textit{offline}. Esto quiere decir que los pesos adoptados durante el entrenamiento (con vídeos e imágenes anotadas) quedan congelados en la etapa de test, es decir, el modelo no se actualiza durante el seguimiento. La principal ventaja de esta estrategia es que al no clasificar múltiples parches en la fase de test, el modelo consigue una velocidad muy alta, alrededor de 100 fps en este caso. Esto es algo crucial en tracking ya que la mayoría de aplicaciones de estos métodos suelen implicar situaciones donde se requiere seguimiento en tiempo real. Por otro lado, al depender de una región de búsqueda local basada en la posición anterior, la predicción puede fallar ante movimientos rápidos, oclusiones largas o salidas de escena.\par}
+
+\bigskip
+\indent{\textit{Aprendizaje basado en parches (\textit{patch learning})}}
+
+\vspace{0.4cm}
+
+{\leftskip=\parindent
+\indent Los métodos de \textit{patch learning} se basan en el concepto de aprender a comparar parches o bloques pequeños de una imagen, en lugar de trabajar con el frame completo. Estos parches se corresponden con regiones locales dentro de la imagen que contienen el objeto a rastrear, o parte del mismo.\par}
+
+{\leftskip=\parindent
+\indent
+En cada frame de una secuencia, el tracker primero extrae parches de la imagen que contien partes del obejto a rastrear. A veces esos parches se extraen de la plantilla incial, mientras que otras veces se generan parches potenciales durante la búsqueda en el siguiente frame. 
+
+El modelo aprende a comparar diferentes parches y, a medida que avanza en el video, va aprendiendo las caracteristicas de esos parches que mejor describen al objeto. Esto permite al modelo ser más robusto frente a situaciones complejas como cambios de escala, oclusiones...
+
+En el siguiente frame, el modelo busca nuevos parches en la imagen y compara su apariencia con la apriencia aprendida del objeto (\textit{parches de la plantilla}). Usando una medida de similitud, como distancia euclidiana o similitud del coseno, se evalua la correspondencia entre ambos parches. La salida se devuelve como el parche con mayor similitud.
+
+Un ejemplo de este método es MDNET, de \cite{MDNET}. En ste método de entrenamiento online, se generan 50 muestras positivas y 50 muestras negativas, considerando un parche positivo aquel cuya IOU (initersección sobre unión) sobre el ojetivo es mayor o igual a 0.7 y un parche negativo aquel cuya IOU es menor o igual a 0.3. Después, basándose en estas muestras, se corrigen los pesos de las capas totalmente conectadas. Esta arquitectura se puede ver en la figura \ref{fig:flujo-MDNET}.
+\par}
+
+\vspace{0.35cm}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]       {imagenes/MDNET.jpg}
+    \caption{ La arquitectura de esta red multidominio consta de capas compartidas y K ramas de capas específicas de cada dominio. Los rectángulos amarillos y azules indican las muestras positivas y negativas de cada dominio, respectivamente. \cite{MDNET}.}
+    \label{fig:flujo-MDNET}
+\end{figure}
+
+\newpage
+\indent{\textit{Trackers basados en grafos}}
+
+\vspace{0.4cm}
+
+{\leftskip=\parindent
+\indent Un grafo es un tipo de dato estructurado formado por un conjunto de nodos y aristas, que conectan dichos nodos. Dado un grafo $G=(\mathcal{V}, \mathcal{E}, \mathbf{W})$, donde $\mathcal{V}=\{v_1, v_2, \ldots, v_N\}$ es el conjunto de $N$ nodos y $\mathcal{E}$ es el conjunto de aristas, la matriz de adyacencia ponderada $\mathbf{W}\in\mathbb{R}^{N\times N}$ es una matriz real y simétrica. Cada uno de sus elementos representa la similitud entre un par de vértices, y $\mathbf{W}_{i,j}=0$ indica que no existe una arista entre los nodos $v_i$ y $v_j$ \cite{Calculo_Matrices_Grafos}. Ver figura \ref{fig:Grafo}.
+\par}
+
+{\leftskip=\parindent
+\indent 
+En el ámbito de la visión por computador, los grafos se han utilizado para diversas tareas, obteniendo frecuentemente resultados prometedores. Los grafos ofrecen una representación muy rica y compacta de la relación espacial entre objetos en una imagen y pueden usarse para modelar diversos tipos de relaciones y procesos.
+
+Para tareas de seguimiento, muchos artículos han implementado métodos basados en grafos para aprovechar las ventajas antes mencionadas. En concreto, nos centraremos en el método TCNN de \cite{TCNN}.
+
+TCNN (\textit{Tree-structured CNNs for Visual Tracking}) es un tracker que propone una solución al problema clásico del seguimiento online: La apariencia de un objeto cambia contínuamente y una única CNN actualizada puede degradarse (\textit{Drift}). TCNN porpone solucionar este problema manteniendo un conjunto de múltiples CNNs estructuradas jerárquicamente en forma de árbol, cada una representando distintas apariencias históricas del objeto.
+
+\vspace{0.25cm}
+\Needspace{0.36\textheight}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=0.86\textwidth]       {imagenes/GrafoSimple.png}
+    \captionof{figure}{Ejemplo de representación de un grafo mediante nodos y aristas. Fuente: \cite{Calculo_Matrices_Grafos}.}
+    \label{fig:Grafo}
+\end{center}
+
+Cada nodo del árbol representa una CNN asociada a una apariencia concreta del objeto en un determinado momento del seguimiento. Estas CNNs se organizan jerárquicamente, de modo que un nuevo nodo hereda los pesos de su nodo padre y se especializa mediante un ajuste online con nuevas muestras. De esta forma, el árbol mantiene distintas representaciones históricas del objeto, reduciendo el riesgo de deriva del modelo.
+
+Las aristas entre los nodos representan la relación de herencia/adaptación entre los modelos de apariencia, es decir, cuánto se parece la nueva apariencia a la anterior y la confianza en esta transición. La profundidad del árbol representa la evolución temporal de estas apariencias. 
+
+El flujo de este método puede generalizarse en los siguientes pasos: En el primer frame, la CNN raíz se entrena con la bbox inicial. En cada nuevo frame varias CNNs del árbol generan predicciones y se combinan sus puntuaciones. El tracker evalúa estas puntuaciones y elije a la CNN que mejor explica la apariencia actual del objeto. Si aparece una nueva apariencia importante (con cambios significativos respecto a las apariencias anteriores como cambios de escala, oclusiones parciales...), el árbol se expande creando un nuevo nodo CNN que hereda los pesos de su padre y se ajusta a las nuevas muestras. (Ver figura \ref{fig:TCNN}.)
+
+Cada CNN es una red de clasificación binaria, especializada en discriminar entre el objeto y el fondo, normalmente compuesta por capas convolucionales para la extracción de características y capas totalmente conectadas para la clasificación.
+
+\Needspace{0.52\textheight}
+\begin{center}
+    \begin{minipage}{\textwidth}
+        \centering
+        \captionsetup{font=small}
+        \begin{minipage}[t]{0.40\textwidth}
+            \centering
+            \includegraphics[width=\textwidth,height=0.20\textheight,keepaspectratio]{imagenes/TCNN1.jpg}
+            \vspace{0.02cm}
+
+            (a) Estimación del estado
+        \end{minipage}
+        \hfill
+        \begin{minipage}[t]{0.40\textwidth}
+            \centering
+            \includegraphics[width=\textwidth,height=0.20\textheight,keepaspectratio]{imagenes/TCNN2.jpg}
+            \vspace{0.02cm}
+
+            (b) Actualización del modelo
+        \end{minipage}
+        \captionof{figure}{Ilustración de los procedimientos de estimación del estado objetivo y actualización del modelo mediante múltiples CNN organizadas en una estructura de árbol. El grosor de una flecha negra indica el peso de una CNN para la estimación del estado objetivo, mientras que el grosor de un borde rojo denota la afinidad entre dos CNN. El grosor del contorno de un recuadro indica la fiabilidad de la CNN asociada a dicho recuadro. Fuente: \cite{TCNN}.}
+        \label{fig:TCNN}
+    \end{minipage}
+\end{center}
+
+\section{Imágenes térmicas en el espectro infrarrojo}
+\label{sec::TIR}
+
+Uno de los principales retos a los que se enfrentan los sistemas de seguimiento de UAVs es la condición del entorno. Un buen sistema SOT debe poder detectar y seguir objetivos en cualquier momento del día y bajo cualquier condición adversa (temperatura, humedad, temporal...), lo cual es especialmente complicado en las horas nocturnas o de poca luz natural, y en entornos con niebla, lluvia, rachas fuertes de viento y demás fenómenos ambientales. Estos factores no solo reducen a menudo la calidad de la imagen, sino que además introducen ruido y variaciones en la firma del objetivo. Es por esto que la tecnología de imágenes infrarrojas comenzó a ser muy relevante en este campo.
+
+La tecnología de procesado de ímagenes térmicas en el espectro infrarrojo (TIR) consiste en la reconstrucción de imágenes a través de la radiación infrarroja emitida por los objetos de la escena. Una de las principales ventajas de este proceso es su capacidad para no interferir directamente con el objetivo, ya que la radiación electromagnética es una propiedad física inherente a cualquier cuerpo con una temperatura por encima del cero absoluto. Al limitarse a recibir dicha señal sin emitir energía externa, los detectores TIR se clasifican como sistemas de detecciñón pasivos, lo que los hace ideales para aplicaciones militares y de vigilancia. 
+
+Pese a todas sus ventajas, el proceso de obtención de estas imágenes requiere una serie de etapas de procesamiento debido al bajo contraste y a la escasa resolución de los detalles de la imagen. Estas etapas de procesamiento suelen llevarse a cabo a través técnicas de visión artificial (computer vision) y aprendizaje profundo (deep learning) \cite{review_infrared_imaging}. 
+
+En general, los sistemas TIR suelen presentar una tecnología compleja (microbolómetros, sensores de alta sensibilidad, materiales especiales) y cara, menos asequible para situaciones más cotidianas en entornos simples. Es por esto que la tecnología de detección por imágenes RGB ocupa el status dominante en la comunidad del tracking, dejando a los sistemas TIR como una especialización para situaciones más concretas y exigentes, como el seguimiento de UAVs en condiciones adversas. En la tabla \ref{tab:comparacion-rgb-tir} se muestra una comparativa general entre ambos tipos de tecnología.
+
+\vspace{0.6cm}
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{p{0.43\textwidth} p{0.43\textwidth}}
+        \toprule
+        \textbf{RGB} & \textbf{TIR} \\
+        \midrule
+        Alta dependencia de la iluminación visible & Mayor robustez en condiciones de baja iluminación o ausencia de luz \\
+        Tecnología ampliamente extendida y de menor coste & Tecnología más especializada, compleja y costosa \\
+        Mayor información cromática y de textura & Menor información de textura y ausencia de color visible \\
+        Sensible a sombras, reflejos y cambios de iluminación & Menos afectada por la iluminación visible, aunque sensible a condiciones atmosféricas y térmicas \\
+        No proporciona contraste térmico & Proporciona contraste basado en diferencias de radiación térmica \\
+        Mayor riqueza visual del fondo & Menor riqueza visual, pero posible presencia de distractores térmicos \\
+        Menor robustez en escenarios nocturnos & Mayor robustez en escenarios nocturnos \\
+        Resolución habitual generalmente más alta & Resolución habitual generalmente más baja \\
+        No presenta fenómeno de \textit{thermal crossover} & Puede presentar \textit{thermal crossover} cuando objeto y fondo tienen temperaturas similares \\
+        \bottomrule
+    \end{tabular}
+    \caption{Comparativa general entre imágenes RGB e infrarrojas térmicas (TIR) en tareas de visión por computador y seguimiento de objetos.}
+    \label{tab:comparacion-rgb-tir}
+\end{table}
+
+\par}
+
+\section{Conjuntos de datos}
+
+En el campo del seguimiento de objetos, varios \textit{datasets} (conjuntos de datos) han surgido para entrenar los modelos dde aprendizaje automático. Cada dataset presenta unas características propias (número de secuencias, número de clases, calidad de las imágenes...), y estas han ido evolucionando con el tiempo conforme a las necesidades de las nuevas técnicas que han ido surgiendo en el campo.
+
+En este apartado se describirán los más importantes, según la clasificación de \cite{Articulo_Concepto_SOT}.
+
+\subsection{OTB}
+\label{sec:OTB}
+
+El \textit{Object Tracking Benchmark} (OTB) es uno de los conjuntos de datos más utilizados en el campo del seguimiento de objetos. Fue introducido por primera vez por \cite{Articulo_OTB}. los datasets OTB (\textit{Object Tracking Benchmark}) son benchmark clásicos para evaluar algoritmos de seguimiento de objetos. Proporcionan secuencias de vídeo anotadas con bounding boxes y distintos atributos de dificultad (oclusiones, cambios de escala, iluminación variable...). el tracker se inicializa con la posición del objeto en el primer frame y debe estimar su localización en los frames posteriores, normalmente bajo el protocolo OPE (One-Pass Evaluation). 
+
+Las dos versiones más habituales son OTB50 en 2013 y OTB100 en 2015.
+
+\subsubsection{OTB50}
+
+Conjunto reducido del benchmark OTB, compuesto por 50 secuencias desafiantes etiquetadas con 11 atributos: variación de la iluminación, variación de escala,
+oclusión, deformación, desenfoque de movimiento, movimiento rápido, rotación en el plano, rotación fuera del plano, fuera del campo de visión,
+elementos de fondo superflusos y baja resolución
+
+\vspace{0.6cm}
+\Needspace{0.36\textheight}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=0.5\textwidth]       {imagenes/OTB50.png}
+    \captionof{figure}{Frame de una secuencia del dataset OTB50. Fuente: \cite{Articulo_OTB}.}
+    \label{fig:otb50}
+\end{center}
+
+\newpage
+
+\subsubsection{OTB100}
+
+Este dataset es una extensión del OTB50, compuesto por 100 secuencias de vídeo anotadas con 11 atributos de dificultad similares a los del OTB50. Mantiene las 50 secuencias, usadas para pruebas más exigentes, y se añadieron otras 50 secuencias mas genéricas como extensión. En la ctualidad, esta versión se considera como la referencia general de los benchmarks OTB. 
+
+\vspace{0.6cm}
+\Needspace{0.36\textheight}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=0.5\textwidth]       {imagenes/OTB100.png}
+    \captionof{figure}{Ejemplo de frame de datasset OTB100 (secuencia Couple). Fuente: \cite{OTB100}.}
+    \label{fig:otb100}
+\end{center}
+
+\subsection{VOT}
+
+Los datasets VOT (\textit{Visual Object Tracking}) son una familia de benchmarks diseñados específicamente para evaluar algoritmos de seguimiento de objetos. A diferencia de OTB, los datasets VOT introducen protocolos de evaluación más estrictos y métricas centradas tanto en la precisión como en la robustez del tracker. 
+
+La primera edición fue lanzada en 2013 por \cite{VOT2013_Challenge}, en el marco del workshop VOT asociado a ICCV, con el objetivo de proporcionar un protocolo común para comparar de forma objetiva distintos algoritmos de seguimiento visual.
+
+La elaboración de estos datasets suele ser motivada por los \textit{VOT Challenges}, que son competiciones internacionales organizadas tradicionalmente cada año, donde diversos investigadores de todo el mundo proponen métodos de seguimiento para ser evaluados con el dataset propuesto para el reto. 
+
+Cada edición anual (VOT2013, VOT2014, ..., VOT2019) incorpora nuevas secuencias y desafíos. La peculiaridad de los datasets VOT comienza con VOT2015, en la que se incorporan etiquetas con bounding boxes rotadas, es decir, bonding boxes que se ajustan a objetos no alineados con la imagen. Esto supone algunas ventajas como una mayor precisión espacial, menos fondo dentro de la caja (se elimina el espacio sobrante que surgiría en una delimitación por bbox horizontal/vertical), mayor adecuación a objetos deformables o inclinados y una métrica más exigente: si el tracker predice mal la orientación o el contorno, se penaliza más. Además de la incorporación de bbox rotadas, cada secuencia del dataset está anotada con 6 atributos: oclusión, cambios de iluminación, movimientos de cámara, deformación, variación de escala y pérdida temporal del objetivo \cite{VOT2015_Dataset}.
+
+En la figura \ref{fig:VOT2015} se muestra un frame concreto del dataset VOT2015, con la bbox rotada. 
+
+\vspace{0.6cm}
+\Needspace{0.36\textheight}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=0.5\textwidth]       {imagenes/VOT2015.png}
+    \captionof{figure}{Frame del dataset VOT2015 con bbox rotada. Fuente: \cite{VOT2015_Dataset}.}
+    \label{fig:VOT2015}
+\end{center}
+
+\subsection{ALOV300++}
+
+el dataset ALOV300++ (\textit{Amsterdam Library of Ordinary Videos}) fue diseñado para cubrir una variedad de retos y condiciones en el ámbito del seguimiento, incluyendo iluminaciones, transparencia, reflejos, confusión entre objetos similares, desorden, oclusión, zoom, cambios de forma pronunciados, patrones de movimiento, bajo contraste, etc. Su objetivo es ser consistente con otros benchmarks de tracking en varios aspectos como albedo, transparencia y agitación de cámara entre otros. 
+
+ALOV300++ es la versión ampliada y mejorada de ALOV300, versión inicial con menos secuencias (300) y anotaciones más simples. Este dataset se compone de 315 videosecencias. La mayoría han sido cogidas de videos \textit{real-life} de YouTube, con 64 tipos diferentes de objetivos. Para maximizar la diversidad entre las secuencias, estas son bastante cortas y entre todas suman un total de 89364 frames. Los datos están anotados mediante un bbox a lo largo de los ejes principales cada 5 frames. 
+
+En la figura \ref{fig:ALOV300++} puede verse un ejemplo.
+
+\vspace{0.6cm}
+\Needspace{0.36\textheight}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=1\textwidth]       {imagenes/ALOV300++.png}
+    \captionof{figure}{Varias muestras de imágenes de secuencias del dataset ALOV300++. Fuente: \cite{ALOV300++}.}
+    \label{fig:ALOV300++}
+\end{center}
+
+\subsection{TempleColor128}
+
+Dataset creado por \cite{Liang_Color_Tracking} que contiene un total de 128 videos especializados para evaluar trackers de mejora de color. Los videos están etiquetados por los 11 mismos atributos que los datasets OTB (\ref{sec:OTB}). Se puede ver una imagen de muestra del dataset en la figura \ref{fig:ALOV300++}.
+
+\vspace{0.6cm}
+\Needspace{0.36\textheight}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=0.5\textwidth]       {imagenes/TempleColor128.png}
+    \captionof{figure}{Muestra del dataset TempleColor128. Fuente: \cite{Liang_Color_Tracking}.}
+    \label{fig::TempleColor128}
+\end{center}
+
+\subsection{NUS-PRO}
+
+Este dataset, creado por \cite{NUS_PRO}, contiene 365 secuencias enfocadas en seguimiento de humanos y objetos rígidos. En cada secuencia aparece anotada tanto la localización del objetivo como el nivel de oclusión. Ver ejemplo en la figura \ref{fig::NUS-PRO}
+
+\vspace{0.6cm}
+\Needspace{0.36\textheight}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=0.7\textwidth]       {imagenes/SecuenciaNUS-PRO.png}
+    \captionof{figure}{Fotogramas de muestra de oclusión parcial (rectángulos cian), oclusión total (rectángulos rojos) y ausencia de oclusión
+    (rectángulos verdes). Fuente: \cite{NUS_PRO}.}
+    \label{fig::NUS-PRO}
+\end{center}
+
+\subsection{DTB70}
+
+Propuesto por \cite{Li_Yeung_2017}, el dataset DTB3contiene 70 videosecuencias en RGB anotadas con bounding boxes de referencia en todos los videos. Algunos de los videos están grabados desde un dron, y la mayor parte de estos objetivos son personas y coches. El otro subconjunto de videos proviene de Youtube, añadiendo mayor diversidad tanto a la apariencia del objetivo como a la propia escena. 
+
+Cada subconjunto de secuencias se corresponde con uno de los siguientes atributos: variación de escala, variación de la relación de aspecto, oclusión,
+deformación, movimiento rápido de la cámara, rotación en el plano, rotación fuera del plano,
+pérdida de visión, fondo con elementos que distraen, presencia de objetos similares
+alrededor y movimiento difuminado. Véase la figura \ref{fig::DTB70} como ejemplo.
+
+\vspace{0.5cm}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=0.4\textwidth]       {imagenes/DTB70.png}
+    \captionof{figure}{Ejemplo de imagen tomada desde un dron del dataset DTB70. Fuente: \cite{Articulo_Concepto_SOT}.}
+    \label{fig::DTB70}
+\end{center}
+
+\subsection{NFS}
+
+El dataset NFS (\textit{Need for Speed}) fue propuesto por \cite{NFS} y es el primer conjunto de secuecnias con una alta frecuencia de frames por video en el ámbito del seguimiento de objetos. Este incluye 100 videos que suman alrededor de 380.000 frames, 75 de estos grabados desde un iPhone 6 y un iPad Pro y 25 videos cogidos de YouTube. 
+
+Todos los videos contienen anotaciones manuales con 9 atributos visuales: variaciones en la iluminación, variaciones de escala,
+deformación de objetos, movimiento rápido, cambio de punto de vista,
+pérdida temporalnde objetos de la imagen, ruido de fondo
+y baja resolución. 
+
+En la figura \ref{fig:Deep_Learning} se muestra un frame de ejemplo.
+
+\vspace{0.4cm}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=0.6\textwidth]       {imagenes/motion_blure_samples_page-0001.jpg}
+    \captionof{figure}{Arriba: un fotograma capturado por una cámara de alta velocidad (240 FPS). Al lado, el mismo fotograma con desenfoque de movimiento sintetizado y, al lado de este, el mismo fotograma capturado por una cámara de baja velocidad (30 FPS) con desenfoque de movimiento real. Abajo: fotogramas muestreados con el correspondiente desenfoque de movimiento sintetizado. Para más detalles. Fuente: \cite{NFS}.}
+    \label{fig::NFS}
+\end{center}
+
+\subsection{OxUvA}
+
+En 2018, las universidades de Oxford y Amsterdan se unieron con el propósito de agrupar videos largos y realistas en los que el objeto de interés desaparece y vuelve a aparecer, creando así un dataset de 366 vídeos de estas características. El problema de OxUvA es que no presenta anotaciones consistentes en frames consecutivos. Ver ejemplo de secuencias en la figura \ref{fig::OxUvA}.
+
+\vspace{0.7cm}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=0.8\textwidth]       {imagenes/OxUvA.jpg}
+    \captionof{figure}{Ejemplos de secuencias y anotaciones. A diferencia de los benchmark estándar, OxUvA se centra en secuencias largas anotadas con desapariciones y reapariciones del objetivo. Fuente: \cite{OxUvA}.}
+    \label{fig::OxUvA}:
+\end{center}
+
+\subsection{TrackingNet}
+\label{sec::trackingnet}
+
+ Hasta ahora se han descrito datasets pequeños orientados sobretodo a evaluación y no a entrenamiento masivo. Sin embargo, a medida que las técnicas y métodos de seguimiento han avanzado, incorporando recientemente modelos de aprendizaje profundo (\ref{sec::AprendizajeProfundo}) ha surgido la necesidad de elaborar conjuntos mucho más grandes de datos con los que entrenar estas redes. Es en este contexto donde surge TrackingNet.
+
+ TrackingNet en un benchmark de seguimiento visual publicado por \cite{TrackingNet} cuyo objetivo es cubir la carencia de datos de los datasets clásicos, como OTB o VOT. 
+
+ Su principal característica es su enorme magnitud, con más de 30.000 videos y más de 14 millones de bounding boxes densamente anotadas, con objetos variados en escenarios reales en la naturaleza. Además, incluye un conjunto de test con anotaciones ocultas y evaluación mediante servidor online, para evitar ajustes manuales sobre el test y hacer la comparación más justa.
+
+ En la figura \ref{fig::TrackingNet} se pueden observar frames de diferentes secuencias presentes en este dataset.
+
+\vspace{0.4cm}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=0.8\textwidth]       {imagenes/TrackingNet.png}
+    \captionof{figure}{Ejemplos de secuencias y anotaciones. A diferencia de los benchmark estándar, OxUvA se centra en secuencias largas anotadas con desapariciones y reapariciones del objetivo. Fuente: \cite{TrackingNet}.}
+    \label{fig::TrackingNet}
+\end{center}
+
+\subsection{UAV123}
+
+Este dataset, publicado por \cite{UAV123}, contiene 123 videos capturadas por camaras montadas en drones. Las secuencias suman un total de 110.000 frames y todas incluyen bounding boxes y anotaciones de atributos. Véase la figura \ref{fig::UAV123}
+
+\vspace{0.4cm}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=0.8\textwidth]       {imagenes/UAV123.png}
+    \captionof{figure}{Frame de una secuencia del dataset UAV123 tomada por un dron en la que se trackea a un pájaro. Fuente: \cite{UAV123_frames}.}
+    \label{fig::UAV123}
+\end{center}
+
+\subsection{GOT-10k}
+
+Publicado por \cite{GOT10K}, este dataset contiene 10.000 segmentos de videos y 563 clases distintas de objetos. Al igual que TrackingNet (\ref{sec::trackingnet}), GOT-10k tiene como objetivo proporcionar un entrenamiento unificado y de comparación justa para trackers de aprendizaje profundo, es decir, proporcionar un dataset modelo con el que entrenar varios métodos de seguimiento de aprendizaje profundo para evaluarlos bajo las mismas condiciones, de forma que las diferencias de rendimiento se deban más al método y menos a diferencias de datos de entrenamiento o configuración. 
+
+En la figura \ref{fig::GOT10K} se pueden ver secuencias de ejemplo de este dataset.
+
+\vspace{0.4cm}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=1\textwidth]       {imagenes/GOT10K.png}
+    \captionof{figure}{Ejemplos representativos de secuencias incluidas en GOT-10k. La figura muestra distintas categorías de objetos, como animales, vehículos y personas, junto con diferentes tipos de movimiento asociados, como correr, nadar, volar, conducir o esquiar. Esta organización refleja una de las principales características de GOT-10k: la anotación semántica de cada vídeo mediante etiquetas de clase del objeto y tipo de movimiento, lo que incrementa la diversidad del benchmark y permite evaluar trackers en escenarios muy variados. Fuente: \cite{GOT10K}.}
+    \label{fig::GOT10K}
+\end{center}
+
+\subsection{LaSOT}
+
+LaSOT (\textit{Large-scale Single Object Tracking}) es un benchmark de seguimiento visual publicado por \cite{LaSOT} que contiene 1400 videos agrupados en 70 categorías de objetos, con 20 videos por categoría.
+
+Una de sus principales características es la gran longitud de sus secuencias, con una media aproximada de 2.500 frames por vídeo, lo que permite evaluar la robustez de los trackers en escenarios prolongados. Además, proporciona anotaciones densas mediante bounding boxes y atributos de dificultad, convirtiéndose en uno de los benchmarks más utilizados para la evaluación de métodos modernos de SOT. Ver figura \ref{fig::LaSOT}.
+
+\vspace{0.4cm}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=1\textwidth]       {imagenes/LaSOT.png}
+    \captionof{figure}{Ejemplos de secuencias y anotaciones de LaSOT. El dataset se dentra en vídeos de larga duración en los que los objetos de interés pueden desaparecer y volver a aparecer en el encuadre. Además, presenta una descripción en lenguaje natural para cada secuencia. Fuente: \cite{LaSOT}.}
+    \label{fig::LaSOT}
+\end{center}
+
+\subsection{YouTube-BoundingBoxes}
+
+Se trata de un dataset de gran escala compuesto por URLs de videos con un gran número de  anotaciones de bounding boxes de objetos únicos de alta calidad.
+
+Contiene aproximadamente 380.000 segementos de video extraidos de 240.000 diferentes videos de YouTube. 
+
+Las anotaciones de cada secuencia han sido escritas de forma precisa por humanos. Ver figura \ref{fig::YT}.
+
+\vspace{0.4cm}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=1\textwidth]       {imagenes/Ytbboxes.png}
+    \captionof{figure}{Ejemplos de secuencias pertenecientes al dataset YouTube-BoundingBoxes. Cada fila muestra distintos frames de una misma secuencia de vídeo junto con las correspondientes anotaciones mediante \textit{bounding boxes}. La figura ilustra diferentes desafíos habituales en el seguimiento de objetos, como cambios de perspectiva, oclusiones parciales, deformaciones, variaciones de escala y movimiento significativo del objetivo a lo largo de la secuencia. Fuente: \cite{YTbboxes}.}
+    \label{fig::YT}
+\end{center}
+
+\subsection{Datasets Térmicos}
+
+La mayoría de los conjuntos de datos y benchmarks descritos anteriormente han impulsado enormemente el desarrollo del seguimiento visual de objetos. En la tabla \ref{tab:comparativa-datasets-sot} se listan estos datasets con su información general. 
+
+\vspace{0.35cm}
+\begin{table}[htbp]
+\captionsetup{font=small, skip=8pt}
+\centering
+\renewcommand{\arraystretch}{1.15}
+\small
+\begin{tabular}{|p{7.6cm}|c|c|}
+\hline
+\textbf{Dataset} & \textbf{Nº de videos} & \textbf{Nº de clases} \\
+\hline
+OTB100 \cite{OTB100} & 100 & 16 \\
+\hline
+OTB50 \cite{Articulo_OTB} & 50 & -- \\
+\hline
+VOT2013 \cite{VOT2013_Challenge} & 17 & -- \\
+\hline
+VOT2014 \cite{VOT2014} & 25 & 11 \\
+\hline
+VOT2015 \cite{VOT2015_Dataset} & 60 & -- \\
+\hline
+VOT2017 \cite{VOT2017} & 60 & 24 \\
+\hline
+VOT2018 \cite{VOT2018} & 60 & -- \\
+\hline
+VOT2019 \cite{VOT2019} & 60 & 30 \\
+\hline
+DTB70 \cite{Li_Yeung_2017} & 70 & 15 \\
+\hline
+NFS \cite{NFS} & 100 & 17 \\
+\hline
+UAV123 \cite{UAV123} & 123 & 9 \\
+\hline
+TempleColor128 \cite{Liang_Color_Tracking} & 129 & 27 \\
+\hline
+ALOV300++ \cite{ALOV300++} & 314 & 59 \\
+\hline
+NUS-PRO \cite{NUS_PRO} & 365 & 8 \\
+\hline
+OxUvA \cite{OxUvA} & 366 & 22 \\
+\hline
+LaSOT \cite{LaSOT} & 1400 & 70 \\
+\hline
+GOT-10k \cite{GOT10K} & 10000 & 563 \\
+\hline
+TrackingNet \cite{TrackingNet} & 31000 & 27 \\
+\hline
+YouTube-BoundingBoxes \cite{YTbboxes} & 380000 & 23 \\
+\hline
+\end{tabular}
+\caption{Comparativa de algunos de los principales conjuntos de datos empleados en seguimiento de objetos.}
+\label{tab:comparativa-datasets-sot}
+\end{table}
+
+A pesar de su relevancia y contribución al campo, casi todos están basados en secuencias de imágenes en luz visible (RGB). Como se describe en la sección \ref{sec::TIR}, las imágenes RGB usadas para seguimiento suelen introducir limitaciones importantes en escenarios de baja iluminación, condiciones meteorológicas adversas o vigilancia nocturna. De ahí surge la incorporación de las imágenes térmicas en el espectro infrarrojo (TIR) al campo del seguimiento de objetos.
+
+Las imágenes TIR (\textit{Thermal Infrared}) permiten capturar la radiación térmica emitida por los objetos, proporcionando una mayor robustez frente a la ausencia de iluminación visible y ciertas variaciones ambientales. Debido a estas propiedades, este tipo de imágenes ha adquirido una gran relevancia en aplicaciones de vigilancia y defensa, especialmente en sistemas Anti-UAV.
+
+Los UAVs (\textit{Unmanned Aerial Vehicles}), comúnmente conocidos como drones, representan uno de los principales retos actuales en el ámbito del seguimiento visual. Su reducido tamaño, alta velocidad de movimiento y frecuente presencia en escenarios complejos dificultan significativamente su detección y seguimiento, especialmente en secuencias térmicas de larga distancia.
+
+Es por esto que en los años recientes ha surgido la necesidad de elaborar nuevos benchmark de imágenes TIR para adaptar los mejores tarckers a situaciones más complejas con el objetivo de mejorar estos sitemas Anti-UAV.
+
+A continuación, se presentan Anti-UAV410 y CST Anti-UAV, dos de los benchmarks térmicos más relevantes para el seguimiento de UAVs.
+
+\subsubsection{Anti-UAV410}
+Desarrollado por \cite{UAV410}, Anti-UAV410 es actualmente el benchmark más grande para SOT en el dominio del especrto infrarrojo. 
+
+Con 410 secuencias y un total de 438.000 bounding boxes anotadas, este dataset es especialmente diseñado para afrontar los retos del seguimiento UAV. Su principal foco es resolver el problema del seguimiento UAVs de pequeño tamaño en escenarios reales mediante imágenes de largo alcance.
+
+Además, abarca diversos escenarios de seguimiento en entornos naturales, como bosques, montañas y lagos, que pueden generar un ruido de fondo excesivo y hacer que el sistema de seguimiento aprenda a partir de la región de fondo.
+
+El conjunto de datos incluye 77 secuencias de vídeo relacionadas con el desafío de fondos dinámicos con elemenots superpuestos (DBC) y más de 100 secuencias de vídeo con drones de tamaño reducido, lo que proporciona un mejor respaldo de datos para las misiones de lucha contra los drones y sirve como plataforma integral tanto para el entrenamiento como para la evaluación de algoritmos de seguimiento.
+
+En la figura \ref{fig::frames410} puede verse un frame de una secuencia del dataset.
+
+\newpage
+\vspace{0.4cm}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=0.5\textwidth]       {imagenes/frames410.png}
+    \captionof{figure}{Fotogramas de ejemplo del conjunto de datos Anti-UAV410, que muestran entornos realistas, como lagos en (a), edificios en (b), bosques en (c) y colinas en (d). Fuente: \cite{UAV410}.}
+    \label{fig::frames410}
+\end{center}
+
+\subsubsection{CST Anti-UAV}
+
+A pesar de las mejoras que supone Anti-UAV410 para el campo del seguimiento de UAVS, sigue teniendo algunas limitaciones: La falta de un número suficiente de UAVs muy pequeños (tiny UAVS), los fondos de algunos escenarios siguen siendo relativamente limpios y bastante sencillos, la desventaja de tener anotaciones incompletas a nivel de frame.
+
+Con el objetivo de solventar estas limitaciones, \cite{CST_Paper} propusieron CST Anti-UAV (\textit{Complex Scenes with Tiny UAVs}), un benchmark térmico específicamente diseñado para el seguimiento de UAVs pequeños en escenarios complejos. El dataset está formado por 220 secuencias y más de 240.000 anotaciones mediante \textit{bounding boxes}, destacando especialmente por el elevado número de objetivos de tamaño reducido presentes en las secuencias.
+
+Una de las principales aportaciones de CST Anti-UAV es la incorporación de escenarios mucho más complejos y realistas que en benchmarks anteriores, incluyendo entornos urbanos, edificios, vehículos, peatones y fondos dinámicos con numerosos distractores. Además, introduce el atributo \textit{Complex Dynamic Background} (CDB), orientado a representar situaciones con múltiples objetos en movimiento en el fondo de la escena.
+
+Otra de sus características más relevantes es la incorporación de anotaciones completas a nivel de frame para distintos atributos de dificultad, como oclusiones, pérdida de vista, variaciones de escala o \textit{thermal crossover}. Esto permite realizar evaluaciones mucho más precisas del comportamiento de los trackers frente a desafíos concretos presentes durante el seguimiento. 
+
+Ver un ejemplo de diversos frames de distintas escenas en la figura \ref{fig::framesCST}.
+
+\vspace{0.4cm}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=1\textwidth]       {imagenes/framesCST.png}
+    \captionof{figure}{Ejemplos de fragmentos de secuencia del conjunto de datos CST Anti-UAV. El UAV está marcado con el rectángulo rojo. La característica más destacada de CST Anti-UAV son las escenas complejas, como se muestra en la parte inferior, que incluyen oclusión (C), fondo dinámico complejo (D), variación de escala (S), cruce térmico (T) y fuera de campo (V). El fondo abarca edificios (B) y zonas urbanas (U).. Fuente: \cite{CST_Paper}.}
+    \label{fig::framesCST}
+\end{center}
+
+\section{Métricas de evaluación}
+
+Evaluar algoritmos de seguimiento en criterios cuantitativos resulta una tarea complicada debido a los diversos factores de los que depende, incluyendo precisión de posicionamiento, velocidad de seguimiento y memoria requerida entre otros.
+
+Aun así, se han desarrollado diversos métodos populares para evaluar trackers. En esta sección, se describirán las métricas más populares.
+
+\subsection{Error de centro}
+\label{sec::CE}
+
+El error de localización o error de centro es uno de los primeros métodos usados para la evaluación de seguimiento. Este método se basa en clacular la distancia, normalmente euclídea, entre el centro de la bbox predicha y el centro de la bbox real (\textit{grounf truth}). Se calcula esta distancia para cada frame y después se usa la distancia media de entre todos los frames para describir el rendimiento del tracker:
+
+\[
+CE = \sqrt{(x_p - x_g)^2 + (y_p - y_g)^2}
+\]
+
+donde:
+\begin{itemize}
+    \item $(x_p, y_p)$: centro de la caja predicha.
+    \item $(x_g, y_g)$: centro de la caja real.
+\end{itemize}
+
+Este método presenta algunos problemas, como su limitación para poder medir únicamente la diferencia a nivel de pixel sin añadir información del objetivo como su tamaño o escala. 
+
+Aún así, este método sigue siendo un criterio de evaluación popular debido a su simpleza (solo se procesa un punto por frame). Ver ejemplo en la figura \ref{fig:CenterError}.
+
+\vspace{0.4cm}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=0.5\textwidth]       {imagenes/CenterError.png}
+    \captionof{figure}{Ejemplos del método del error de centro. Fuente: \cite{Articulo_Concepto_SOT}.}
+    \label{fig::CenterError}
+\end{center}
+
+\subsection{Superposición de regiones}
+\label{sec::IOU}
+
+Este método es uno de los criterios de evaluación más comunes en el ámbito del seguimiento. También es conocido como IOU (\textit{Intersection Over Union}) debido a que refleja la coincidencia entre el área del bbox predicho y el bbox real, definiéndose de esta forma:
+
+\[
+IoU_t = \frac{\left|R_t^G \cap R_t^P\right|}{\left|R_t^G \cup R_t^P\right|}
+\]
+
+donde:
+\begin{itemize}
+    \item $R_t^G$ es el área del ground truth.
+    \item $R_t^P$ es área de la caja predicha.
+    \item $t$ es el índice del frame
+\end{itemize}
+
+Una de las características de la superposición de áreas es que tiene en cuenta tanto la
+posición como el tamaño del bbox predicho y el de referencia
+al mismo tiempo, lo que evita que se produzcan grandes errores
+cuando falla el seguimiento; por lo tanto, esta es una ventaja de este método frente
+al error de centro. De hecho, cuando el rastreador de objetos pierde de vista al objetivo, la
+puntuación de superposición se pone a cero. (\ref{fig::iou})
+
+\vspace{0.4cm}
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=0.5\textwidth]       {imagenes/IOU.png}
+    \captionof{figure}{Ejemplos del método del solapamiento de áreas. Fuente: \cite{PyImageSearch_IoU}.}
+    \label{fig::iou}
+\end{center}
+
+\subsubsection{Curvas de rendimiento}
+
+las curvas o gráficas de rendimiento son un recurso frecuentemente empleado para visualizar el comportamiento de un tracker aislado de un conjunto de trackers debido a que muestran e identifican claramente el comportamiento del mismo. 
+
+Las métricas de este tipo más usadas son \textit{precision plot} y \textit{success plot}.
+
+\vspace{0,35cm}
+\textbf{Precision plot}
+
+Como se describe en la sección \ref{sec::CE}, la limitación principal de la métrica de error de centro es su incapacidad para medir el comportamiento real del tracker cuando este pierde al objetivo, lanzando valores posiblemente aleatorios. Para abordar este problema surge la métrica de gráfica de precisión.
+
+Al igual que en el CE (\textit{Center Error}), para cada frame se evalúa la precisión espacial mediante la distancia euclídea entre los centros de la bbox predicha y la real. Además, se define un umbral de distancia (por ejemplo, 20 píxeles). Una vez calculado el CE de cada frame, se muestra el porcentaje de frames cuya ubicación estimada se encuantra dentro de la distancia umbral de referencia, en este caso menor o igual a 20 píxeles.
+
+Aunque este método resuelve el problema del CE cuando el tracker pierde al objetivo, no soluciona el problema de no evaluar correctamente si el tamaño del bbox es adecuado. 
+
+\textbf{Success plot}
+
+Al igual que \textit{precision plot} utiliza el error de centro junto a un umbral para describir el rendimiento del tracker, \textit{success plot} hace lo mismo con el solapamiento de regiones (\ref{sec::IOU}).
+
+Para medir el comportamiento del tracker para una secuencia de frames, contamos el número de fotogramas cuyo solapamiento (IOU) es mayor o igual a un determinado umbral o valor de referencia. Este umbral, al igual que el valor de IOU, está normalizado; es decir, es un número real entre 0 y 1. Cuanto más cercano a 1 sea el valor del umbral, más exigente se vuelve la evaluación para el tracker (mayor coincidencia de áreas) y viceversa.
+
+A pesar de la mejora que suponen para medir el comportamiento real de los trackers, estas métricas por sí solas siguen teniendo una importante limitación: Usar un sólo umbral fijo puede sesgar la evaluación. Los escenarios de seguimiento suelen ser muy diversos y a menudo pueden llevar a ambigüedades si se unifican bajo métricas basadas en valores fijos. Por ejemplo, un umbral de 20 píxeles para \textit{precision plot} puede ser poco exigente para objetos grandes o imágenes de corto alcance y demasiado permisivo para objetos pequeños o imágenes de largo alcance. También puede depender de la resolución de la imagen y no refleja el comportamiento del tracker en otros niveles de tolerancia. 
+
+Es por esto que para no depender de un único valor, las dos métricas descritas anteriormente suelen incorporar el área bajo la curva. El \textbf{AUC} (\textit{Area Under the Curve}) representa el valor del área definida bajo una curva de rendimiento. Sirve para resumir en un único valor el comportamiento de una métrica evaluada bajo distintos umbrales y se define como la integral de la función que describe la métrica. En la práctica no se calcula como una integral continua exacta, sino aproximando el área bajo la curva obtenida con distintos umbrales.
+
+En esta función, el eje X corresponde a cada umbral de referencia (CE en \textit{precision plot} e IOU en \textit{success plot}), y el eje Y corresponde al porcentaje de frames cuyo valor de la métrica supera ese umbral. En la imagen \ref{fig::AUC} se muestran dos gráficas que representan estas dos métricas aplicando el AUC.
+
+\newpage    
+\begin{center}
+    \centering
+    \captionsetup{type=figure, font=small}
+    \includegraphics[width=1\textwidth]       {imagenes/PrecisionSuccessAUC.png}
+    \captionof{figure}{La gráficas de los métodos \textit{succes plot} y \textit{precision plot} aplicadas a 10 trackers. La puntuación de rendimiento de cada tracker en el primer gráfico es el valor AUC, mientras que la puntuación de rendimiento del segundo se corresponde con un umbral de error de 20 píxeles. Se recomienda visualizarlo en una pantalla a color. Fuente: \cite{GracicasPrecisionSuccessPlot}.}
+    \label{fig::AUC}
+\end{center}
+
+\subsubsection{Evaluación de robustez}
+
+Las métricas descritas anteriormente permiten evaluar la precisión espacial de un tracker mediante medidas como el error de centro o el solapamiento entre regiones. Sin embargo, estas métricas no siempre reflejan adecuadamente la capacidad del algoritmo para mantener el seguimiento de forma estable frente a errores de inicialización, pérdidas temporales del objetivo o fallos acumulativos durante secuencias largas.
+
+Por ello, en el ámbito del seguimiento visual de objetos se emplean distintos protocolos de evaluación de robustez (\textit{Robustness Evaluation}), cuyo objetivo es analizar el comportamiento del tracker frente a perturbaciones y condiciones adversas. Estos métodos permiten estudiar la estabilidad y fiabilidad del seguimiento más allá de la precisión instantánea de las predicciones.
+
+Uno de los métodos más populares es OPE (\textit{One-pass evaluation}).
+
+\textbf{OPE}
+
+ la evaluación de una sola pasada u OPE (\textit{One-pass evaluation}) es el método de evaluación de trackers más común y consiste en inicializar el tracker únicamente en el primer frame de la secuencia utilizando la anotación real del objeto. A partir de ese momento, el algoritmo debe estimar la posición del objetivo en todos los frames posteriores sin reinicialización, permitiendo evaluar su precisión y estabilidad a lo largo de toda la secuencia.
+
+ Este método, a pesar de ser sencillo y eficaz, presenta dos grandes inconvenientes: Por un lado, un tracker puede ser muy sensible al valor inicial (\textit{ground truth}) en el primer frame, lo que puede permitir que su rendimiento a lo largo de la secuencia valore en función de los distintos modos iniciales. Al mismo tiempo, la mayoría de los algoritmos no cuentan con mecanismos de reinicialización, y los resultados del seguimiento no
+aportan información relevante tras un fallo en el seguimiento
+
+

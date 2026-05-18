@@ -1,23 +1,47 @@
 \babel@toc {spanish}{}\relax 
-\contentsline {subsection}{\numberline {0.0.1}Imágenes térmicas en el espectro infrarrojo}{2}{subsection.0.0.1}%
-\contentsline {chapter}{\numberline {1}INTRODUCCIÓN}{13}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Motivación}{13}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Objetivos}{13}{section.1.2}%
-\contentsline {chapter}{\numberline {2}ANTECEDENTES}{15}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Orígenes de la tecnología UAV}{15}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Seguimiento de objetos individuales (SOT)}{16}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Clasificación de métodos SOT}{17}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Métodos basados en características}{17}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Métodos basados en segmentación}{20}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Métodos basados en estimación}{22}{subsection.2.3.3}%
-\contentsline {paragraph}{Filtro de kalman}{23}{section*.17}%
-\contentsline {paragraph}{Filtro de partículas}{23}{section*.19}%
-\contentsline {subsection}{\numberline {2.3.4}Métodos basados en aprendizaje automático}{24}{subsection.2.3.4}%
-\contentsline {subsubsection}{\numberline {2.3.4.1}Métodos generativos}{25}{subsubsection.2.3.4.1}%
-\contentsline {subsubsection}{\numberline {2.3.4.2}Métodos de aprendizaje reforzado}{25}{subsubsection.2.3.4.2}%
-\contentsline {subsubsection}{\numberline {2.3.4.3}Métodos discriminativos}{27}{subsubsection.2.3.4.3}%
-\contentsline {chapter}{\numberline {3}OBJETIVOS}{35}{chapter.3}%
-\contentsline {chapter}{\numberline {4}MATERIALES Y MÉTODOS}{37}{chapter.4}%
-\contentsline {chapter}{\numberline {5}RESULTADOS}{39}{chapter.5}%
-\contentsline {chapter}{\numberline {6}CONCLUSIONES}{41}{chapter.6}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{43}{section*.30}%
+\contentsline {chapter}{\numberline {1}INTRODUCCIÓN}{15}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivación}{15}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Objetivos}{16}{section.1.2}%
+\contentsline {chapter}{\numberline {2}ANTECEDENTES}{17}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Orígenes de la tecnología UAV}{17}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Seguimiento de objetos individuales (SOT)}{18}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Clasificación de métodos SOT}{19}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Métodos basados en características}{19}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Métodos basados en segmentación}{23}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Métodos basados en estimación}{24}{subsection.2.3.3}%
+\contentsline {paragraph}{Filtro de kalman}{25}{section*.17}%
+\contentsline {paragraph}{Filtro de partículas}{26}{section*.19}%
+\contentsline {subsection}{\numberline {2.3.4}Métodos basados en aprendizaje automático}{27}{subsection.2.3.4}%
+\contentsline {subsubsection}{\numberline {2.3.4.1}Métodos generativos}{28}{subsubsection.2.3.4.1}%
+\contentsline {subsubsection}{\numberline {2.3.4.2}Métodos de aprendizaje reforzado}{28}{subsubsection.2.3.4.2}%
+\contentsline {subsubsection}{\numberline {2.3.4.3}Métodos discriminativos}{30}{subsubsection.2.3.4.3}%
+\contentsline {section}{\numberline {2.4}Imágenes térmicas en el espectro infrarrojo}{40}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Conjuntos de datos}{41}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}OTB}{42}{subsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.1.1}OTB50}{42}{subsubsection.2.5.1.1}%
+\contentsline {subsubsection}{\numberline {2.5.1.2}OTB100}{43}{subsubsection.2.5.1.2}%
+\contentsline {subsection}{\numberline {2.5.2}VOT}{43}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}ALOV300++}{44}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.5.4}TempleColor128}{45}{subsection.2.5.4}%
+\contentsline {subsection}{\numberline {2.5.5}NUS-PRO}{45}{subsection.2.5.5}%
+\contentsline {subsection}{\numberline {2.5.6}DTB70}{46}{subsection.2.5.6}%
+\contentsline {subsection}{\numberline {2.5.7}NFS}{47}{subsection.2.5.7}%
+\contentsline {subsection}{\numberline {2.5.8}OxUvA}{47}{subsection.2.5.8}%
+\contentsline {subsection}{\numberline {2.5.9}TrackingNet}{48}{subsection.2.5.9}%
+\contentsline {subsection}{\numberline {2.5.10}UAV123}{49}{subsection.2.5.10}%
+\contentsline {subsection}{\numberline {2.5.11}GOT-10k}{49}{subsection.2.5.11}%
+\contentsline {subsection}{\numberline {2.5.12}LaSOT}{50}{subsection.2.5.12}%
+\contentsline {subsection}{\numberline {2.5.13}YouTube-BoundingBoxes}{51}{subsection.2.5.13}%
+\contentsline {subsection}{\numberline {2.5.14}Datasets Térmicos}{52}{subsection.2.5.14}%
+\contentsline {subsubsection}{\numberline {2.5.14.1}Anti-UAV410}{53}{subsubsection.2.5.14.1}%
+\contentsline {subsubsection}{\numberline {2.5.14.2}CST Anti-UAV}{54}{subsubsection.2.5.14.2}%
+\contentsline {section}{\numberline {2.6}Métricas de evaluación}{55}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Error de centro}{55}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Superposición de regiones}{56}{subsection.2.6.2}%
+\contentsline {subsubsection}{\numberline {2.6.2.1}Curvas de rendimiento}{57}{subsubsection.2.6.2.1}%
+\contentsline {subsubsection}{\numberline {2.6.2.2}Evaluación de robustez}{59}{subsubsection.2.6.2.2}%
+\contentsline {chapter}{\numberline {3}MATERIALES Y MÉTODOS}{61}{chapter.3}%
+\contentsline {section}{\numberline {3.1}}{61}{section.3.1}%
+\contentsline {chapter}{\numberline {4}RESULTADOS}{63}{chapter.4}%
+\contentsline {chapter}{\numberline {5}CONCLUSIONES}{65}{chapter.5}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{67}{section*.53}%

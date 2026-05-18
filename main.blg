@@ -8,45 +8,50 @@ Database file #1: bibliografia.bib
 Warning--can't use both author and editor fields in RedSiamesaDescripcion
 Warning--empty booktitle in VOT_TIR2016
 Warning--empty booktitle in CNN_LSTM_Tracking
-You've used 20 entries,
+Warning--empty publisher in VOT2018
+Warning--empty booktitle in VOT2017
+Warning--empty booktitle in VOT2014
+Warning--empty booktitle in UAV123
+Warning--empty school in ALOV300++
+You've used 47 entries,
             1935 wiz_defined-function locations,
-            599 strings with 7951 characters,
-and the built_in function-call counts, 8694 in all, are:
-= -- 848
-> -- 437
-< -- 16
-+ -- 156
-- -- 152
-* -- 680
-:= -- 1499
-add.period$ -- 64
-call.type$ -- 20
-change.case$ -- 173
-chr.to.int$ -- 20
-cite$ -- 23
-duplicate$ -- 347
-empty$ -- 529
-format.name$ -- 174
-if$ -- 1737
-int.to.chr$ -- 1
+            748 strings with 16863 characters,
+and the built_in function-call counts, 27040 in all, are:
+= -- 2379
+> -- 2188
+< -- 30
++ -- 839
+- -- 822
+* -- 2543
+:= -- 4861
+add.period$ -- 142
+call.type$ -- 47
+change.case$ -- 640
+chr.to.int$ -- 46
+cite$ -- 55
+duplicate$ -- 751
+empty$ -- 1198
+format.name$ -- 875
+if$ -- 5060
+int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 13
-newline$ -- 104
-num.names$ -- 62
-pop$ -- 170
+missing$ -- 29
+newline$ -- 234
+num.names$ -- 143
+pop$ -- 629
 preamble$ -- 1
-purify$ -- 174
+purify$ -- 643
 quote$ -- 0
-skip$ -- 289
+skip$ -- 606
 stack$ -- 0
-substring$ -- 471
-swap$ -- 87
-text.length$ -- 8
+substring$ -- 1102
+swap$ -- 153
+text.length$ -- 15
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 118
-warning$ -- 3
-while$ -- 58
+type$ -- 278
+warning$ -- 8
+while$ -- 133
 width$ -- 0
-write$ -- 260
-(There were 3 warnings)
+write$ -- 588
+(There were 8 warnings)
